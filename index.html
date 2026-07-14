@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Propuestas de diseño · Plataforma L&amp;STO</title>
+<style>
+  :root{
+    --negro:#111214; --carmesi:#C8102E; --carmesi-osc:#9E0C24;
+    --blanco:#ffffff; --gris:#F4F5F7; --gris-linea:#E4E6EB; --texto-sec:#5A616B;
+    --radio:14px; --sombra:0 8px 30px rgba(17,18,20,.10);
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--font);color:var(--negro);background:var(--gris);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  header{background:var(--blanco);border-bottom:1px solid var(--gris-linea)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  .top{display:flex;align-items:center;gap:16px;padding:20px 0}
+  .top img{height:46px;width:auto}
+  .top .sep{width:1px;height:34px;background:var(--gris-linea)}
+  .top .t{font-size:13px;color:var(--texto-sec);font-weight:500}
+  .hero{padding:40px 0 24px}
+  .badge{display:inline-block;background:rgba(200,16,46,.10);color:var(--carmesi-osc);font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:16px}
+  h1{font-size:30px;margin:0 0 10px;letter-spacing:-.02em}
+  .lead{font-size:16px;color:var(--texto-sec);max-width:70ch;margin:0}
+  .aviso{margin:22px 0 4px;background:#FFF8E6;border:1px solid #F2E2AD;color:#6b5b17;border-radius:12px;padding:12px 16px;font-size:13.5px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;padding:26px 0 12px}
+  .card{background:var(--blanco);border:1px solid var(--gris-linea);border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra);display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease}
+  .card:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(17,18,20,.16)}
+  .card .band{height:8px}
+  .card .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+  .card .n{font-size:12px;font-weight:700;color:var(--texto-sec);letter-spacing:.06em;text-transform:uppercase}
+  .card h2{font-size:21px;margin:6px 0 8px}
+  .card p{font-size:14px;color:var(--texto-sec);margin:0 0 18px;flex:1}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--negro);color:var(--blanco);font-weight:600;font-size:14px;padding:12px 16px;border-radius:10px;width:100%}
+  .btn:hover{background:var(--carmesi)}
+  .card .tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px}
+  .tag{font-size:11px;background:var(--gris);border:1px solid var(--gris-linea);color:var(--texto-sec);padding:3px 8px;border-radius:999px}
+  .cover7{font-size:12.5px;color:var(--texto-sec);padding:6px 0 30px}
+  footer{border-top:1px solid var(--gris-linea);background:var(--blanco);margin-top:20px}
+  footer .wrap{padding:22px 20px;font-size:12.5px;color:var(--texto-sec);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  @media (max-width:520px){h1{font-size:24px}.top img{height:38px}}
+</style>
+</head>
+<body>
+  <header>
+    <div class="wrap top">
+      <img src="logo-lsto.png" alt="Logo L&amp;STO">
+      <div class="sep"></div>
+      <div class="t">Plataforma logística · Propuestas de diseño para aprobación</div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <span class="badge">Inception · PRD §6.1</span>
+      <h1>Tres propuestas de interfaz para la plataforma L&amp;STO</h1>
+      <p class="lead">Prototipos navegables (web y móvil) para elegir una sola dirección visual antes de desarrollar el frontend. Cada propuesta cubre las siete superficies de la plataforma: inicio de sesión, torre de control, flujo del conductor, portal del aliado, administrativo y financiero, reportes y administración.</p>
+      <div class="aviso"><strong>Nota:</strong> prototipos de demostración con <strong>datos ficticios</strong>. No contienen información real de clientes, aliados ni personas.</div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="band" style="background:linear-gradient(90deg,#0b0d12,#C8102E)"></div>
+        <div class="body">
+          <div class="n">Propuesta 1</div>
+          <h2>Set Nocturno</h2>
+          <p>Interfaz en clave oscura con tipografía display fuerte; estética de set de rodaje nocturno. Alto impacto visual, pensada para monitoreo y torre de control.</p>
+          <div class="tags"><span class="tag">Modo oscuro</span><span class="tag">Alto contraste</span><span class="tag">Monitoreo</span></div>
+          <a class="btn" href="opcion-1-set-nocturno.html">Abrir propuesta 1 →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="band" style="background:linear-gradient(90deg,#111214,#5A616B)"></div>
+        <div class="body">
+          <div class="n">Propuesta 2</div>
+          <h2>Operación Clara</h2>
+          <p>Interfaz clara y densa en datos, con tipografía monoespaciada para cifras y tablas. Máxima legibilidad operativa y financiera para el trabajo diario.</p>
+          <div class="tags"><span class="tag">Modo claro</span><span class="tag">Denso en datos</span><span class="tag">Legibilidad</span></div>
+          <a class="btn" href="opcion-2-operacion-clara.html">Abrir propuesta 2 →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="band" style="background:linear-gradient(90deg,#C8102E,#FF7A00)"></div>
+        <div class="body">
+          <div class="n">Propuesta 3</div>
+          <h2>Ruta Viva</h2>
+          <p>Sistema de espaciado 4/8&nbsp;px con acentos de marca y sensación de movimiento. Equilibrio entre claridad y dinamismo, diseñada mobile-first.</p>
+          <div class="tags"><span class="tag">Mobile-first</span><span class="tag">Dinámica</span><span class="tag">Equilibrada</span></div>
+          <a class="btn" href="opcion-3-ruta-viva.html">Abrir propuesta 3 →</a>
+        </div>
+      </article>
+    </section>
+
+    <p class="cover7">Cada propuesta incluye: Login · Torre de Control · Flujo del conductor · Portal del aliado · Administrativo y financiero · Reportes / reporteador · Administración / parámetros. Navegación web y móvil. Español (Colombia). Accesibilidad WCAG 2.2 AA como objetivo.</p>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>L&amp;STO S.A.S. · Logística, Servicios técnicos, Transporte y Operaciones</span>
+      <span>Propuestas de diseño · uso interno para aprobación</span>
+    </div>
+  </footer>
+</body>
+</html>

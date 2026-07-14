@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Propuesta 1 — Set Nocturno · Plataforma L&amp;STO</title>
+<meta name="description" content="Propuesta de diseño 1 «Set Nocturno» para la plataforma logística de L&STO S.A.S. — tema oscuro cinematográfico premium, demo navegable web y móvil.">
+<style>
+/* ==========================================================================
+   PROPUESTA 1 — SET NOCTURNO · L&STO S.A.S.
+   Sistema de espaciado 4/8px · Tokens de diseño · WCAG 2.2 AA
+   ========================================================================== */
+:root{
+  /* Paleta madre L&STO interpretada en clave nocturna */
+  --negro-set:#0B0B0D;        /* fondo profundo */
+  --grafito:#141417;          /* superficie base */
+  --grafito-2:#1C1C20;        /* superficie elevada */
+  --grafito-3:#242429;        /* superficie interactiva */
+  --linea:#2E2E34;            /* bordes sutiles */
+  --carmesi:#C8102E;          /* acento de marca (fondos/CTAs) */
+  --carmesi-hover:#A50D26;
+  --carmesi-luz:#FF5A63;      /* acento legible sobre oscuro (≥4.5:1) */
+  --marfil:#F4F1EA;           /* texto principal cálido */
+  --arena:#B9B2A6;            /* texto secundario (≥7:1) */
+  --verde:#4ADE80;            /* estado OK */
+  --ambar:#FBBF24;            /* estado alerta */
+  --blanco:#FFFFFF;
+
+  --r-s:8px; --r-m:12px; --r-l:16px; --r-xl:24px;
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:20px; --s-6:24px; --s-8:32px; --s-10:40px; --s-12:48px;
+
+  --font-ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-display:"Avenir Next","Helvetica Neue",-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --font-mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+
+  --sombra:0 8px 28px rgba(0,0,0,.45);
+  --transicion:180ms cubic-bezier(.2,.7,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--negro-set);
+  color:var(--marfil);
+  font-family:var(--font-ui);
+  font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  padding-top:96px;
+}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--carmesi-luz);outline-offset:2px;border-radius:4px}
+::selection{background:var(--carmesi);color:#fff}
+
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--carmesi);color:#fff;padding:var(--s-3) var(--s-4);z-index:200;border-radius:0 0 var(--r-s) 0;font-weight:700}
+.skip-link:focus{left:0}
+
+/* ===== Barra fija de la propuesta ===== */
+.demo-bar{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  background:rgba(11,11,13,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--linea);
+  display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-2) var(--s-4);
+  padding:var(--s-2) var(--s-4);
+  min-height:56px;
+}
+.demo-bar__title{
+  font-family:var(--font-display);font-weight:800;font-size:14px;letter-spacing:.08em;text-transform:uppercase;
+  display:flex;align-items:center;gap:var(--s-2);white-space:nowrap;
+}
+.demo-bar__title .dot{width:10px;height:10px;border-radius:50%;background:var(--carmesi);box-shadow:0 0 12px var(--carmesi);animation:pulso 2.4s infinite}
+.tokens{display:flex;align-items:center;gap:var(--s-2);flex-wrap:wrap;flex:1;min-width:0}
+.token{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--linea);border-radius:999px;padding:2px 10px 2px 4px;font-size:11px;color:var(--arena);font-family:var(--font-mono);white-space:nowrap}
+.token i{width:16px;height:16px;border-radius:50%;display:inline-block;border:1px solid rgba(255,255,255,.18)}
+.switch{display:flex;gap:0;border:1px solid var(--linea);border-radius:999px;overflow:hidden;margin-left:auto}
+.switch button{
+  background:transparent;color:var(--arena);border:0;padding:var(--s-2) var(--s-4);
+  font-size:13px;font-weight:700;transition:var(--transicion);
+}
+.switch button[aria-pressed="true"]{background:var(--carmesi);color:#fff}
+.switch button:hover:not([aria-pressed="true"]){background:var(--grafito-3);color:var(--marfil)}
+
+/* ===== Chip blanco para el logo (PNG con fondo blanco) ===== */
+.logo-chip{background:var(--blanco);border-radius:var(--r-m);padding:var(--s-2) var(--s-3);display:inline-flex;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.5)}
+.logo-chip img{height:34px;width:auto}
+.logo-chip--lg{padding:var(--s-4) var(--s-5);border-radius:var(--r-l)}
+.logo-chip--lg img{height:56px}
+.logo-chip--sm img{height:22px}
+
+/* ===== Escenario / App ===== */
+.stage{max-width:1440px;margin:0 auto;padding:var(--s-4)}
+#app{
+  background:var(--grafito);border:1px solid var(--linea);border-radius:var(--r-xl);
+  overflow:hidden;box-shadow:var(--sombra);
+  display:grid;grid-template-columns:1fr;min-height:720px;position:relative;
+}
+
+/* ---- Sidebar (web) ---- */
+.sidebar{display:none}
+.topbar{display:none}
+
+/* Móvil-first: encabezado compacto + navegación inferior */
+.m-header{
+  display:flex;align-items:center;gap:var(--s-3);
+  padding:var(--s-3) var(--s-4);border-bottom:1px solid var(--linea);
+  background:linear-gradient(180deg,#17171B, var(--grafito));
+}
+.m-header__role{margin-left:auto;text-align:right;font-size:12px;color:var(--arena);line-height:1.3}
+.m-header__role strong{display:block;color:var(--marfil);font-size:13px}
+
+.bottomnav{
+  display:flex;border-top:1px solid var(--linea);background:#101013;
+  position:sticky;bottom:0;z-index:5;
+}
+.bottomnav button{
+  flex:1;background:transparent;border:0;color:var(--arena);
+  padding:var(--s-2) var(--s-1) calc(var(--s-2) + 2px);
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  font-size:10.5px;font-weight:600;transition:var(--transicion);
+  border-top:3px solid transparent;
+}
+.bottomnav button svg{width:22px;height:22px}
+.bottomnav button[aria-current="page"]{color:var(--carmesi-luz);border-top-color:var(--carmesi)}
+.bottomnav button:hover{color:var(--marfil)}
+
+.content{padding:var(--s-4);min-height:520px}
+
+/* ---- Pantallas ---- */
+.screen[hidden]{display:none}
+.screen{animation:aparecer .28s ease both}
+@keyframes aparecer{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes pulso{0%,100%{opacity:1}50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--carmesi-luz);font-weight:800;margin-bottom:var(--s-1)}
+h1,h2,h3{font-family:var(--font-display);line-height:1.15}
+h1{font-size:clamp(24px,4vw,34px);font-weight:800;letter-spacing:-.01em}
+h2{font-size:clamp(18px,3vw,22px);font-weight:800}
+h3{font-size:15px;font-weight:700}
+.sub{color:var(--arena);font-size:14px;margin-top:var(--s-1)}
+
+/* ---- Tarjetas ---- */
+.card{
+  background:var(--grafito-2);border:1px solid var(--linea);border-radius:var(--r-l);
+  padding:var(--s-4);transition:var(--transicion);
+}
+.card:hover{border-color:#3B3B42;transform:translateY(-1px)}
+.card--flat:hover{transform:none}
+.grid{display:grid;gap:var(--s-4)}
+
+/* KPI */
+.kpi{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-3);margin:var(--s-4) 0}
+.kpi .card{padding:var(--s-3) var(--s-4)}
+.kpi__num{font-family:var(--font-display);font-size:30px;font-weight:800;letter-spacing:-.02em}
+.kpi__lbl{font-size:12px;color:var(--arena)}
+.kpi__delta{font-size:12px;font-weight:700}
+.up{color:var(--verde)} .warn{color:var(--ambar)} .down{color:var(--carmesi-luz)}
+
+/* Badges de estado */
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.badge::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.badge--ok{color:var(--verde);background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.3)}
+.badge--warn{color:var(--ambar);background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.3)}
+.badge--bad{color:var(--carmesi-luz);background:rgba(200,16,46,.16);border:1px solid rgba(255,90,99,.35)}
+.badge--info{color:var(--arena);background:rgba(255,255,255,.06);border:1px solid var(--linea)}
+.badge--live::before{animation:pulso 1.6s infinite}
+
+/* Botones */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);
+  border-radius:var(--r-m);padding:var(--s-3) var(--s-5);
+  font-size:14px;font-weight:700;border:1px solid transparent;
+  transition:var(--transicion);text-decoration:none;
+}
+.btn:active{transform:scale(.98)}
+.btn--primary{background:var(--carmesi);color:#fff;box-shadow:0 4px 18px rgba(200,16,46,.35)}
+.btn--primary:hover{background:var(--carmesi-hover)}
+.btn--ghost{background:transparent;color:var(--marfil);border-color:var(--linea)}
+.btn--ghost:hover{background:var(--grafito-3);border-color:#44444C}
+.btn--block{width:100%}
+.btn--sm{padding:var(--s-2) var(--s-3);font-size:13px;border-radius:var(--r-s)}
+
+/* Formularios */
+.field{margin-bottom:var(--s-4)}
+.field label{display:block;font-size:13px;font-weight:700;margin-bottom:var(--s-1);color:var(--marfil)}
+.field .hint{font-size:12px;color:var(--arena);margin-top:var(--s-1)}
+.input, select.input, textarea.input{
+  width:100%;background:#101013;border:1px solid var(--linea);border-radius:var(--r-m);
+  color:var(--marfil);padding:var(--s-3) var(--s-4);font-size:15px;font-family:inherit;
+  transition:var(--transicion);
+}
+.input:hover{border-color:#44444C}
+.input:focus{outline:none;border-color:var(--carmesi-luz);box-shadow:0 0 0 3px rgba(200,16,46,.28)}
+select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 16 16'%3E%3Cpath d='M2 5l6 6 6-6' fill='none' stroke='%23B9B2A6' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
+.check{display:flex;gap:var(--s-3);align-items:flex-start;font-size:13px;color:var(--arena);margin-bottom:var(--s-3)}
+.check input{width:18px;height:18px;accent-color:var(--carmesi);margin-top:2px;flex:none}
+
+/* Tablas */
+.table-wrap{overflow-x:auto;border:1px solid var(--linea);border-radius:var(--r-l);background:var(--grafito-2)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+caption{text-align:left;padding:var(--s-3) var(--s-4);font-weight:700;color:var(--arena);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+th{
+  text-align:left;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--arena);
+  padding:var(--s-2) var(--s-4);border-bottom:1px solid var(--linea);background:#101013;font-weight:700;
+}
+td{padding:var(--s-3) var(--s-4);border-bottom:1px solid #232328;vertical-align:middle}
+tbody tr:last-child td{border-bottom:0}
+tbody tr{transition:var(--transicion)}
+tbody tr:hover{background:rgba(255,255,255,.03)}
+.mono{font-family:var(--font-mono);font-size:12.5px}
+
+/* Listas / utilidades */
+.stack{display:flex;flex-direction:column;gap:var(--s-3)}
+.row{display:flex;align-items:center;gap:var(--s-3);flex-wrap:wrap}
+.spread{justify-content:space-between}
+.muted{color:var(--arena)}
+.small{font-size:12.5px}
+hr.sep{border:0;border-top:1px solid var(--linea);margin:var(--s-4) 0}
+
+/* ===== LOGIN ===== */
+.login{
+  min-height:680px;display:grid;place-items:center;align-content:center;
+  padding:var(--s-8) var(--s-4);
+  background:
+    radial-gradient(1000px 480px at 85% -10%, rgba(200,16,46,.20), transparent 60%),
+    radial-gradient(700px 420px at -10% 110%, rgba(200,16,46,.10), transparent 55%),
+    repeating-linear-gradient(90deg, transparent 0 118px, rgba(255,255,255,.018) 118px 120px),
+    var(--negro-set);
+}
+.login__card{
+  width:100%;max-width:420px;background:var(--grafito-2);
+  border:1px solid var(--linea);border-radius:var(--r-xl);
+  padding:var(--s-8) var(--s-6);box-shadow:var(--sombra);
+}
+.login__brand{display:flex;flex-direction:column;align-items:center;gap:var(--s-4);margin-bottom:var(--s-6);text-align:center}
+.login__tag{font-size:12px;color:var(--arena);letter-spacing:.04em}
+.login__legal{font-size:11.5px;color:var(--arena);line-height:1.55;margin-top:var(--s-4);padding-top:var(--s-4);border-top:1px solid var(--linea)}
+.login__legal a{color:var(--carmesi-luz);font-weight:600}
+.wl-note{margin-top:var(--s-4);text-align:center;font-size:11px;color:#8E887C;letter-spacing:.08em;text-transform:uppercase}
+
+/* ===== TORRE DE CONTROL ===== */
+.torre-grid{display:grid;gap:var(--s-4)}
+.mapa{position:relative;border:1px solid var(--linea);border-radius:var(--r-l);overflow:hidden;background:#0E0E11}
+.mapa svg{display:block;width:100%;height:auto}
+.mapa__leyenda{
+  position:absolute;left:var(--s-3);bottom:var(--s-3);display:flex;gap:var(--s-3);flex-wrap:wrap;
+  background:rgba(11,11,13,.85);border:1px solid var(--linea);border-radius:999px;
+  padding:var(--s-1) var(--s-3);font-size:11px;color:var(--arena);
+}
+.mapa__leyenda span{display:inline-flex;align-items:center;gap:6px}
+.mapa__leyenda i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.unidades{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-3)}
+.unidad{border:1px solid var(--linea);border-radius:var(--r-m);padding:var(--s-3);background:#101013;transition:var(--transicion)}
+.unidad:hover{border-color:var(--carmesi);background:#141416}
+.unidad__nombre{font-size:12px;color:var(--arena);display:flex;gap:var(--s-2);align-items:center}
+.unidad__num{font-family:var(--font-display);font-weight:800;font-size:22px;margin-top:2px}
+.unidad__num small{font-size:12px;color:var(--arena);font-weight:600}
+.barra{height:6px;border-radius:999px;background:#26262B;margin-top:var(--s-2);overflow:hidden}
+.barra i{display:block;height:100%;border-radius:999px;background:var(--carmesi);transition:width .5s ease}
+.alarma{display:flex;gap:var(--s-3);align-items:flex-start;padding:var(--s-3);border:1px solid var(--linea);border-radius:var(--r-m);background:#101013}
+.alarma--critica{border-color:rgba(255,90,99,.5);background:rgba(200,16,46,.10)}
+.alarma__icono{width:34px;height:34px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--grafito-3);font-size:16px}
+.alarma--critica .alarma__icono{background:var(--carmesi);animation:pulso 1.4s infinite}
+.alarma time{font-size:11px;color:var(--arena);font-family:var(--font-mono)}
+
+/* ===== CONDUCTOR (móvil) ===== */
+.conductor-wrap{max-width:430px;margin:0 auto}
+.stepper{display:flex;gap:var(--s-1);margin:var(--s-4) 0 var(--s-5)}
+.stepper li{list-style:none;flex:1;height:5px;border-radius:999px;background:#2A2A30}
+.stepper li[data-done="true"]{background:var(--carmesi)}
+.stepper li[aria-current="step"]{background:var(--carmesi-luz);box-shadow:0 0 10px rgba(255,90,99,.6)}
+.gps-card{
+  border:1px solid var(--linea);border-radius:var(--r-l);padding:var(--s-4);
+  background:radial-gradient(300px 140px at 80% 0%, rgba(200,16,46,.18), transparent 65%), #101013;
+}
+.reloj{font-family:var(--font-mono);font-size:34px;font-weight:700;letter-spacing:.02em}
+.gps-coord{font-family:var(--font-mono);font-size:12.5px;color:var(--arena)}
+.evento-linea{display:flex;gap:var(--s-3)}
+.evento-linea .pin{width:26px;flex:none;display:flex;flex-direction:column;align-items:center}
+.evento-linea .pin i{width:12px;height:12px;border-radius:50%;background:var(--verde);flex:none;margin-top:4px}
+.evento-linea .pin em{flex:1;width:2px;background:#2A2A30;margin-top:4px}
+.evento-linea .pin.pend i{background:#3A3A41;border:2px solid var(--arena)}
+.foto-thumb{
+  width:76px;height:76px;border-radius:var(--r-m);border:1px solid var(--linea);
+  display:grid;place-items:center;background:#1A1A1E;font-size:26px;flex:none;
+}
+.firma-box{border:2px dashed #45454D;border-radius:var(--r-l);background:#0E0E11;position:relative;overflow:hidden;transition:var(--transicion)}
+.firma-box:focus-within,.firma-box:hover{border-color:var(--carmesi-luz)}
+#firmaCanvas{display:block;width:100%;height:190px;touch-action:none;cursor:crosshair}
+.firma-guia{position:absolute;left:0;right:0;bottom:34px;border-top:1px solid #33333A;margin:0 var(--s-5);pointer-events:none}
+.firma-guia::after{content:"✕";position:absolute;left:-2px;top:-24px;color:#8E887C;font-size:13px}
+.firma-ok{position:absolute;inset:0;display:grid;place-items:center;background:rgba(11,11,13,.88);opacity:0;pointer-events:none;transition:var(--transicion);text-align:center}
+.firma-box[data-firmado="true"] .firma-ok{opacity:1}
+
+/* ===== ALIADO ===== */
+.semaforo{display:flex;align-items:center;gap:var(--s-4)}
+.donut{width:88px;height:88px;flex:none}
+.dropzone{
+  border:2px dashed #45454D;border-radius:var(--r-l);padding:var(--s-6);text-align:center;
+  color:var(--arena);font-size:13.5px;background:#101013;transition:var(--transicion);
+}
+.dropzone:hover,.dropzone:focus-visible{border-color:var(--carmesi-luz);color:var(--marfil);background:#141417}
+.doc-cards{display:grid;gap:var(--s-3)}
+.doc{display:flex;gap:var(--s-3);align-items:center;border:1px solid var(--linea);border-radius:var(--r-m);padding:var(--s-3) var(--s-4);background:#101013;transition:var(--transicion)}
+.doc:hover{border-color:#44444C}
+.doc__icono{width:38px;height:38px;flex:none;border-radius:var(--r-s);display:grid;place-items:center;background:var(--grafito-3);font-size:17px}
+.doc__meta{min-width:0;flex:1}
+.doc__meta strong{display:block;font-size:14px}
+.doc__meta span{font-size:12px;color:var(--arena)}
+
+/* ===== FINANCIERO ===== */
+.desglose{border:1px solid var(--linea);border-radius:var(--r-l);overflow:hidden;background:#101013}
+.desglose__linea{display:flex;justify-content:space-between;gap:var(--s-3);padding:var(--s-3) var(--s-4);border-bottom:1px solid #232328;font-size:13.5px}
+.desglose__linea span:last-child{font-variant-numeric:tabular-nums;font-family:var(--font-mono);font-size:13px;white-space:nowrap}
+.desglose__linea--total{background:rgba(200,16,46,.14);border-bottom:0;font-weight:800;font-size:15px}
+.desglose__linea--total span:last-child{color:var(--carmesi-luz);font-size:16px}
+.edad{margin-bottom:var(--s-3)}
+.edad__top{display:flex;justify-content:space-between;font-size:13px;margin-bottom:var(--s-1)}
+.edad__top b{font-variant-numeric:tabular-nums}
+.edad .barra{height:10px}
+.edad .barra i.ok{background:var(--verde)}
+.edad .barra i.w1{background:var(--ambar)}
+.edad .barra i.w2{background:#F59E0B}
+.edad .barra i.bad{background:var(--carmesi)}
+
+/* ===== REPORTES ===== */
+.rep-cats{display:grid;grid-template-columns:1fr;gap:var(--s-3)}
+.rep-cat{
+  text-align:left;width:100%;background:var(--grafito-2);border:1px solid var(--linea);
+  border-radius:var(--r-l);padding:var(--s-4);transition:var(--transicion);color:var(--marfil);
+  display:flex;gap:var(--s-3);align-items:flex-start;border-left:3px solid transparent;
+}
+.rep-cat:hover{border-color:#3B3B42;transform:translateY(-1px)}
+.rep-cat[aria-pressed="true"]{border-left-color:var(--carmesi);background:rgba(200,16,46,.10)}
+.rep-cat__ico{width:38px;height:38px;flex:none;border-radius:var(--r-s);display:grid;place-items:center;background:var(--grafito-3);font-size:18px}
+.rep-cat__meta strong{display:block;font-size:14px}
+.rep-cat__meta span{font-size:12px;color:var(--arena)}
+.filtros{display:grid;gap:var(--s-3);grid-template-columns:1fr}
+.tenant-badge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;border-radius:999px;padding:4px 12px;color:var(--carmesi-luz);background:rgba(200,16,46,.14);border:1px solid rgba(255,90,99,.35);font-family:var(--font-mono)}
+.tenant-badge::before{content:"🔒";font-size:12px}
+/* Gráfico de barras CSS/SVG accesible */
+.chart{display:flex;align-items:flex-end;gap:var(--s-3);height:180px;padding:var(--s-4) var(--s-2) 0;border-bottom:1px solid var(--linea)}
+.chart__col{flex:1;display:flex;flex-direction:column;align-items:center;gap:var(--s-2);min-width:0}
+.chart__bar{width:100%;max-width:46px;border-radius:var(--r-s) var(--r-s) 0 0;background:linear-gradient(180deg,var(--carmesi-luz),var(--carmesi));position:relative;transition:height .5s ease}
+.chart__bar span{position:absolute;top:-20px;left:0;right:0;text-align:center;font-size:11.5px;font-family:var(--font-mono);color:var(--marfil)}
+.chart__lbl{font-size:11px;color:var(--arena);text-align:center;line-height:1.25}
+.chart-legend{display:flex;gap:var(--s-4);flex-wrap:wrap;font-size:12px;color:var(--arena);margin-top:var(--s-3)}
+.chart-legend i{display:inline-block;width:12px;height:12px;border-radius:3px;background:var(--carmesi);margin-right:6px;vertical-align:-1px}
+
+/* ===== ADMINISTRACIÓN ===== */
+.tabs{display:flex;gap:var(--s-1);border-bottom:1px solid var(--linea);margin:var(--s-4) 0 var(--s-5);flex-wrap:wrap}
+.tab{background:transparent;border:0;color:var(--arena);padding:var(--s-3) var(--s-4);font-size:13.5px;font-weight:700;border-bottom:3px solid transparent;transition:var(--transicion)}
+.tab:hover{color:var(--marfil)}
+.tab[aria-selected="true"]{color:var(--carmesi-luz);border-bottom-color:var(--carmesi)}
+.tabpanel[hidden]{display:none}
+.perm-cell{text-align:center}
+.perm{display:inline-flex;width:22px;height:22px;border-radius:6px;align-items:center;justify-content:center;font-size:12px;font-weight:800}
+.perm--allow{color:var(--verde);background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.35)}
+.perm--deny{color:#8E887C;background:rgba(255,255,255,.04);border:1px solid var(--linea)}
+.perm--read{color:var(--ambar);background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.35)}
+.cat-chips{display:flex;flex-wrap:wrap;gap:var(--s-2)}
+.cat-chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--linea);border-radius:999px;padding:6px 6px 6px 12px;font-size:13px;background:#101013}
+.cat-chip button{width:20px;height:20px;border-radius:50%;border:0;background:var(--grafito-3);color:var(--arena);font-size:12px;line-height:1;display:grid;place-items:center}
+.cat-chip button:hover{background:var(--carmesi);color:#fff}
+.wl-preview{border:1px solid var(--linea);border-radius:var(--r-l);overflow:hidden;background:#101013}
+.wl-preview__bar{height:56px;display:flex;align-items:center;gap:var(--s-3);padding:0 var(--s-4);background:var(--negro-set)}
+.wl-preview__logo{width:34px;height:34px;border-radius:8px;display:grid;place-items:center;font-weight:800;color:#fff;font-family:var(--font-display)}
+.wl-preview__body{padding:var(--s-4)}
+.wl-preview__btn{display:inline-block;border-radius:var(--r-m);padding:var(--s-2) var(--s-4);font-size:13px;font-weight:700;color:#fff}
+.swatches{display:flex;gap:var(--s-2);flex-wrap:wrap}
+.swatch{width:34px;height:34px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0}
+.swatch[aria-pressed="true"]{border-color:var(--marfil);box-shadow:0 0 0 3px rgba(255,255,255,.15)}
+.log-linea{display:flex;gap:var(--s-3);padding:var(--s-3) 0;border-bottom:1px solid #232328;align-items:flex-start}
+.log-linea:last-child{border-bottom:0}
+.log-linea .dothash{width:10px;height:10px;border-radius:50%;background:var(--carmesi);flex:none;margin-top:5px}
+.log-linea time{font-family:var(--font-mono);font-size:11.5px;color:var(--arena);white-space:nowrap}
+
+/* ===== MODO WEB (escritorio) ===== */
+@media (min-width:960px){
+  body.mode-web #app{grid-template-columns:auto 1fr}
+  body.mode-web .sidebar{
+    display:flex;flex-direction:column;gap:var(--s-2);
+    width:232px;padding:var(--s-4) var(--s-3);
+    background:#0F0F12;border-right:1px solid var(--linea);
+    transition:width var(--transicion);
+  }
+  body.mode-web .sidebar.colapsada{width:72px}
+  body.mode-web .sidebar.colapsada .nav-lbl,
+  body.mode-web .sidebar.colapsada .sidebar__foot p{display:none}
+  body.mode-web .sidebar.colapsada .logo-chip{padding:var(--s-1)}
+  body.mode-web .sidebar.colapsada .logo-chip img{height:16px}
+  .sidebar__top{display:flex;align-items:center;gap:var(--s-2);padding:0 var(--s-1) var(--s-4);border-bottom:1px solid var(--linea);margin-bottom:var(--s-2)}
+  .sidebar nav{display:flex;flex-direction:column;gap:var(--s-1);flex:1}
+  .sidebar nav button{
+    display:flex;align-items:center;gap:var(--s-3);width:100%;
+    background:transparent;border:0;border-radius:var(--r-m);
+    color:var(--arena);padding:var(--s-3);font-size:14px;font-weight:600;
+    transition:var(--transicion);text-align:left;border-left:3px solid transparent;
+  }
+  .sidebar nav button svg{width:20px;height:20px;flex:none}
+  .sidebar nav button:hover{background:var(--grafito-3);color:var(--marfil)}
+  .sidebar nav button[aria-current="page"]{background:rgba(200,16,46,.14);color:#fff;border-left-color:var(--carmesi)}
+  .sidebar__colapsar{margin-top:auto;background:transparent;border:1px solid var(--linea);border-radius:var(--r-m);color:var(--arena);padding:var(--s-2);font-size:12px;transition:var(--transicion)}
+  .sidebar__colapsar:hover{color:var(--marfil);border-color:#44444C}
+  .sidebar__foot p{font-size:10.5px;color:#8E887C;padding:var(--s-3) var(--s-1) 0;line-height:1.4}
+  body.mode-web .m-header{display:none}
+  body.mode-web .bottomnav{display:none}
+  body.mode-web .topbar{
+    display:flex;align-items:center;gap:var(--s-4);
+    padding:var(--s-3) var(--s-6);border-bottom:1px solid var(--linea);
+    background:linear-gradient(180deg,#17171B,var(--grafito));
+  }
+  .topbar__buscar{flex:1;max-width:420px;position:relative}
+  .topbar__user{margin-left:auto;display:flex;align-items:center;gap:var(--s-3)}
+  .avatar{width:36px;height:36px;border-radius:50%;background:var(--carmesi);display:grid;place-items:center;font-weight:800;font-size:13px;color:#fff}
+  body.mode-web .content{padding:var(--s-6)}
+  .kpi{grid-template-columns:repeat(4,1fr)}
+  .torre-grid{grid-template-columns:1.6fr 1fr}
+  .grid--2{grid-template-columns:1fr 1fr}
+  .doc-cards{grid-template-columns:1fr 1fr}
+  body.mode-web .rep-cats{grid-template-columns:repeat(4,1fr)}
+  body.mode-web .rep-grid{display:grid;grid-template-columns:2fr 1fr;gap:var(--s-4);align-items:start}
+  body.mode-web .filtros{grid-template-columns:repeat(3,1fr)}
+}
+.main-col{display:flex;flex-direction:column;min-width:0}
+/* Login oculta el chrome de la app */
+#app.is-login .sidebar,#app.is-login .topbar,#app.is-login .m-header,#app.is-login .bottomnav{display:none!important}
+#app.is-login{grid-template-columns:1fr!important}
+#app.is-login .content{padding:0}
+#app.is-login .screen.login{min-height:720px}
+
+/* ===== MODO MÓVIL (marco de teléfono) ===== */
+body.mode-movil .stage{display:grid;place-items:start center;padding-top:var(--s-6)}
+body.mode-movil #app{
+  width:390px;max-width:100%;height:800px;min-height:0;
+  border-radius:44px;border:10px solid #1E1E23;
+  box-shadow:0 30px 80px rgba(0,0,0,.7), inset 0 0 0 1px #000;
+  display:flex;flex-direction:column;overflow:hidden;
+}
+body.mode-movil #app::before{
+  content:"";position:absolute;top:10px;left:50%;transform:translateX(-50%);
+  width:110px;height:26px;background:#000;border-radius:999px;z-index:9;
+}
+body.mode-movil .sidebar,body.mode-movil .topbar{display:none!important}
+body.mode-movil .main-col{flex:1;min-height:0}
+body.mode-movil .m-header{padding-top:calc(var(--s-3) + 30px)}
+body.mode-movil .content{flex:1;overflow-y:auto;min-height:0;-webkit-overflow-scrolling:touch}
+body.mode-movil #app.is-login .screen.login{min-height:100%;padding-top:calc(var(--s-8) + 32px)}
+body.mode-movil .kpi{grid-template-columns:repeat(2,1fr)}
+body.mode-movil table{min-width:560px}
+
+footer.demo-foot{max-width:1440px;margin:0 auto;padding:var(--s-4) var(--s-6) var(--s-10);color:#8E887C;font-size:12px;text-align:center}
+</style>
+</head>
+<body class="mode-web">
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<!-- ░░ Barra de la propuesta + tokens + conmutador ░░ -->
+<header class="demo-bar">
+  <span class="demo-bar__title"><span class="dot" aria-hidden="true"></span>Propuesta 1 — Set Nocturno</span>
+  <div class="tokens" role="list" aria-label="Design tokens: paleta de colores">
+    <span class="token" role="listitem"><i style="background:#0B0B0D"></i>Negro set #0B0B0D</span>
+    <span class="token" role="listitem"><i style="background:#141417"></i>Grafito #141417</span>
+    <span class="token" role="listitem"><i style="background:#C8102E"></i>Carmesí L&amp;STO #C8102E</span>
+    <span class="token" role="listitem"><i style="background:#FF5A63"></i>Carmesí luz #FF5A63</span>
+    <span class="token" role="listitem"><i style="background:#F4F1EA"></i>Marfil #F4F1EA</span>
+    <span class="token" role="listitem"><i style="background:#B9B2A6"></i>Arena #B9B2A6</span>
+  </div>
+  <div class="switch" role="group" aria-label="Cambiar vista del demo">
+    <button type="button" id="btnWeb" aria-pressed="true" onclick="setModo('web')">🖥️ Web</button>
+    <button type="button" id="btnMovil" aria-pressed="false" onclick="setModo('movil')">📱 Móvil</button>
+  </div>
+</header>
+
+<main class="stage" id="contenido">
+  <div id="app" class="is-login">
+
+    <!-- ░░ Sidebar (web) ░░ -->
+    <aside class="sidebar" id="sidebar" aria-label="Barra lateral">
+      <div class="sidebar__top">
+        <span class="logo-chip logo-chip--sm"><img id="logoSidebar" alt="L&STO — Logística, Servicios técnicos, Transporte y Operaciones"></span>
+      </div>
+      <nav aria-label="Navegación principal">
+        <button type="button" data-screen="torre" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 20h18M6 20V9l6-5 6 5v11M10 20v-5h4v5"/></svg>
+          <span class="nav-lbl">Torre de Control</span>
+        </button>
+        <button type="button" data-screen="conductor">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>
+          <span class="nav-lbl">Flujo del conductor</span>
+        </button>
+        <button type="button" data-screen="aliado">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+          <span class="nav-lbl">Portal del aliado</span>
+        </button>
+        <button type="button" data-screen="financiero">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M15 9.5c0-1.4-1.3-2-3-2s-3 .6-3 2 1.2 1.8 3 2.2 3 .9 3 2.3-1.3 2-3 2-3-.6-3-2"/></svg>
+          <span class="nav-lbl">Financiero</span>
+        </button>
+        <button type="button" data-screen="reportes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20V4M4 20h16M8 16v-5M12 16V7M16 16v-8"/></svg>
+          <span class="nav-lbl">Reportes</span>
+        </button>
+        <button type="button" data-screen="admin">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 6.6 19l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.6 1.6 0 0 0 3 13.4H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 6.8L4.5 6.7a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 10 3V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg>
+          <span class="nav-lbl">Administración</span>
+        </button>
+        <button type="button" data-screen="login">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 3h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4M10 17l5-5-5-5M15 12H3"/></svg>
+          <span class="nav-lbl">Login (white-label)</span>
+        </button>
+      </nav>
+      <button type="button" class="sidebar__colapsar" id="btnColapsar" aria-expanded="true" aria-controls="sidebar" onclick="toggleSidebar()">⇤ Colapsar</button>
+      <div class="sidebar__foot"><p>Plataforma L&amp;STO v0.1 · Demo de diseño<br>NIT 900.841.144-5</p></div>
+    </aside>
+
+    <!-- ░░ Columna principal ░░ -->
+    <div class="main-col">
+
+      <!-- Topbar web -->
+      <div class="topbar">
+        <div class="topbar__buscar">
+          <label for="buscarGlobal" style="position:absolute;left:-9999px">Buscar órdenes, vehículos o proyectos</label>
+          <input class="input" id="buscarGlobal" type="search" placeholder="Buscar órdenes, vehículos, proyectos…" style="padding:8px 14px;font-size:13.5px">
+        </div>
+        <span class="badge badge--bad badge--live">3 alarmas activas</span>
+        <div class="topbar__user">
+          <div style="text-align:right;line-height:1.25">
+            <strong style="font-size:13.5px">Carolina Méndez</strong><br>
+            <span class="muted" style="font-size:11.5px">Coordinadora operativa · L&amp;STO</span>
+          </div>
+          <span class="avatar" aria-hidden="true">CM</span>
+        </div>
+      </div>
+
+      <!-- Header móvil -->
+      <div class="m-header">
+        <span class="logo-chip logo-chip--sm"><img id="logoMovil" alt="L&STO — Logística, Servicios técnicos, Transporte y Operaciones"></span>
+        <div class="m-header__role"><strong id="mTitulo">Torre de Control</strong><span>Turno noche · 12 jul 2026</span></div>
+      </div>
+
+      <div class="content">
+
+        <!-- ══════════ 1 · LOGIN ══════════ -->
+        <section class="screen login" id="screen-login" role="region" aria-labelledby="h-login">
+          <div>
+            <div class="login__card">
+              <div class="login__brand">
+                <span class="logo-chip logo-chip--lg"><img id="logoLogin" alt="L&STO — Logística, Servicios técnicos, Transporte y Operaciones"></span>
+                <div>
+                  <h1 id="h-login" style="font-size:22px">Plataforma logística</h1>
+                  <p class="login__tag">Logística · Servicios técnicos · Transporte y Operaciones</p>
+                </div>
+              </div>
+              <form onsubmit="event.preventDefault(); irA('torre')">
+                <div class="field">
+                  <label for="loginEmail">Correo corporativo</label>
+                  <input class="input" id="loginEmail" type="email" autocomplete="username" placeholder="nombre@l-sto.com" required>
+                </div>
+                <div class="field">
+                  <label for="loginPass">Contraseña</label>
+                  <input class="input" id="loginPass" type="password" autocomplete="current-password" placeholder="••••••••••" required>
+                  <p class="hint">MFA obligatoria para perfiles administrativos.</p>
+                </div>
+                <label class="check">
+                  <input type="checkbox" required>
+                  <span>Autorizo el tratamiento de mis datos personales conforme a la <strong style="color:var(--marfil)">Ley 1581 de 2012</strong> y la <a href="#" style="color:var(--carmesi-luz)">Política de Tratamiento de Datos</a> de L&amp;STO S.A.S.</span>
+                </label>
+                <button class="btn btn--primary btn--block" type="submit">Ingresar</button>
+                <p style="text-align:center;margin-top:12px"><a href="#" style="color:var(--arena);font-size:13px">¿Olvidó su contraseña?</a></p>
+              </form>
+              <p class="login__legal">
+                Sus datos serán tratados por L&amp;STO S.A.S. (NIT 900.841.144-5) con la finalidad de gestionar la operación logística, conforme a la Ley 1581 de 2012 y el Decreto 1377 de 2013. Puede ejercer sus derechos de consulta, actualización y supresión escribiendo a <a href="mailto:info@l-sto.com">info@l-sto.com</a>.
+              </p>
+            </div>
+            <p class="wl-note">Interfaz white-label · logo, colores y textos parametrizables por compañía</p>
+          </div>
+        </section>
+
+        <!-- ══════════ 2 · TORRE DE CONTROL ══════════ -->
+        <section class="screen" id="screen-torre" role="region" aria-labelledby="h-torre" hidden>
+          <p class="kicker">Turno noche · Domingo 12 de julio de 2026 · 22:41</p>
+          <div class="row spread">
+            <h1 id="h-torre">Torre de Control</h1>
+            <div class="row">
+              <button class="btn btn--ghost btn--sm" type="button">⭱ Cargar archivo plano</button>
+              <button class="btn btn--primary btn--sm" type="button">+ Nueva orden</button>
+            </div>
+          </div>
+
+          <div class="kpi">
+            <div class="card"><div class="kpi__num">37</div><div class="kpi__lbl">Servicios activos hoy</div><div class="kpi__delta up">▲ 5 vs. ayer</div></div>
+            <div class="card"><div class="kpi__num">44<small style="font-size:15px;color:var(--arena)">/59</small></div><div class="kpi__lbl">Vehículos despachados</div><div class="kpi__delta up">75 % de la flota</div></div>
+            <div class="card"><div class="kpi__num" style="color:var(--carmesi-luz)">3</div><div class="kpi__lbl">Alarmas sin atender</div><div class="kpi__delta down">1 crítica</div></div>
+            <div class="card"><div class="kpi__num" style="color:var(--ambar)">6</div><div class="kpi__lbl">Servicios «Por verificar»</div><div class="kpi__delta warn">Recordatorio enviado</div></div>
+          </div>
+
+          <div class="torre-grid">
+            <div class="stack">
+              <!-- Mapa esquemático SVG -->
+              <div class="mapa" role="img" aria-label="Mapa esquemático de Bogotá con 5 vehículos en seguimiento: 2 en ruta, 2 en locación y 1 con alarma por exceso de velocidad en la Autopista Norte">
+                <svg viewBox="0 0 800 400" aria-hidden="true">
+                  <defs>
+                    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#C8102E" stop-opacity=".55"/><stop offset="100%" stop-color="#C8102E" stop-opacity="0"/>
+                    </radialGradient>
+                  </defs>
+                  <rect width="800" height="400" fill="#0E0E11"/>
+                  <!-- retícula -->
+                  <g stroke="#1B1B20" stroke-width="1">
+                    <path d="M0 60H800M0 130H800M0 200H800M0 270H800M0 340H800"/>
+                    <path d="M90 0V400M190 0V400M290 0V400M390 0V400M490 0V400M590 0V400M690 0V400"/>
+                  </g>
+                  <!-- corredores viales -->
+                  <g stroke="#33333B" stroke-width="5" stroke-linecap="round" fill="none">
+                    <path d="M120 400 C160 260, 200 160, 300 20"/><!-- Av. NQS -->
+                    <path d="M520 400 C540 280, 560 140, 585 10"/><!-- Autopista Norte -->
+                    <path d="M20 300 C220 285, 500 270, 780 235"/><!-- Calle 26 -->
+                    <path d="M30 180 C240 170, 470 160, 770 120"/><!-- Calle 80 -->
+                    <path d="M690 400 C660 330, 640 250, 645 180"/><!-- Av. Circunvalar -->
+                  </g>
+                  <g font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#8E887C">
+                    <text x="250" y="46">Av. NQS</text>
+                    <text x="596" y="34">Autopista Norte</text>
+                    <text x="660" y="228">Cl. 26</text>
+                    <text x="700" y="112">Cl. 80</text>
+                  </g>
+                  <!-- ruta activa OT-2847 -->
+                  <path d="M560 120 C520 160, 470 210, 430 250 C400 285, 380 300, 340 315" fill="none" stroke="#C8102E" stroke-width="3" stroke-dasharray="8 7">
+                    <animate attributeName="stroke-dashoffset" from="60" to="0" dur="2.2s" repeatCount="indefinite"/>
+                  </path>
+                  <!-- locaciones -->
+                  <g>
+                    <rect x="322" y="303" width="16" height="16" rx="3" fill="#1C1C20" stroke="#B9B2A6"/>
+                    <text x="346" y="316" font-size="11.5" fill="#B9B2A6" font-family="system-ui">Set La Candelaria</text>
+                    <rect x="196" y="150" width="16" height="16" rx="3" fill="#1C1C20" stroke="#B9B2A6"/>
+                    <text x="220" y="163" font-size="11.5" fill="#B9B2A6" font-family="system-ui">Parque Simón Bolívar</text>
+                    <rect x="80" y="330" width="16" height="16" rx="3" fill="#1C1C20" stroke="#B9B2A6"/>
+                    <text x="104" y="343" font-size="11.5" fill="#B9B2A6" font-family="system-ui">Bodega Fontibón</text>
+                    <rect x="600" y="52" width="16" height="16" rx="3" fill="#1C1C20" stroke="#B9B2A6"/>
+                    <text x="624" y="65" font-size="11.5" fill="#B9B2A6" font-family="system-ui">Hacienda Yerbabuena (Chía)</text>
+                  </g>
+                  <!-- vehículos -->
+                  <g>
+                    <circle cx="560" cy="120" r="26" fill="url(#glow)"/>
+                    <circle cx="560" cy="120" r="8" fill="#C8102E" stroke="#fff" stroke-width="2">
+                      <animate attributeName="r" values="8;10;8" dur="1.6s" repeatCount="indefinite"/>
+                    </circle>
+                    <text x="574" y="112" font-size="11.5" fill="#F4F1EA" font-weight="700" font-family="system-ui">VAN-014 · en ruta</text>
+
+                    <circle cx="204" cy="158" r="8" fill="#4ADE80" stroke="#0E0E11" stroke-width="2"/>
+                    <text x="218" y="140" font-size="11.5" fill="#F4F1EA" font-weight="700" font-family="system-ui">CAB-02 · en locación</text>
+
+                    <circle cx="330" cy="311" r="8" fill="#4ADE80" stroke="#0E0E11" stroke-width="2"/>
+                    <text x="240" y="292" font-size="11.5" fill="#F4F1EA" font-weight="700" font-family="system-ui">SUV-09 · en locación</text>
+
+                    <circle cx="540" cy="248" r="8" fill="#C8102E" stroke="#fff" stroke-width="2"/>
+                    <text x="554" y="252" font-size="11.5" fill="#F4F1EA" font-weight="700" font-family="system-ui">RV-05 · en ruta</text>
+
+                    <circle cx="565" cy="66" r="12" fill="none" stroke="#FF5A63" stroke-width="2">
+                      <animate attributeName="r" values="10;18" dur="1.2s" repeatCount="indefinite"/>
+                      <animate attributeName="opacity" values="1;0" dur="1.2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="565" cy="66" r="8" fill="#FF5A63" stroke="#fff" stroke-width="2"/>
+                    <text x="440" y="46" font-size="11.5" fill="#FF5A63" font-weight="700" font-family="system-ui">⚠ BUS-11 · exceso de velocidad</text>
+                  </g>
+                </svg>
+                <div class="mapa__leyenda">
+                  <span><i style="background:#C8102E"></i>En ruta</span>
+                  <span><i style="background:#4ADE80"></i>En locación</span>
+                  <span><i style="background:#FF5A63"></i>Alarma</span>
+                  <span><i style="background:#B9B2A6"></i>Locación / set</span>
+                </div>
+              </div>
+
+              <!-- Órdenes del día -->
+              <div class="table-wrap">
+                <table>
+                  <caption>Órdenes del día · 12 jul 2026</caption>
+                  <thead>
+                    <tr><th scope="col">Orden</th><th scope="col">Recurso</th><th scope="col">Proyecto / cliente</th><th scope="col">Ruta</th><th scope="col">Hora</th><th scope="col">Estado</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="mono">OT-2847</td>
+                      <td><strong>Van H1 · VAN-014</strong><br><span class="mono muted">WQZ-431 · J. Prieto</span></td>
+                      <td>La Vorágine T2<br><span class="muted small">Páramo Films</span></td>
+                      <td class="small">Hotel Casa Real (Cl. 93) → Set La Candelaria</td>
+                      <td class="mono">04:30</td>
+                      <td><span class="badge badge--bad badge--live">En ruta</span></td>
+                    </tr>
+                    <tr>
+                      <td class="mono">OT-2848</td>
+                      <td><strong>Camión de cables · CAB-02</strong><br><span class="mono muted">SKT-882 · M. Bernal</span></td>
+                      <td>Noche en Monserrate<br><span class="muted small">Magdalena Studios</span></td>
+                      <td class="small">Bodega Fontibón → Parque Simón Bolívar</td>
+                      <td class="mono">05:00</td>
+                      <td><span class="badge badge--ok">En locación</span></td>
+                    </tr>
+                    <tr>
+                      <td class="mono">OT-2851</td>
+                      <td><strong>Tráiler camerino · RV-05</strong><br><span class="mono muted">R. Castaño</span></td>
+                      <td>Comando Bravo<br><span class="muted small">Andina Contenidos</span></td>
+                      <td class="small">Base L&amp;STO → Hacienda Yerbabuena (Chía)</td>
+                      <td class="mono">03:45</td>
+                      <td><span class="badge badge--warn">Por verificar</span></td>
+                    </tr>
+                    <tr>
+                      <td class="mono">OT-2853</td>
+                      <td><strong>SUV Cast · SUV-09</strong><br><span class="mono muted">GHK-207 · L. Ospina</span></td>
+                      <td>La Vorágine T2<br><span class="muted small">Páramo Films</span></td>
+                      <td class="small">Usaquén → Estudios GTV Fontibón</td>
+                      <td class="mono">06:15</td>
+                      <td><span class="badge badge--info">Programado</span></td>
+                    </tr>
+                    <tr>
+                      <td class="mono">OT-2855</td>
+                      <td><strong>Baños móviles x4 · BM-03</strong><br><span class="mono muted">D. Quintero</span></td>
+                      <td>Noche en Monserrate<br><span class="muted small">Magdalena Studios</span></td>
+                      <td class="small">Base L&amp;STO → Parque Simón Bolívar</td>
+                      <td class="mono">04:00</td>
+                      <td><span class="badge badge--ok">En locación</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="stack">
+              <!-- Alarmas -->
+              <div class="card card--flat">
+                <div class="row spread" style="margin-bottom:12px">
+                  <h2>Alarmas</h2>
+                  <span class="badge badge--bad badge--live">1 crítica</span>
+                </div>
+                <div class="stack" role="list" aria-label="Lista de alarmas recientes">
+                  <div class="alarma alarma--critica" role="listitem">
+                    <span class="alarma__icono" aria-hidden="true">🚨</span>
+                    <div>
+                      <strong>Exceso de velocidad — BUS-11</strong>
+                      <p class="small muted">Autopista Norte, km 21 · 96 km/h en zona de 60 · Comando Bravo</p>
+                      <time datetime="2026-07-12T22:38">22:38 · hace 3 min</time>
+                    </div>
+                  </div>
+                  <div class="alarma" role="listitem">
+                    <span class="alarma__icono" aria-hidden="true">↩️</span>
+                    <div>
+                      <strong>Desvío de ruta — RV-05</strong>
+                      <p class="small muted">Cierre en Cl. 80: desvío aprobado por coordinación</p>
+                      <time datetime="2026-07-12T22:12">22:12 · atendida</time>
+                    </div>
+                  </div>
+                  <div class="alarma" role="listitem">
+                    <span class="alarma__icono" aria-hidden="true">📄</span>
+                    <div>
+                      <strong>Documento por vencer — WQZ-431</strong>
+                      <p class="small muted">Técnico-mecánica vence en 16 días · Transportes El Dorado</p>
+                      <time datetime="2026-07-12T21:00">21:00 · notificado al aliado</time>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Unidades especiales -->
+              <div class="card card--flat">
+                <h2 style="margin-bottom:12px">Unidades especiales</h2>
+                <div class="unidades">
+                  <div class="unidad">
+                    <span class="unidad__nombre">🚐 Movilidad</span>
+                    <div class="unidad__num">24<small> / 31 en servicio</small></div>
+                    <div class="barra"><i style="width:77%"></i></div>
+                  </div>
+                  <div class="unidad">
+                    <span class="unidad__nombre">🚚 Carga y logística</span>
+                    <div class="unidad__num">9<small> / 12 en servicio</small></div>
+                    <div class="barra"><i style="width:75%"></i></div>
+                  </div>
+                  <div class="unidad">
+                    <span class="unidad__nombre">🚻 Facilidades móviles</span>
+                    <div class="unidad__num">6<small> / 8 en servicio</small></div>
+                    <div class="barra"><i style="width:75%"></i></div>
+                  </div>
+                  <div class="unidad">
+                    <span class="unidad__nombre">🎥 Soporte de cámara</span>
+                    <div class="unidad__num">5<small> / 8 en servicio</small></div>
+                    <div class="barra"><i style="width:63%"></i></div>
+                  </div>
+                </div>
+                <hr class="sep">
+                <p class="small muted">🔒 <strong style="color:var(--marfil)">Regla PESV activa:</strong> el despacho bloquea recursos ya asignados a una orden en ejecución.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════ 3 · FLUJO DEL CONDUCTOR (MÓVIL) ══════════ -->
+        <section class="screen" id="screen-conductor" role="region" aria-labelledby="h-conductor" hidden>
+          <div class="conductor-wrap">
+            <p class="kicker">App del conductor · OT-2847 · La Vorágine T2</p>
+            <h1 id="h-conductor" style="font-size:24px">Hoja de ruta de esta noche</h1>
+            <p class="sub">Van H1 · VAN-014 (WQZ-431) · Julián Prieto</p>
+
+            <ol class="stepper" aria-label="Progreso del servicio: paso 3 de 4">
+              <li data-done="true" title="Inicio de labores"></li>
+              <li data-done="true" title="Hora en locación"></li>
+              <li aria-current="step" title="Novedades"></li>
+              <li title="Firma del cliente"></li>
+            </ol>
+
+            <div class="stack">
+              <!-- GPS / reloj -->
+              <div class="gps-card">
+                <div class="row spread">
+                  <span class="badge badge--ok badge--live">GPS activo · precisión 4 m</span>
+                  <span class="badge badge--info">Hora del servidor</span>
+                </div>
+                <p class="reloj" id="relojConductor" style="margin-top:12px">22:41:07</p>
+                <p class="gps-coord">4.59806° N, −74.07609° O · La Candelaria, Bogotá D.C.</p>
+                <hr class="sep">
+                <div class="evento-linea">
+                  <span class="pin"><i></i><em></em></span>
+                  <div style="padding-bottom:12px">
+                    <strong class="small">Inicio de labores</strong>
+                    <p class="small muted">04:28:12 · Base L&amp;STO, Fontibón · punto de origen: «Base propia»</p>
+                  </div>
+                </div>
+                <div class="evento-linea">
+                  <span class="pin"><i></i><em></em></span>
+                  <div style="padding-bottom:12px">
+                    <strong class="small">Hora en locación</strong>
+                    <p class="small muted">05:47:55 · Set La Candelaria · disponibilidad frente al cliente iniciada</p>
+                  </div>
+                </div>
+                <div class="evento-linea">
+                  <span class="pin pend"><i></i></span>
+                  <div>
+                    <strong class="small">Fin de disponibilidad</strong>
+                    <p class="small muted">Pendiente · horas acumuladas: <strong style="color:var(--carmesi-luz)">16 h 53 min</strong></p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Novedades con foto -->
+              <div class="card card--flat">
+                <div class="row spread" style="margin-bottom:12px">
+                  <h2 style="font-size:17px">Novedades del servicio</h2>
+                  <button class="btn btn--ghost btn--sm" type="button">📷 Reportar novedad</button>
+                </div>
+                <div class="row" style="align-items:flex-start">
+                  <span class="foto-thumb" role="img" aria-label="Fotografía de evidencia: conexión eléctrica averiada">🔌</span>
+                  <div style="flex:1;min-width:180px">
+                    <strong class="small">Falla en conexión eléctrica del set</strong>
+                    <p class="small muted">21:15 · «La acometida del generador presentó chispa; se aisló el tramo y se avisó al eléctrico de la producción.»</p>
+                    <span class="badge badge--warn" style="margin-top:6px">Evidencia adjunta · 2 fotos</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Firma digital -->
+              <div class="card card--flat">
+                <h2 style="font-size:17px">Cierre del cliente — firma digital</h2>
+                <p class="small muted" style="margin:4px 0 12px">Presente el resumen al responsable en set. <strong style="color:var(--marfil)">Resumen:</strong> 16 h 53 min de disponibilidad · 1 novedad con evidencia.</p>
+                <div class="firma-box" id="firmaBox" data-firmado="false">
+                  <canvas id="firmaCanvas" aria-label="Panel de firma manuscrita: dibuje la firma con el dedo o el puntero" tabindex="0"></canvas>
+                  <div class="firma-guia" aria-hidden="true"></div>
+                  <div class="firma-ok">
+                    <div>
+                      <p style="font-size:34px;color:var(--verde)" aria-hidden="true">✓</p>
+                      <strong>Firma registrada</strong>
+                      <p class="small muted">Sandra Ruiz · Capitana de locación · Páramo Films</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="margin-top:12px">
+                  <button class="btn btn--ghost btn--sm" type="button" onclick="limpiarFirma()">Borrar</button>
+                  <button class="btn btn--primary btn--sm" type="button" style="flex:1" onclick="confirmarFirma()">Confirmar firma y cerrar servicio</button>
+                </div>
+                <p class="small muted" style="margin-top:8px" aria-live="polite" id="firmaEstado">Sin firma, el servicio queda <span class="badge badge--warn">Por verificar</span> y entra a la rutina de recordatorios.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════ 4 · PORTAL DEL ALIADO ══════════ -->
+        <section class="screen" id="screen-aliado" role="region" aria-labelledby="h-aliado" hidden>
+          <p class="kicker">Portal de autogestión · Aliado</p>
+          <div class="row spread">
+            <div>
+              <h1 id="h-aliado">Transportes El Dorado S.A.S.</h1>
+              <p class="sub">NIT 901.223.844-1 · 6 vehículos · 9 conductores</p>
+            </div>
+            <span class="badge badge--warn">Habilitación parcial</span>
+          </div>
+
+          <div class="grid grid--2" style="margin-top:16px">
+            <div class="card card--flat">
+              <div class="semaforo">
+                <svg class="donut" viewBox="0 0 42 42" role="img" aria-label="Cumplimiento documental del 78 por ciento">
+                  <circle cx="21" cy="21" r="15.9" fill="none" stroke="#2A2A30" stroke-width="5"/>
+                  <circle cx="21" cy="21" r="15.9" fill="none" stroke="#FBBF24" stroke-width="5"
+                          stroke-dasharray="78 22" stroke-dashoffset="25" stroke-linecap="round"/>
+                  <text x="21" y="24.5" text-anchor="middle" font-size="10" font-weight="800" fill="#F4F1EA">78%</text>
+                </svg>
+                <div>
+                  <h2>Semáforo de cumplimiento</h2>
+                  <p class="small muted">1 documento vencido bloquea el despacho del vehículo SKT-882. Los demás recursos siguen habilitados.</p>
+                </div>
+              </div>
+            </div>
+            <button class="dropzone" type="button" aria-label="Cargar documento: arrastre el archivo o pulse para seleccionarlo">
+              <span style="font-size:26px" aria-hidden="true">⭱</span><br>
+              <strong style="color:var(--marfil)">Cargar documento</strong><br>
+              Arrastre el PDF o la imagen, o pulse para buscar · máx. 10 MB
+            </button>
+          </div>
+
+          <h2 style="margin:24px 0 12px">Documentos de la flota</h2>
+          <div class="doc-cards">
+            <div class="doc">
+              <span class="doc__icono" aria-hidden="true">🛡️</span>
+              <div class="doc__meta"><strong>SOAT — Van H1 (WQZ-431)</strong><span>Vigente hasta 12/03/2027 · aprobado por L&amp;STO</span></div>
+              <span class="badge badge--ok">Vigente</span>
+            </div>
+            <div class="doc">
+              <span class="doc__icono" aria-hidden="true">🔧</span>
+              <div class="doc__meta"><strong>Técnico-mecánica — Van H1 (WQZ-431)</strong><span>Vence el 28/07/2026 · quedan 16 días</span></div>
+              <span class="badge badge--warn">Por vencer</span>
+            </div>
+            <div class="doc" style="border-color:rgba(255,90,99,.45)">
+              <span class="doc__icono" aria-hidden="true">🛡️</span>
+              <div class="doc__meta"><strong>SOAT — Camión de cables (SKT-882)</strong><span>Venció el 30/06/2026 · vehículo inhabilitado para despacho</span></div>
+              <span class="badge badge--bad">Vencido</span>
+            </div>
+            <div class="doc">
+              <span class="doc__icono" aria-hidden="true">🪪</span>
+              <div class="doc__meta"><strong>Licencia C2 — Julián Prieto</strong><span>Vigente hasta 02/11/2028</span></div>
+              <span class="badge badge--ok">Vigente</span>
+            </div>
+            <div class="doc">
+              <span class="doc__icono" aria-hidden="true">📋</span>
+              <div class="doc__meta"><strong>Planilla ARL — julio 2026</strong><span>Cargada el 01/07/2026 · en revisión de L&amp;STO</span></div>
+              <span class="badge badge--info">En revisión</span>
+            </div>
+            <div class="doc">
+              <span class="doc__icono" aria-hidden="true">🏛️</span>
+              <div class="doc__meta"><strong>RUT actualizado</strong><span>Aprobado el 15/01/2026</span></div>
+              <span class="badge badge--ok">Vigente</span>
+            </div>
+          </div>
+
+          <div class="card card--flat" style="margin-top:16px;border-color:rgba(255,90,99,.4)">
+            <div class="row" style="align-items:flex-start">
+              <span style="font-size:22px" aria-hidden="true">⚠️</span>
+              <div style="flex:1;min-width:220px">
+                <h3>Motivo del último rechazo</h3>
+                <p class="small muted">«La técnico-mecánica cargada el 05/07 corresponde a otra placa (SKT-828). Cargue el certificado correcto de SKT-882.» — Analista de documentación, 06/07/2026.</p>
+              </div>
+              <button class="btn btn--primary btn--sm" type="button">Volver a cargar</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════ 5 · FINANCIERO ══════════ -->
+        <section class="screen" id="screen-financiero" role="region" aria-labelledby="h-fin" hidden>
+          <p class="kicker">Administrativo y financiero</p>
+          <h1 id="h-fin">Cotizador y cartera</h1>
+          <p class="sub">Motor de tarifas variables · cartera por edades · valores en pesos colombianos (COP)</p>
+
+          <div class="grid grid--2" style="margin-top:16px">
+            <!-- Cotizador -->
+            <div class="card card--flat">
+              <h2 style="margin-bottom:12px">Cotizador inteligente</h2>
+              <form id="formCotizador" onsubmit="event.preventDefault()">
+                <div class="field">
+                  <label for="cotRecurso">Tipo de recurso</label>
+                  <select class="input" id="cotRecurso" onchange="cotizar()">
+                    <option value="850000">Van H1 (movilidad de talento)</option>
+                    <option value="1450000" selected>Camión de cables (carga y logística)</option>
+                    <option value="720000">SUV Cast</option>
+                    <option value="1900000">Tráiler camerino RV</option>
+                    <option value="2400000">Vehículo de soporte de cámara</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="cotTarifa">Tarifa base</label>
+                  <select class="input" id="cotTarifa" onchange="cotizar()">
+                    <option value="1" selected>Día de rodaje · 12 horas</option>
+                    <option value="1.18">Día de rodaje · 14 horas (+18 %)</option>
+                    <option value="0.12">Por hora (12 % de la tarifa día)</option>
+                    <option value="2.6">Viaje nacional (×2,6)</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="cotHoras">Horas extra del operario</label>
+                  <input class="input" id="cotHoras" type="number" inputmode="numeric" min="0" max="12" value="2" oninput="cotizar()">
+                  <p class="hint">$95.000 COP por hora extra.</p>
+                </div>
+                <fieldset style="border:0">
+                  <legend style="font-size:13px;font-weight:700;margin-bottom:8px">Recargos</legend>
+                  <label class="check"><input type="checkbox" id="rEnganche" checked onchange="cotizar()"><span>Enganche AM (antes de 5:00) · +10 %</span></label>
+                  <label class="check"><input type="checkbox" id="rNocturno" checked onchange="cotizar()"><span>Recargo nocturno (21:00–6:00) · +15 %</span></label>
+                  <label class="check"><input type="checkbox" id="rFestivo" onchange="cotizar()"><span>Domingo o festivo · +75 %</span></label>
+                  <label class="check"><input type="checkbox" id="rStandby" onchange="cotizar()"><span>Stand-by en locación · +$180.000/día</span></label>
+                </fieldset>
+              </form>
+              <div class="desglose" aria-live="polite" id="desglose"><!-- Se llena con JS --></div>
+              <button class="btn btn--primary btn--block" type="button" style="margin-top:12px">Generar cotización PDF</button>
+            </div>
+
+            <!-- Cartera -->
+            <div class="stack">
+              <div class="card card--flat">
+                <div class="row spread" style="margin-bottom:12px">
+                  <h2>Cartera por edades</h2>
+                  <strong style="font-variant-numeric:tabular-nums">$293,5 M total</strong>
+                </div>
+                <div class="edad">
+                  <div class="edad__top"><span>Corriente</span><b>$182,4 M</b></div>
+                  <div class="barra"><i class="ok" style="width:62%"></i></div>
+                </div>
+                <div class="edad">
+                  <div class="edad__top"><span>1–15 días</span><b>$64,9 M</b></div>
+                  <div class="barra"><i class="w1" style="width:22%"></i></div>
+                </div>
+                <div class="edad">
+                  <div class="edad__top"><span>16–30 días</span><b>$27,3 M</b></div>
+                  <div class="barra"><i class="w2" style="width:9%"></i></div>
+                </div>
+                <div class="edad">
+                  <div class="edad__top"><span>31–60 días</span><b>$12,8 M</b></div>
+                  <div class="barra"><i class="bad" style="width:4.5%"></i></div>
+                </div>
+                <div class="edad" style="margin-bottom:0">
+                  <div class="edad__top"><span>Más de 60 días</span><b>$6,1 M</b></div>
+                  <div class="barra"><i class="bad" style="width:2%"></i></div>
+                </div>
+              </div>
+
+              <div class="card card--flat">
+                <h2 style="margin-bottom:12px">Avisos de mora activos</h2>
+                <div class="stack">
+                  <div class="row spread" style="border:1px solid var(--linea);border-radius:12px;padding:12px;background:#101013">
+                    <div>
+                      <strong class="small">Andina Contenidos S.A.S.</strong>
+                      <p class="small muted mono">FV-1042 · $18.450.000 · 22 días</p>
+                    </div>
+                    <span class="badge badge--warn">Aviso enviado</span>
+                  </div>
+                  <div class="row spread" style="border:1px solid rgba(255,90,99,.4);border-radius:12px;padding:12px;background:rgba(200,16,46,.08)">
+                    <div>
+                      <strong class="small">Magdalena Studios Ltda.</strong>
+                      <p class="small muted mono">FV-0997 · $6.120.000 · 47 días</p>
+                    </div>
+                    <span class="badge badge--bad">Gestión en set</span>
+                  </div>
+                  <div class="row spread" style="border:1px solid var(--linea);border-radius:12px;padding:12px;background:#101013">
+                    <div>
+                      <strong class="small">Páramo Films S.A.S.</strong>
+                      <p class="small muted mono">FV-1051 · $9.870.000 · 12 días</p>
+                    </div>
+                    <span class="badge badge--info">Recordatorio programado</span>
+                  </div>
+                </div>
+                <p class="small muted" style="margin-top:12px">El coordinador en set recibe la inyección del aviso de mora para activar la gestión relacional (PRD §13, Módulo de Cartera).</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════ 6 · REPORTES / REPORTEADOR DINÁMICO ══════════ -->
+        <section class="screen" id="screen-reportes" role="region" aria-labelledby="h-rep" hidden>
+          <p class="kicker">Módulo 6 · Reporteador dinámico</p>
+          <div class="row spread">
+            <div>
+              <h1 id="h-rep">Reportes</h1>
+              <p class="sub">Catálogo por frentes · construcción de informes con filtros, tabla y gráfico · exportación CSV/XLSX</p>
+            </div>
+            <span class="tenant-badge" title="Aislamiento multi-tenant">Tenant: Páramo Films · datos aislados</span>
+          </div>
+
+          <h2 style="margin:20px 0 12px">Catálogo de reportes</h2>
+          <div class="rep-cats" role="group" aria-label="Frentes de reporte">
+            <button type="button" class="rep-cat" aria-pressed="false" onclick="repFrente(this,'Proveedores y aliados')">
+              <span class="rep-cat__ico" aria-hidden="true">🤝</span>
+              <span class="rep-cat__meta"><strong>Proveedores / Aliados</strong><span>Cumplimiento documental, SLA de vinculación, vehículos habilitados</span></span>
+            </button>
+            <button type="button" class="rep-cat" aria-pressed="true" onclick="repFrente(this,'Proyectos')">
+              <span class="rep-cat__ico" aria-hidden="true">🎬</span>
+              <span class="rep-cat__meta"><strong>Proyectos</strong><span>Servicios por proyecto/cliente, horas de disponibilidad, novedades</span></span>
+            </button>
+            <button type="button" class="rep-cat" aria-pressed="false" onclick="repFrente(this,'Torre de Control')">
+              <span class="rep-cat__ico" aria-hidden="true">🗼</span>
+              <span class="rep-cat__meta"><strong>Torre de Control</strong><span>Órdenes, alarmas, cumplimiento PESV, uso de flota</span></span>
+            </button>
+            <button type="button" class="rep-cat" aria-pressed="false" onclick="repFrente(this,'Costos')">
+              <span class="rep-cat__ico" aria-hidden="true">💰</span>
+              <span class="rep-cat__meta"><strong>Costos</strong><span>Facturación, cartera por edades, recargos y horas extra</span></span>
+            </button>
+          </div>
+
+          <div class="card card--flat" style="margin-top:16px">
+            <h2 style="margin-bottom:12px">Visor de reporte · <span id="repTitulo" style="color:var(--carmesi-luz)">Proyectos</span></h2>
+            <form class="filtros" onsubmit="event.preventDefault()" aria-label="Filtros del reporte">
+              <div class="field" style="margin:0">
+                <label for="repDesde">Rango · desde</label>
+                <input class="input" id="repDesde" type="date" value="2026-06-01">
+              </div>
+              <div class="field" style="margin:0">
+                <label for="repHasta">Rango · hasta</label>
+                <input class="input" id="repHasta" type="date" value="2026-07-12">
+              </div>
+              <div class="field" style="margin:0">
+                <label for="repProyecto">Proyecto</label>
+                <select class="input" id="repProyecto">
+                  <option>Todos los proyectos</option>
+                  <option selected>La Vorágine T2</option>
+                  <option>Noche en Monserrate</option>
+                  <option>Comando Bravo</option>
+                </select>
+              </div>
+              <div class="field" style="margin:0">
+                <label for="repTenant">Compañía (tenant)</label>
+                <select class="input" id="repTenant">
+                  <option selected>Páramo Films</option>
+                  <option>Magdalena Studios</option>
+                  <option>Andina Contenidos</option>
+                </select>
+                <p class="hint">El reporteador solo consulta datos del tenant seleccionado (aislamiento por fila).</p>
+              </div>
+              <div class="field" style="margin:0;align-self:end">
+                <button class="btn btn--primary btn--block" type="submit">Aplicar filtros</button>
+              </div>
+            </form>
+
+            <div class="rep-grid" style="margin-top:16px">
+              <!-- Tabla de resultados -->
+              <div class="table-wrap">
+                <table>
+                  <caption>Servicios por proyecto · 01 jun – 12 jul 2026 (datos ficticios)</caption>
+                  <thead>
+                    <tr><th scope="col">Proyecto</th><th scope="col">Servicios</th><th scope="col">Horas disponibilidad</th><th scope="col">Novedades</th><th scope="col">Facturado (COP)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>La Vorágine T2</td><td class="mono">48</td><td class="mono">812 h</td><td class="mono">6</td><td class="mono">$142.380.000</td></tr>
+                    <tr><td>Segunda unidad · La Vorágine</td><td class="mono">19</td><td class="mono">301 h</td><td class="mono">2</td><td class="mono">$54.900.000</td></tr>
+                    <tr><td>Pruebas de cámara</td><td class="mono">7</td><td class="mono">96 h</td><td class="mono">0</td><td class="mono">$18.240.000</td></tr>
+                    <tr><td>Locación Chía (refuerzo)</td><td class="mono">11</td><td class="mono">173 h</td><td class="mono">1</td><td class="mono">$31.100.000</td></tr>
+                  </tbody>
+                  <tfoot>
+                    <tr><th scope="row">Total</th><td class="mono">85</td><td class="mono">1.382 h</td><td class="mono">9</td><td class="mono">$246.620.000</td></tr>
+                  </tfoot>
+                </table>
+              </div>
+
+              <!-- Gráfico de barras -->
+              <div class="card card--flat">
+                <h3 style="margin-bottom:4px">Servicios por semana</h3>
+                <p class="small muted" style="margin-bottom:8px">Proyecto La Vorágine T2 · junio–julio 2026</p>
+                <div class="chart" role="img" aria-label="Gráfico de barras de servicios por semana: sem 23 con 9 servicios, sem 24 con 12, sem 25 con 15, sem 26 con 11, sem 27 con 18, sem 28 con 20 servicios.">
+                  <div class="chart__col"><div class="chart__bar" style="height:36%"><span>9</span></div><div class="chart__lbl">Sem 23</div></div>
+                  <div class="chart__col"><div class="chart__bar" style="height:48%"><span>12</span></div><div class="chart__lbl">Sem 24</div></div>
+                  <div class="chart__col"><div class="chart__bar" style="height:60%"><span>15</span></div><div class="chart__lbl">Sem 25</div></div>
+                  <div class="chart__col"><div class="chart__bar" style="height:44%"><span>11</span></div><div class="chart__lbl">Sem 26</div></div>
+                  <div class="chart__col"><div class="chart__bar" style="height:72%"><span>18</span></div><div class="chart__lbl">Sem 27</div></div>
+                  <div class="chart__col"><div class="chart__bar" style="height:80%"><span>20</span></div><div class="chart__lbl">Sem 28</div></div>
+                </div>
+                <p class="chart-legend"><span><i></i>Servicios despachados por semana</span></p>
+              </div>
+            </div>
+
+            <div class="row" style="margin-top:16px;justify-content:flex-end">
+              <span class="muted small" style="margin-right:auto">85 filas · generado 12/07/2026 22:41 · zona América/Bogotá</span>
+              <button class="btn btn--ghost btn--sm" type="button">⬇ Exportar CSV</button>
+              <button class="btn btn--ghost btn--sm" type="button">⬇ Exportar XLSX</button>
+              <button class="btn btn--primary btn--sm" type="button">💾 Guardar como tablero</button>
+            </div>
+          </div>
+
+          <p class="small muted" style="margin-top:12px">Cumple RF-REP-001..016: selección de dimensiones/métricas, filtros por fecha/proyecto/tenant, tabla, visualización y exportación. Toda exportación queda registrada en el log de auditoría.</p>
+        </section>
+
+        <!-- ══════════ 7 · ADMINISTRACIÓN / PARÁMETROS Y SEGURIDAD ══════════ -->
+        <section class="screen" id="screen-admin" role="region" aria-labelledby="h-admin" hidden>
+          <p class="kicker">Módulo 1 · Parámetros y seguridad</p>
+          <div class="row spread">
+            <div>
+              <h1 id="h-admin">Administración</h1>
+              <p class="sub">Usuarios y roles (RBAC deny-by-default) · catálogos · white-label · auditoría append-only</p>
+            </div>
+            <span class="tenant-badge" title="Aislamiento multi-tenant">Configuración del tenant: L&amp;STO S.A.S.</span>
+          </div>
+
+          <div class="tabs" role="tablist" aria-label="Secciones de administración">
+            <button type="button" class="tab" role="tab" id="tab-usuarios" aria-selected="true" aria-controls="tp-usuarios" onclick="adminTab('usuarios')">Usuarios y roles</button>
+            <button type="button" class="tab" role="tab" id="tab-permisos" aria-selected="false" aria-controls="tp-permisos" onclick="adminTab('permisos')">Matriz de permisos</button>
+            <button type="button" class="tab" role="tab" id="tab-catalogos" aria-selected="false" aria-controls="tp-catalogos" onclick="adminTab('catalogos')">Catálogos</button>
+            <button type="button" class="tab" role="tab" id="tab-wl" aria-selected="false" aria-controls="tp-wl" onclick="adminTab('wl')">White-label</button>
+            <button type="button" class="tab" role="tab" id="tab-log" aria-selected="false" aria-controls="tp-log" onclick="adminTab('log')">Log de auditoría</button>
+          </div>
+
+          <!-- Usuarios y roles -->
+          <div class="tabpanel" role="tabpanel" id="tp-usuarios" aria-labelledby="tab-usuarios">
+            <div class="row spread" style="margin-bottom:12px">
+              <h2>Usuarios</h2>
+              <button class="btn btn--primary btn--sm" type="button">+ Invitar usuario</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <caption>Usuarios del tenant · datos ficticios</caption>
+                <thead>
+                  <tr><th scope="col">Usuario</th><th scope="col">Correo</th><th scope="col">Rol</th><th scope="col">MFA</th><th scope="col">Estado</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Carolina Méndez</strong></td><td class="mono">c.mendez@l-sto.com</td><td>Coordinación operativa</td><td><span class="badge badge--ok">Activa</span></td><td><span class="badge badge--ok">Activo</span></td></tr>
+                  <tr><td><strong>Andrés Gaviria</strong></td><td class="mono">a.gaviria@l-sto.com</td><td>Administrador</td><td><span class="badge badge--ok">Activa</span></td><td><span class="badge badge--ok">Activo</span></td></tr>
+                  <tr><td><strong>Diana Rueda</strong></td><td class="mono">d.rueda@l-sto.com</td><td>Financiero</td><td><span class="badge badge--ok">Activa</span></td><td><span class="badge badge--ok">Activo</span></td></tr>
+                  <tr><td><strong>Julián Prieto</strong></td><td class="mono">j.prieto@aliado.com</td><td>Conductor (aliado)</td><td><span class="badge badge--info">No requerida</span></td><td><span class="badge badge--ok">Activo</span></td></tr>
+                  <tr><td><strong>Sara Osorio</strong></td><td class="mono">s.osorio@l-sto.com</td><td>Solo lectura</td><td><span class="badge badge--warn">Pendiente</span></td><td><span class="badge badge--warn">Invitado</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="small muted" style="margin-top:8px">MFA obligatoria para perfiles administrativos. Los aliados usan el portal de autogestión sin acceso a la consola interna.</p>
+          </div>
+
+          <!-- Matriz de permisos RBAC -->
+          <div class="tabpanel" role="tabpanel" id="tp-permisos" aria-labelledby="tab-permisos" hidden>
+            <h2 style="margin-bottom:6px">Matriz de permisos · rol × módulo</h2>
+            <p class="small muted" style="margin-bottom:12px">Política backend <strong style="color:var(--marfil)">deny-by-default</strong>: sin regla explícita, el acceso se deniega. Leyenda:
+              <span class="perm perm--allow" aria-hidden="true">✓</span> total ·
+              <span class="perm perm--read" aria-hidden="true">◐</span> solo lectura ·
+              <span class="perm perm--deny" aria-hidden="true">✕</span> denegado.
+            </p>
+            <div class="table-wrap">
+              <table>
+                <caption>Permisos efectivos por rol y módulo</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Módulo</th>
+                    <th scope="col">Administrador</th><th scope="col">Coord. operativa</th>
+                    <th scope="col">Financiero</th><th scope="col">Conductor</th><th scope="col">Solo lectura</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Torre de Control</th>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
+                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura">◐</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
+                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura">◐</span></td></tr>
+                  <tr><th scope="row">Conductor / servicios</th>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
+                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura">◐</span></td></tr>
+                  <tr><th scope="row">Portal de aliados</th>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
+                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura">◐</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
+                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura">◐</span></td></tr>
+                  <tr><th scope="row">Financiero / cartera</th>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
+                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura">◐</span></td></tr>
+                  <tr><th scope="row">Reportes</th>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
+                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura">◐</span></td>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
+                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura">◐</span></td></tr>
+                  <tr><th scope="row">Administración</th>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="row" style="margin-top:12px;justify-content:flex-end">
+              <button class="btn btn--ghost btn--sm" type="button">Restablecer</button>
+              <button class="btn btn--primary btn--sm" type="button">Guardar cambios</button>
+            </div>
+          </div>
+
+          <!-- Catálogos -->
+          <div class="tabpanel" role="tabpanel" id="tp-catalogos" aria-labelledby="tab-catalogos" hidden>
+            <h2 style="margin-bottom:6px">Catálogos parametrizables</h2>
+            <p class="small muted" style="margin-bottom:16px">Listas maestras editables sin desarrollo. Valores ficticios de ejemplo.</p>
+            <div class="grid grid--2">
+              <div class="card card--flat">
+                <h3 style="margin-bottom:10px">Tipos de recurso</h3>
+                <div class="cat-chips">
+                  <span class="cat-chip">Van H1 <button type="button" aria-label="Eliminar Van H1">✕</button></span>
+                  <span class="cat-chip">Camión de cables <button type="button" aria-label="Eliminar Camión de cables">✕</button></span>
+                  <span class="cat-chip">SUV Cast <button type="button" aria-label="Eliminar SUV Cast">✕</button></span>
+                  <span class="cat-chip">Tráiler camerino <button type="button" aria-label="Eliminar Tráiler camerino">✕</button></span>
+                  <span class="cat-chip">Soporte de cámara <button type="button" aria-label="Eliminar Soporte de cámara">✕</button></span>
+                </div>
+                <button class="btn btn--ghost btn--sm" type="button" style="margin-top:12px">+ Añadir tipo</button>
+              </div>
+              <div class="card card--flat">
+                <h3 style="margin-bottom:10px">Tipos de documento</h3>
+                <div class="cat-chips">
+                  <span class="cat-chip">SOAT <button type="button" aria-label="Eliminar SOAT">✕</button></span>
+                  <span class="cat-chip">Técnico-mecánica <button type="button" aria-label="Eliminar Técnico-mecánica">✕</button></span>
+                  <span class="cat-chip">Licencia de conducción <button type="button" aria-label="Eliminar Licencia de conducción">✕</button></span>
+                  <span class="cat-chip">Planilla ARL <button type="button" aria-label="Eliminar Planilla ARL">✕</button></span>
+                  <span class="cat-chip">RUT <button type="button" aria-label="Eliminar RUT">✕</button></span>
+                </div>
+                <button class="btn btn--ghost btn--sm" type="button" style="margin-top:12px">+ Añadir tipo</button>
+              </div>
+              <div class="card card--flat">
+                <h3 style="margin-bottom:10px">Recargos y tarifas</h3>
+                <div class="cat-chips">
+                  <span class="cat-chip">Nocturno +15 % <button type="button" aria-label="Eliminar recargo nocturno">✕</button></span>
+                  <span class="cat-chip">Enganche AM +10 % <button type="button" aria-label="Eliminar enganche AM">✕</button></span>
+                  <span class="cat-chip">Dominical/festivo +75 % <button type="button" aria-label="Eliminar dominical/festivo">✕</button></span>
+                  <span class="cat-chip">Hora extra $95.000 <button type="button" aria-label="Eliminar hora extra">✕</button></span>
+                </div>
+                <button class="btn btn--ghost btn--sm" type="button" style="margin-top:12px">+ Añadir recargo</button>
+              </div>
+              <div class="card card--flat">
+                <h3 style="margin-bottom:10px">Motivos de rechazo documental</h3>
+                <div class="cat-chips">
+                  <span class="cat-chip">Placa no corresponde <button type="button" aria-label="Eliminar placa no corresponde">✕</button></span>
+                  <span class="cat-chip">Documento ilegible <button type="button" aria-label="Eliminar documento ilegible">✕</button></span>
+                  <span class="cat-chip">Fuera de vigencia <button type="button" aria-label="Eliminar fuera de vigencia">✕</button></span>
+                </div>
+                <button class="btn btn--ghost btn--sm" type="button" style="margin-top:12px">+ Añadir motivo</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- White-label -->
+          <div class="tabpanel" role="tabpanel" id="tp-wl" aria-labelledby="tab-wl" hidden>
+            <h2 style="margin-bottom:6px">Identidad white-label por compañía</h2>
+            <p class="small muted" style="margin-bottom:16px">Logo, color de acento y textos parametrizables por tenant. La vista previa refleja los cambios en vivo.</p>
+            <div class="grid grid--2">
+              <div class="card card--flat">
+                <div class="field">
+                  <label for="wlNombre">Nombre visible de la compañía</label>
+                  <input class="input" id="wlNombre" type="text" value="L&amp;STO S.A.S." oninput="wlSync()">
+                </div>
+                <div class="field">
+                  <label for="wlTag">Tagline</label>
+                  <input class="input" id="wlTag" type="text" value="Logística, Servicios técnicos, Transporte y Operaciones" oninput="wlSync()">
+                </div>
+                <div class="field">
+                  <label>Color de acento del tenant</label>
+                  <div class="swatches" role="group" aria-label="Color de acento">
+                    <button type="button" class="swatch" style="background:#C8102E" aria-pressed="true" aria-label="Carmesí L&STO" onclick="wlColor(this,'#C8102E')"></button>
+                    <button type="button" class="swatch" style="background:#1D4ED8" aria-pressed="false" aria-label="Azul" onclick="wlColor(this,'#1D4ED8')"></button>
+                    <button type="button" class="swatch" style="background:#047857" aria-pressed="false" aria-label="Verde" onclick="wlColor(this,'#047857')"></button>
+                    <button type="button" class="swatch" style="background:#7C3AED" aria-pressed="false" aria-label="Morado" onclick="wlColor(this,'#7C3AED')"></button>
+                    <button type="button" class="swatch" style="background:#B45309" aria-pressed="false" aria-label="Ámbar oscuro" onclick="wlColor(this,'#B45309')"></button>
+                  </div>
+                </div>
+                <div class="field" style="margin-bottom:0">
+                  <label for="wlIniciales">Iniciales del logo (marcador)</label>
+                  <input class="input" id="wlIniciales" type="text" maxlength="3" value="L&amp;S" oninput="wlSync()">
+                  <p class="hint">En producción se sube un PNG/SVG; aquí se usa un marcador para la demo.</p>
+                </div>
+              </div>
+              <div class="card card--flat">
+                <h3 style="margin-bottom:10px">Vista previa</h3>
+                <div class="wl-preview">
+                  <div class="wl-preview__bar">
+                    <span class="wl-preview__logo" id="wlLogo" style="background:#C8102E">L&amp;S</span>
+                    <div style="line-height:1.2">
+                      <strong id="wlPrevNombre" style="font-size:14px">L&amp;STO S.A.S.</strong><br>
+                      <span class="muted" id="wlPrevTag" style="font-size:10.5px">Logística, Servicios técnicos, Transporte y Operaciones</span>
+                    </div>
+                  </div>
+                  <div class="wl-preview__body">
+                    <p class="small muted" style="margin-bottom:12px">Así verán la plataforma los usuarios de esta compañía.</p>
+                    <span class="wl-preview__btn" id="wlBtn" style="background:#C8102E">Botón primario</span>
+                  </div>
+                </div>
+                <button class="btn btn--primary btn--sm" type="button" style="margin-top:12px">Guardar identidad</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Log de auditoría -->
+          <div class="tabpanel" role="tabpanel" id="tp-log" aria-labelledby="tab-log" hidden>
+            <div class="row spread" style="margin-bottom:6px">
+              <h2>Log de auditoría</h2>
+              <span class="badge badge--info">Append-only · inmutable</span>
+            </div>
+            <p class="small muted" style="margin-bottom:12px">Registro cronológico e inalterable de acciones sensibles. No admite edición ni borrado; cada entrada incluye actor, acción, entidad y sello de tiempo (América/Bogotá). Datos ficticios.</p>
+            <div class="card card--flat">
+              <div class="log-linea">
+                <span class="dothash" aria-hidden="true"></span>
+                <div style="flex:1">
+                  <strong class="small">A. Gaviria modificó la matriz de permisos</strong>
+                  <p class="small muted mono">rol=Financiero · módulo=Reportes · antes=◐ → ahora=✓</p>
+                </div>
+                <time datetime="2026-07-12T22:31">12/07 22:31</time>
+              </div>
+              <div class="log-linea">
+                <span class="dothash" aria-hidden="true"></span>
+                <div style="flex:1">
+                  <strong class="small">C. Méndez exportó un reporte</strong>
+                  <p class="small muted mono">frente=Proyectos · formato=CSV · tenant=Páramo Films · 85 filas</p>
+                </div>
+                <time datetime="2026-07-12T22:12">12/07 22:12</time>
+              </div>
+              <div class="log-linea">
+                <span class="dothash" aria-hidden="true"></span>
+                <div style="flex:1">
+                  <strong class="small">A. Gaviria invitó un usuario</strong>
+                  <p class="small muted mono">usuario=s.osorio@l-sto.com · rol=Solo lectura · MFA=pendiente</p>
+                </div>
+                <time datetime="2026-07-12T21:48">12/07 21:48</time>
+              </div>
+              <div class="log-linea">
+                <span class="dothash" aria-hidden="true"></span>
+                <div style="flex:1">
+                  <strong class="small">Sistema denegó un acceso (deny-by-default)</strong>
+                  <p class="small muted mono">actor=j.prieto · recurso=Administración · resultado=403 denegado</p>
+                </div>
+                <time datetime="2026-07-12T21:05">12/07 21:05</time>
+              </div>
+              <div class="log-linea">
+                <span class="dothash" aria-hidden="true"></span>
+                <div style="flex:1">
+                  <strong class="small">A. Gaviria actualizó la identidad white-label</strong>
+                  <p class="small muted mono">tenant=Andina Contenidos · acento=#1D4ED8</p>
+                </div>
+                <time datetime="2026-07-12T20:40">12/07 20:40</time>
+              </div>
+            </div>
+            <p class="small muted" style="margin-top:8px">Cumple RF-PS: trazabilidad de acciones sensibles con retención y exportación controladas.</p>
+          </div>
+        </section>
+
+      </div><!-- /content -->
+
+      <!-- ░░ Navegación inferior (móvil) ░░ -->
+      <nav class="bottomnav" aria-label="Navegación principal móvil">
+        <button type="button" data-screen="torre" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 20h18M6 20V9l6-5 6 5v11M10 20v-5h4v5"/></svg>
+          Torre
+        </button>
+        <button type="button" data-screen="conductor">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>
+          Conductor
+        </button>
+        <button type="button" data-screen="aliado">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+          Aliado
+        </button>
+        <button type="button" data-screen="financiero">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M15 9.5c0-1.4-1.3-2-3-2s-3 .6-3 2 1.2 1.8 3 2.2 3 .9 3 2.3-1.3 2-3 2-3-.6-3-2"/></svg>
+          Finanzas
+        </button>
+        <button type="button" data-screen="reportes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20V4M4 20h16M8 16v-5M12 16V7M16 16v-8"/></svg>
+          Reportes
+        </button>
+        <button type="button" data-screen="admin">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 6.6 19l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.6 1.6 0 0 0 3 13.4H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 6.8L4.5 6.7a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 10 3V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg>
+          Admin
+        </button>
+        <button type="button" data-screen="login">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 3h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4M10 17l5-5-5-5M15 12H3"/></svg>
+          Login
+        </button>
+      </nav>
+
+    </div><!-- /main-col -->
+  </div><!-- /app -->
+</main>
+
+<footer class="demo-foot">
+  Propuesta de diseño 1 «Set Nocturno» · Plataforma logística L&amp;STO S.A.S. · Demo navegable con datos ficticios · Julio de 2026 ·
+  Cumple PRD §6: mobile-first, WCAG 2.2 AA, español (Colombia), white-label.
+</footer>
+
+<script>
+/* ====== Logo real de L&STO embebido (PNG base64, chip blanco en superficies oscuras) ====== */
+var LOGO_B64 = "data:image/png;base64,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";
+["logoLogin","logoSidebar","logoMovil"].forEach(function(id){
+  var el = document.getElementById(id);
+  if (el) el.src = LOGO_B64;
+});
+
+/* ====== Conmutador Web / Móvil ====== */
+function setModo(m){
+  document.body.classList.toggle("mode-web", m === "web");
+  document.body.classList.toggle("mode-movil", m === "movil");
+  document.getElementById("btnWeb").setAttribute("aria-pressed", String(m === "web"));
+  document.getElementById("btnMovil").setAttribute("aria-pressed", String(m === "movil"));
+  requestAnimationFrame(initFirma); // el canvas cambia de tamaño
+}
+
+/* ====== Navegación entre pantallas ====== */
+var TITULOS = {
+  login:"Iniciar sesión", torre:"Torre de Control", conductor:"Mi servicio",
+  aliado:"Portal del aliado", financiero:"Finanzas",
+  reportes:"Reportes", admin:"Administración"
+};
+function irA(id){
+  document.querySelectorAll(".screen").forEach(function(s){ s.hidden = true; });
+  var destino = document.getElementById("screen-" + id);
+  if (destino) destino.hidden = false;
+  document.getElementById("app").classList.toggle("is-login", id === "login");
+  document.querySelectorAll("[data-screen]").forEach(function(b){
+    if (b.dataset.screen === id) b.setAttribute("aria-current","page");
+    else b.removeAttribute("aria-current");
+  });
+  var t = document.getElementById("mTitulo");
+  if (t) t.textContent = TITULOS[id] || "L&STO";
+  if (id === "conductor") requestAnimationFrame(initFirma);
+  var contenido = document.querySelector(".content");
+  if (contenido) contenido.scrollTop = 0;
+  window.scrollTo({ top: 0 });
+}
+document.querySelectorAll("[data-screen]").forEach(function(b){
+  b.addEventListener("click", function(){ irA(b.dataset.screen); });
+});
+
+/* ====== Sidebar colapsable a iconos ====== */
+function toggleSidebar(){
+  var sb = document.getElementById("sidebar");
+  var btn = document.getElementById("btnColapsar");
+  var colapsada = sb.classList.toggle("colapsada");
+  btn.setAttribute("aria-expanded", String(!colapsada));
+  btn.textContent = colapsada ? "⇥" : "⇤ Colapsar";
+  btn.setAttribute("aria-label", colapsada ? "Expandir barra lateral" : "Colapsar barra lateral");
+}
+
+/* ====== Reloj del conductor (hora del servidor simulada) ====== */
+setInterval(function(){
+  var el = document.getElementById("relojConductor");
+  if (!el) return;
+  var d = new Date();
+  el.textContent = [d.getHours(), d.getMinutes(), d.getSeconds()]
+    .map(function(n){ return String(n).padStart(2,"0"); }).join(":");
+}, 1000);
+
+/* ====== Canvas de firma funcional (pointer events: táctil + mouse) ====== */
+var firmaCtx = null, firmando = false, firmaTiene = false;
+function initFirma(){
+  var c = document.getElementById("firmaCanvas");
+  if (!c || c.offsetWidth === 0) return;
+  var dpr = window.devicePixelRatio || 1;
+  var w = c.offsetWidth, h = c.offsetHeight;
+  if (c.width === Math.round(w * dpr) && firmaCtx) return; // ya inicializado a este tamaño
+  c.width = Math.round(w * dpr);
+  c.height = Math.round(h * dpr);
+  firmaCtx = c.getContext("2d");
+  firmaCtx.scale(dpr, dpr);
+  firmaCtx.lineWidth = 2.4;
+  firmaCtx.lineCap = "round";
+  firmaCtx.lineJoin = "round";
+  firmaCtx.strokeStyle = "#F4F1EA";
+  firmaTiene = false;
+}
+function posFirma(e){
+  var c = document.getElementById("firmaCanvas");
+  var r = c.getBoundingClientRect();
+  return { x: e.clientX - r.left, y: e.clientY - r.top };
+}
+(function(){
+  var c = document.getElementById("firmaCanvas");
+  if (!c) return;
+  c.addEventListener("pointerdown", function(e){
+    if (document.getElementById("firmaBox").dataset.firmado === "true") return;
+    initFirma();
+    firmando = true; firmaTiene = true;
+    c.setPointerCapture(e.pointerId);
+    var p = posFirma(e);
+    firmaCtx.beginPath(); firmaCtx.moveTo(p.x, p.y);
+    firmaCtx.lineTo(p.x + .01, p.y + .01); firmaCtx.stroke();
+    e.preventDefault();
+  });
+  c.addEventListener("pointermove", function(e){
+    if (!firmando) return;
+    var p = posFirma(e);
+    firmaCtx.lineTo(p.x, p.y); firmaCtx.stroke();
+    e.preventDefault();
+  });
+  ["pointerup","pointercancel"].forEach(function(ev){
+    c.addEventListener(ev, function(){ firmando = false; });
+  });
+})();
+function limpiarFirma(){
+  var c = document.getElementById("firmaCanvas");
+  var box = document.getElementById("firmaBox");
+  box.dataset.firmado = "false";
+  if (firmaCtx) firmaCtx.clearRect(0, 0, c.width, c.height);
+  firmaTiene = false;
+  document.getElementById("firmaEstado").innerHTML =
+    'Sin firma, el servicio queda <span class="badge badge--warn">Por verificar</span> y entra a la rutina de recordatorios.';
+}
+function confirmarFirma(){
+  var box = document.getElementById("firmaBox");
+  if (!firmaTiene){
+    box.style.borderColor = "var(--carmesi-luz)";
+    document.getElementById("firmaEstado").innerHTML =
+      '<strong style="color:var(--carmesi-luz)">Dibuje la firma en el panel antes de confirmar.</strong>';
+    setTimeout(function(){ box.style.borderColor = ""; }, 1200);
+    return;
+  }
+  box.dataset.firmado = "true";
+  document.getElementById("firmaEstado").innerHTML =
+    '<span class="badge badge--ok">Servicio cerrado</span> Firma de Sandra Ruiz registrada a las ' +
+    document.getElementById("relojConductor").textContent + '.';
+}
+
+/* ====== Cotizador de tarifas ====== */
+var fmtCOP = new Intl.NumberFormat("es-CO", { style:"currency", currency:"COP", maximumFractionDigits:0 });
+function cotizar(){
+  var recursoSel = document.getElementById("cotRecurso");
+  var tarifaSel = document.getElementById("cotTarifa");
+  var base = parseFloat(recursoSel.value) * parseFloat(tarifaSel.value);
+  var lineas = [
+    ["Tarifa base — " + recursoSel.options[recursoSel.selectedIndex].text.split(" (")[0] +
+      " · " + tarifaSel.options[tarifaSel.selectedIndex].text.split(" (")[0], base]
+  ];
+  var horas = Math.max(0, parseInt(document.getElementById("cotHoras").value || "0", 10));
+  if (horas > 0) lineas.push(["Horas extra del operario × " + horas, horas * 95000]);
+  if (document.getElementById("rEnganche").checked) lineas.push(["Recargo enganche AM (+10 %)", base * .10]);
+  if (document.getElementById("rNocturno").checked) lineas.push(["Recargo nocturno (+15 %)", base * .15]);
+  if (document.getElementById("rFestivo").checked) lineas.push(["Recargo dominical/festivo (+75 %)", base * .75]);
+  if (document.getElementById("rStandby").checked) lineas.push(["Stand-by en locación", 180000]);
+  var total = lineas.reduce(function(a, l){ return a + l[1]; }, 0);
+  var html = lineas.map(function(l){
+    return '<div class="desglose__linea"><span>' + l[0] + '</span><span>' + fmtCOP.format(Math.round(l[1])) + '</span></div>';
+  }).join("");
+  html += '<div class="desglose__linea desglose__linea--total"><span>Total estimado (antes de IVA)</span><span>' +
+          fmtCOP.format(Math.round(total)) + '</span></div>';
+  document.getElementById("desglose").innerHTML = html;
+}
+cotizar();
+
+/* ====== Reportes: selección de frente ====== */
+function repFrente(btn, nombre){
+  document.querySelectorAll(".rep-cat").forEach(function(b){ b.setAttribute("aria-pressed","false"); });
+  btn.setAttribute("aria-pressed","true");
+  var t = document.getElementById("repTitulo");
+  if (t) t.textContent = nombre;
+}
+
+/* ====== Administración: pestañas accesibles ====== */
+function adminTab(id){
+  ["usuarios","permisos","catalogos","wl","log"].forEach(function(k){
+    var tab = document.getElementById("tab-" + k);
+    var panel = document.getElementById("tp-" + k);
+    var activo = (k === id);
+    if (tab) tab.setAttribute("aria-selected", String(activo));
+    if (panel) panel.hidden = !activo;
+  });
+}
+
+/* ====== White-label: vista previa en vivo ====== */
+function wlSync(){
+  var nom = document.getElementById("wlNombre").value || "Compañía";
+  var tag = document.getElementById("wlTag").value || "";
+  var ini = document.getElementById("wlIniciales").value || "•";
+  document.getElementById("wlPrevNombre").textContent = nom;
+  document.getElementById("wlPrevTag").textContent = tag;
+  document.getElementById("wlLogo").textContent = ini;
+}
+function wlColor(btn, hex){
+  document.querySelectorAll(".swatch").forEach(function(b){ b.setAttribute("aria-pressed","false"); });
+  btn.setAttribute("aria-pressed","true");
+  document.getElementById("wlLogo").style.background = hex;
+  document.getElementById("wlBtn").style.background = hex;
+}
+
+/* Estado inicial: pantalla de login */
+irA("login");
+</script>
+</body>
+</html>
