@@ -267,6 +267,24 @@ body[data-device="movil"] .login-panel{flex:1;border-radius:28px 28px 0 0;margin
 .wl-nota .chip-wl{background:#EFEFEF;border-radius:var(--r-pill);padding:3px 10px;font-weight:700;color:#3C3C3C}
 .olvido{display:block;text-align:center;margin-top:var(--s3);font-size:.8rem;color:var(--carmesi);font-weight:700;text-decoration:none}
 .olvido:hover{text-decoration:underline}
+/* acceso por perfil de demostración */
+.perfiles-demo{display:flex;flex-direction:column;gap:var(--s2)}
+.btn-perfil{
+  display:flex;align-items:center;gap:var(--s3);width:100%;text-align:left;
+  background:#fff;border:1.5px solid #E3CFCB;border-radius:var(--r-md);
+  padding:14px 16px;min-height:64px;transition:border-color .2s,transform .15s,box-shadow .2s,background .2s;
+}
+.btn-perfil:hover{border-color:var(--carmesi);background:var(--rosa-niebla);box-shadow:var(--sombra-1)}
+.btn-perfil:active{transform:scale(.985)}
+.btn-perfil .pf-ico{
+  width:44px;height:44px;flex:0 0 auto;border-radius:14px;display:grid;place-items:center;
+  font-size:1.35rem;background:var(--grad-marca);color:#fff;
+}
+.btn-perfil .pf-txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.btn-perfil .pf-txt strong{font-size:.92rem;font-weight:800;line-height:1.2}
+.btn-perfil .pf-txt small{font-size:.72rem;color:var(--tinta-suave);font-weight:600}
+.btn-perfil .pf-fl{flex:0 0 auto;font-size:1.1rem;font-weight:900;color:var(--carmesi);transition:transform .2s}
+.btn-perfil:hover .pf-fl{transform:translateX(4px)}
 
 /* ============================================================
    TORRE DE CONTROL
@@ -515,7 +533,7 @@ body[data-device="movil"] .rep-filtros{grid-template-columns:1fr}
 .perm.si{background:var(--verde-fondo);color:var(--verde-tinta)}
 .perm.no{background:#F1F1F1;color:#9A9A9A}
 .deny-nota{font-size:.72rem;color:var(--tinta-suave);margin-top:8px;display:flex;align-items:center;gap:6px}
-/* white-label */
+/* personalización de marca */
 .wl-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
 body[data-device="movil"] .wl-grid{grid-template-columns:1fr}
 .wl-colores{display:flex;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s2)}
@@ -623,27 +641,37 @@ body[data-device="movil"] .catalogo-fila{grid-template-columns:1fr auto}
         <div class="login-panel">
           <div class="login-logo"><img src="data:image/png;base64,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" alt="L&STO — Logística, Servicios técnicos, Transporte y Operaciones"></div>
           <h2 id="t-login">Hola de nuevo 👋</h2>
-          <p class="sub">Ingresa a tu operación de hoy</p>
-          <form onsubmit="entrar(event)">
-            <div class="campo">
-              <label for="log-correo">Correo corporativo</label>
-              <input id="log-correo" type="email" autocomplete="username" placeholder="tu.nombre@l-sto.com" required>
-            </div>
-            <div class="campo">
-              <label for="log-clave">Contraseña</label>
-              <input id="log-clave" type="password" autocomplete="current-password" placeholder="••••••••" required>
-              <p class="pista">Cuentas con verificación en dos pasos (MFA) para perfiles administrativos.</p>
-            </div>
-            <div class="consentimiento">
-              <input type="checkbox" id="log-datos" required>
-              <label for="log-datos">Autorizo el tratamiento de mis datos personales conforme a la <strong>Ley 1581 de 2012</strong> y la <a href="#" onclick="return false">Política de Tratamiento de Datos Personales</a> de L&amp;STO S.A.S. Los datos de ubicación se usan únicamente con fines operativos del servicio.</label>
-            </div>
-            <button type="submit" class="btn btn-primario btn-bloque">Ingresar 🚀</button>
-            <a class="olvido" href="#" onclick="return false">¿Olvidaste tu contraseña?</a>
-          </form>
+          <p class="sub">Acceso de demostración — elige un perfil para explorar</p>
+          <div class="perfiles-demo" role="group" aria-label="Perfiles de demostración">
+            <button type="button" class="btn-perfil" onclick="entrar('torre')">
+              <span class="pf-ico" aria-hidden="true">🚦</span>
+              <span class="pf-txt"><strong>Coordinador de operaciones</strong><small>Torre de Control · flota en vivo</small></span>
+              <span class="pf-fl" aria-hidden="true">→</span>
+            </button>
+            <button type="button" class="btn-perfil" onclick="entrar('conductor')">
+              <span class="pf-ico" aria-hidden="true">🚐</span>
+              <span class="pf-txt"><strong>Conductor</strong><small>Mi servicio del día · firma y novedades</small></span>
+              <span class="pf-fl" aria-hidden="true">→</span>
+            </button>
+            <button type="button" class="btn-perfil" onclick="entrar('torre')">
+              <span class="pf-ico" aria-hidden="true">🎬</span>
+              <span class="pf-txt"><strong>Cliente / Productora (B2B)</strong><small>Seguimiento de servicios en Torre de Control</small></span>
+              <span class="pf-fl" aria-hidden="true">→</span>
+            </button>
+            <button type="button" class="btn-perfil" onclick="entrar('admin')">
+              <span class="pf-ico" aria-hidden="true">⚙️</span>
+              <span class="pf-txt"><strong>Administrador</strong><small>Administración · parámetros y seguridad</small></span>
+              <span class="pf-fl" aria-hidden="true">→</span>
+            </button>
+          </div>
+          <div class="consentimiento">
+            <span aria-hidden="true">🔒</span>
+            <span>Los datos personales se tratan conforme a la <strong>Ley 1581 de 2012</strong> y la <a href="#" onclick="return false">Política de Tratamiento de Datos Personales</a> de L&amp;STO S.A.S. Los datos de ubicación se usan únicamente con fines operativos del servicio.</span>
+          </div>
+          <p class="pista" style="text-align:center">En producción: inicio de sesión seguro con Amazon Cognito + MFA.</p>
           <div class="wl-nota">
-            <span class="chip-wl">White-label</span>
-            <span>Logo, colores y textos configurables desde el panel de administración.</span>
+            <span class="chip-wl">Personalización de marca</span>
+            <span>Logo, colores y textos personalizables por compañía desde el panel de administración.</span>
           </div>
         </div>
       </section>
@@ -1195,7 +1223,7 @@ body[data-device="movil"] .catalogo-fila{grid-template-columns:1fr auto}
             <button type="button" role="tab" id="tab-usuarios" aria-selected="true" aria-controls="ap-usuarios" onclick="adminTab('usuarios')">👥 Usuarios y roles</button>
             <button type="button" role="tab" id="tab-permisos" aria-selected="false" aria-controls="ap-permisos" onclick="adminTab('permisos')">🔐 Matriz de permisos</button>
             <button type="button" role="tab" id="tab-catalogos" aria-selected="false" aria-controls="ap-catalogos" onclick="adminTab('catalogos')">🗂️ Catálogos</button>
-            <button type="button" role="tab" id="tab-marca" aria-selected="false" aria-controls="ap-marca" onclick="adminTab('marca')">🎨 White-label</button>
+            <button type="button" role="tab" id="tab-marca" aria-selected="false" aria-controls="ap-marca" onclick="adminTab('marca')">🎨 Personalización de marca</button>
             <button type="button" role="tab" id="tab-auditoria" aria-selected="false" aria-controls="ap-auditoria" onclick="adminTab('auditoria')">🧾 Auditoría</button>
           </div>
 
@@ -1291,9 +1319,9 @@ body[data-device="movil"] .catalogo-fila{grid-template-columns:1fr auto}
             <div class="catalogo-fila"><span class="cf-nom">Rango 3 — mora</span><span class="cf-val">+90 días</span><button type="button" class="btn btn-fantasma btn-mini" onclick="toast('Editar rango de cartera')">Editar</button></div>
           </div>
 
-          <!-- White-label -->
+          <!-- personalización de marca -->
           <div class="admin-panel" id="ap-marca" role="tabpanel" aria-labelledby="tab-marca" hidden>
-            <h3 class="h-seccion" style="margin-top:0"><span class="pin" aria-hidden="true"></span>Marca del tenant (white-label)</h3>
+            <h3 class="h-seccion" style="margin-top:0"><span class="pin" aria-hidden="true"></span>Personalización de marca por compañía</h3>
             <div class="wl-grid">
               <div>
                 <div class="campo">
@@ -1400,7 +1428,16 @@ function irA(id){
   window.scrollTo({top:0});
   if (id==='conductor') requestAnimationFrame(ajustarFirma);
 }
-function entrar(ev){ ev.preventDefault(); irA('torre'); toast('¡Bienvenido! Sesión iniciada como Coordinación Operativa 🚦'); }
+const BIENVENIDA = {
+  torre:'Acceso de demostración iniciado 🚦',
+  conductor:'Acceso de demostración iniciado como Conductor 🚐',
+  admin:'Acceso de demostración iniciado como Administrador ⚙️'
+};
+function entrar(destino){
+  const id = destino || 'torre';
+  irA(id);
+  toast(BIENVENIDA[id] || 'Acceso de demostración iniciado 🚀');
+}
 
 /* ══════════ Reportes — selección de frente ══════════ */
 const FRENTES = {
@@ -1427,7 +1464,7 @@ function adminTab(clave){
     if (panel) panel.hidden = !activo;
   });
 }
-/* ══════════ White-label — color del tenant (solo vista previa) ══════════ */
+/* ══════════ personalización de marca — color del tenant (solo vista previa) ══════════ */
 function wlColor(btn, color){
   document.querySelectorAll('.wl-color').forEach(b=>b.setAttribute('aria-pressed','false'));
   btn.setAttribute('aria-pressed','true');

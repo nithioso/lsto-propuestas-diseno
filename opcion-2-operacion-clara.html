@@ -225,6 +225,16 @@ body.modo-movil #pantalla-login.activa{min-height:100%;padding:var(--s4)}
 .aviso-legal strong{color:var(--texto-sec)}
 .marca-blanca{text-align:center;margin-top:var(--s4);font-size:11px;color:var(--texto-ter)}
 .enlace-olvido{display:block;text-align:center;font-size:12px;font-weight:600;margin-top:var(--s3)}
+.acceso-demo-intro{text-align:center;font-size:12.5px;font-weight:600;color:var(--texto-sec);margin-bottom:var(--s4)}
+.perfiles-demo{display:grid;gap:var(--s2)}
+.perfil-demo{justify-content:flex-start;text-align:left;gap:var(--s3);padding:12px 14px}
+.perfil-demo .pd-ic{font-size:20px;flex:none;line-height:1}
+.perfil-demo .pd-txt{display:flex;flex-direction:column;gap:1px;min-width:0}
+.perfil-demo .pd-txt strong{font-size:13.5px;font-weight:700}
+.perfil-demo .pd-txt small{font-size:11px;font-weight:500;opacity:.85}
+.btn-secundario.perfil-demo .pd-txt small{color:var(--texto-ter)}
+.btn-primario.perfil-demo .pd-txt small{color:#F3B6C0}
+.acceso-demo-prod{text-align:center;font-size:11px;color:var(--texto-ter);margin-top:var(--s4);line-height:1.5}
 
 /* ---------- Torre de Control ---------- */
 .mapa-caja{position:relative}
@@ -369,7 +379,7 @@ body.modo-movil .nav-movil::-webkit-scrollbar{display:none}
 .leyenda-perm{display:flex;gap:var(--s4);flex-wrap:wrap;padding:var(--s3) var(--s4);font-size:11.5px;color:var(--texto-sec)}
 .leyenda-perm span{display:inline-flex;align-items:center;gap:6px}
 
-/* ---------- White-label ---------- */
+/* ---------- personalización de marca ---------- */
 .wl-rejilla{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
 @media(max-width:960px){.wl-rejilla{grid-template-columns:1fr}}
 body.modo-movil .wl-rejilla{grid-template-columns:1fr}
@@ -437,27 +447,30 @@ body.modo-movil .wl-rejilla{grid-template-columns:1fr}
           <img class="logo-login" id="logo-login" alt="L&amp;STO — Logística, Servicios técnicos, Transporte y Operaciones" src="">
           <p class="tagline">Logística · Servicios técnicos · Transporte y Operaciones</p>
           <h1>Plataforma de operación logística</h1>
-          <form onsubmit="event.preventDefault();irA('torre')">
-            <div class="campo">
-              <label for="correo">Correo corporativo</label>
-              <input id="correo" type="email" autocomplete="username" placeholder="nombre@l-sto.com" required>
-            </div>
-            <div class="campo">
-              <label for="clave">Contraseña</label>
-              <input id="clave" type="password" autocomplete="current-password" placeholder="••••••••" required>
-              <p class="ayuda">MFA obligatoria para perfiles administrativos.</p>
-            </div>
-            <label class="login-check">
-              <input type="checkbox" required>
-              <span>He leído y acepto la <a href="#politica" onclick="event.preventDefault()">Política de Tratamiento de Datos Personales</a> de L&amp;STO S.A.S.</span>
-            </label>
-            <button class="btn btn-primario btn-bloque" type="submit">Ingresar a la plataforma</button>
-            <a class="enlace-olvido" href="#recuperar" onclick="event.preventDefault()">¿Olvidó su contraseña?</a>
-          </form>
+          <p class="acceso-demo-intro">Acceso de demostración — elige un perfil para explorar</p>
+          <div class="perfiles-demo" role="group" aria-label="Perfiles de demostración">
+            <button class="btn btn-primario btn-bloque perfil-demo" type="button" onclick="irA('torre')">
+              <span class="pd-ic" aria-hidden="true">🗼</span>
+              <span class="pd-txt"><strong>Coordinador de operaciones</strong><small>Entra a la Torre de Control</small></span>
+            </button>
+            <button class="btn btn-secundario btn-bloque perfil-demo" type="button" onclick="irA('conductor')">
+              <span class="pd-ic" aria-hidden="true">🚐</span>
+              <span class="pd-txt"><strong>Conductor</strong><small>Entra al flujo del conductor</small></span>
+            </button>
+            <button class="btn btn-secundario btn-bloque perfil-demo" type="button" onclick="irA('torre')">
+              <span class="pd-ic" aria-hidden="true">🎬</span>
+              <span class="pd-txt"><strong>Cliente / Productora (B2B)</strong><small>Torre de Control · vista de seguimiento</small></span>
+            </button>
+            <button class="btn btn-secundario btn-bloque perfil-demo" type="button" onclick="irA('admin')">
+              <span class="pd-ic" aria-hidden="true">⚙️</span>
+              <span class="pd-txt"><strong>Administrador</strong><small>Entra a Administración y seguridad</small></span>
+            </button>
+          </div>
+          <p class="acceso-demo-prod">En producción: inicio de sesión seguro con Amazon Cognito + MFA.</p>
           <div class="aviso-legal">
             <strong>Aviso de privacidad — Ley 1581 de 2012:</strong> L&amp;STO S.A.S. (NIT 900.841.144-5), como responsable del tratamiento, recolecta datos personales para la gestión logística, documental y contractual. Usted puede ejercer sus derechos de consulta, actualización y supresión escribiendo a <a href="#habeas" onclick="event.preventDefault()">info@l-sto.com</a>.
           </div>
-          <p class="marca-blanca">Marca, colores y textos configurables desde el panel white-label · v2.4.0</p>
+          <p class="marca-blanca">Logo, colores y textos personalizables por compañía · v2.4.0</p>
         </div>
       </section>
 
@@ -1217,7 +1230,7 @@ body.modo-movil .wl-rejilla{grid-template-columns:1fr}
               <a href="#" aria-current="true" onclick="event.preventDefault()">👥 Usuarios y roles</a>
               <a href="#" onclick="event.preventDefault()">🔐 Matriz de permisos</a>
               <a href="#" onclick="event.preventDefault()">🗃️ Catálogos parametrizables</a>
-              <a href="#" onclick="event.preventDefault()">🎨 White-label</a>
+              <a href="#" onclick="event.preventDefault()">🎨 Personalización de marca</a>
               <a href="#" onclick="event.preventDefault()">📜 Log de auditoría</a>
             </nav>
             <main class="contenido">
@@ -1229,7 +1242,7 @@ body.modo-movil .wl-rejilla{grid-template-columns:1fr}
               <div class="titulo-pagina">
                 <div>
                   <h1>Parámetros y seguridad</h1>
-                  <p>Usuarios, roles RBAC (denegar por defecto), catálogos, white-label y auditoría (RF-PS)</p>
+                  <p>Usuarios, roles RBAC (denegar por defecto), catálogos, identidad de marca por compañía y auditoría (RF-PS)</p>
                 </div>
                 <span class="badge-tenant" title="Aislamiento multi-tenant">Tenant: L&amp;STO Producciones</span>
               </div>
@@ -1406,9 +1419,9 @@ body.modo-movil .wl-rejilla{grid-template-columns:1fr}
                   </div>
                 </div>
 
-                <!-- Panel white-label -->
+                <!-- Panel personalización de marca -->
                 <div class="tarjeta">
-                  <div class="cab"><h3>White-label del tenant</h3><span class="badge badge-info">Vista previa en vivo</span></div>
+                  <div class="cab"><h3>Personalización de marca por compañía</h3><span class="badge badge-info">Vista previa en vivo</span></div>
                   <div class="rel">
                     <div class="wl-rejilla">
                       <div>
@@ -1431,7 +1444,7 @@ body.modo-movil .wl-rejilla{grid-template-columns:1fr}
                       </div>
                       <div>
                         <p class="ayuda" style="margin-bottom:6px">Vista previa</p>
-                        <div class="wl-preview" aria-label="Vista previa del tema white-label">
+                        <div class="wl-preview" aria-label="Vista previa de la personalización de marca por compañía">
                           <div class="wl-top" id="wl-top" style="background:#C8102E">
                             <span class="wl-logo" id="wl-logo">L&amp;STO</span>
                             <span style="font-size:12px;font-weight:600">Plataforma de operación</span>
@@ -1676,7 +1689,7 @@ function cotizar(){
 }
 cotizar();
 
-/* ===== White-label (vista previa en vivo) ===== */
+/* ===== personalización de marca (vista previa en vivo) ===== */
 function wlColor(btn, color){
   document.querySelectorAll('.wl-swatch').forEach(function(b){ b.setAttribute('aria-pressed','false'); });
   btn.setAttribute('aria-pressed','true');
