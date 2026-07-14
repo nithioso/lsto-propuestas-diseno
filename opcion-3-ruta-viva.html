@@ -102,9 +102,9 @@ input,select,textarea{font:inherit;color:inherit}
 .stage{padding:76px var(--s4) var(--s6);display:flex;justify-content:center}
 .shell{width:100%;max-width:1240px;transition:max-width .3s ease}
 .app{
-  background:var(--blanco);border-radius:var(--r-lg);overflow-y:auto;overflow-x:hidden;
+  background:var(--blanco);border-radius:var(--r-lg);overflow:visible;
   box-shadow:var(--sombra-2);display:flex;flex-direction:column;
-  height:calc(100vh - 130px);position:relative;-webkit-overflow-scrolling:touch;
+  min-height:calc(100vh - 130px);position:relative;
 }
 /* --- modo móvil: marco de teléfono --- */
 body[data-device="movil"] .stage{padding-top:84px}
@@ -127,12 +127,12 @@ body[data-device="movil"] .app::-webkit-scrollbar{display:none}
    Barra superior de la app + navegación
    ============================================================ */
 .appbar{
-  position:sticky;top:0;z-index:20;
+  position:sticky;top:60px;z-index:20;
   background:var(--grad-marca);color:#fff;
   display:flex;align-items:center;gap:var(--s4);
   padding:var(--s3) var(--s5);
 }
-body[data-device="movil"] .appbar{padding:var(--s6) var(--s4) var(--s3)}
+body[data-device="movil"] .appbar{padding:var(--s6) var(--s4) var(--s3);top:0}
 .logo-pill{background:#fff;border-radius:14px;padding:6px 10px;flex:0 0 auto;box-shadow:0 2px 6px rgba(0,0,0,.18)}
 .logo-pill img{height:26px;width:auto}
 .appbar-titulo{font-size:1rem;font-weight:800;letter-spacing:.01em;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
