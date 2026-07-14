@@ -102,9 +102,9 @@ input,select,textarea{font:inherit;color:inherit}
 .stage{padding:76px var(--s4) var(--s6);display:flex;justify-content:center}
 .shell{width:100%;max-width:1240px;transition:max-width .3s ease}
 .app{
-  background:var(--blanco);border-radius:var(--r-lg);overflow:hidden;
+  background:var(--blanco);border-radius:var(--r-lg);overflow-y:auto;overflow-x:hidden;
   box-shadow:var(--sombra-2);display:flex;flex-direction:column;
-  min-height:calc(100vh - 130px);position:relative;
+  height:calc(100vh - 130px);position:relative;-webkit-overflow-scrolling:touch;
 }
 /* --- modo móvil: marco de teléfono --- */
 body[data-device="movil"] .stage{padding-top:84px}
@@ -531,7 +531,7 @@ body[data-device="movil"] .rep-filtros{grid-template-columns:1fr}
 .matriz tbody th{text-align:left;background:var(--rosa-niebla);font-weight:800;white-space:nowrap}
 .perm{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:8px;font-size:.85rem;font-weight:900}
 .perm.si{background:var(--verde-fondo);color:var(--verde-tinta)}
-.perm.no{background:#F1F1F1;color:#9A9A9A}
+.perm.no{background:#F1F1F1;color:#6A6A6A}
 .deny-nota{font-size:.72rem;color:var(--tinta-suave);margin-top:8px;display:flex;align-items:center;gap:6px}
 /* personalización de marca */
 .wl-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
@@ -1219,12 +1219,12 @@ body[data-device="movil"] .catalogo-fila{grid-template-columns:1fr auto}
           <h2 class="h-pantalla" id="t-admin">Administración ⚙️</h2>
           <p class="sub-pantalla">Parámetros y Seguridad · usuarios, roles, catálogos, marca y auditoría del tenant</p>
 
-          <div class="admin-tabs" role="tablist" aria-label="Secciones de administración">
-            <button type="button" role="tab" id="tab-usuarios" aria-selected="true" aria-controls="ap-usuarios" onclick="adminTab('usuarios')">👥 Usuarios y roles</button>
-            <button type="button" role="tab" id="tab-permisos" aria-selected="false" aria-controls="ap-permisos" onclick="adminTab('permisos')">🔐 Matriz de permisos</button>
-            <button type="button" role="tab" id="tab-catalogos" aria-selected="false" aria-controls="ap-catalogos" onclick="adminTab('catalogos')">🗂️ Catálogos</button>
-            <button type="button" role="tab" id="tab-marca" aria-selected="false" aria-controls="ap-marca" onclick="adminTab('marca')">🎨 Personalización de marca</button>
-            <button type="button" role="tab" id="tab-auditoria" aria-selected="false" aria-controls="ap-auditoria" onclick="adminTab('auditoria')">🧾 Auditoría</button>
+          <div class="admin-tabs" role="tablist" aria-label="Secciones de administración" onkeydown="adminTabTeclado(event)">
+            <button type="button" role="tab" id="tab-usuarios" aria-selected="true" tabindex="0" aria-controls="ap-usuarios" onclick="adminTab('usuarios')">👥 Usuarios y roles</button>
+            <button type="button" role="tab" id="tab-permisos" aria-selected="false" tabindex="-1" aria-controls="ap-permisos" onclick="adminTab('permisos')">🔐 Matriz de permisos</button>
+            <button type="button" role="tab" id="tab-catalogos" aria-selected="false" tabindex="-1" aria-controls="ap-catalogos" onclick="adminTab('catalogos')">🗂️ Catálogos</button>
+            <button type="button" role="tab" id="tab-marca" aria-selected="false" tabindex="-1" aria-controls="ap-marca" onclick="adminTab('marca')">🎨 Personalización de marca</button>
+            <button type="button" role="tab" id="tab-auditoria" aria-selected="false" tabindex="-1" aria-controls="ap-auditoria" onclick="adminTab('auditoria')">🧾 Auditoría</button>
           </div>
 
           <!-- Usuarios y roles -->
@@ -1454,15 +1454,36 @@ function verFrente(btn, clave){
 }
 
 /* ══════════ Administración — pestañas ══════════ */
+const ADMIN_TABS = ['usuarios','permisos','catalogos','marca','auditoria'];
 function adminTab(clave){
-  const tabs = ['usuarios','permisos','catalogos','marca','auditoria'];
-  tabs.forEach(k=>{
+  ADMIN_TABS.forEach(k=>{
     const tab = document.getElementById('tab-'+k);
     const panel = document.getElementById('ap-'+k);
     const activo = (k===clave);
-    if (tab) tab.setAttribute('aria-selected', activo);
+    if (tab){
+      tab.setAttribute('aria-selected', activo);
+      tab.setAttribute('tabindex', activo ? '0' : '-1'); /* roving tabindex (patrón WAI-ARIA tabs) */
+    }
     if (panel) panel.hidden = !activo;
   });
+}
+/* Navegación con teclado del tablist: flechas izquierda/derecha + Home/End */
+function adminTabTeclado(ev){
+  const actual = ADMIN_TABS.indexOf((document.activeElement && document.activeElement.id || '').replace('tab-',''));
+  if (actual < 0) return;
+  let destino = null;
+  switch(ev.key){
+    case 'ArrowRight': destino = (actual + 1) % ADMIN_TABS.length; break;
+    case 'ArrowLeft':  destino = (actual - 1 + ADMIN_TABS.length) % ADMIN_TABS.length; break;
+    case 'Home':       destino = 0; break;
+    case 'End':        destino = ADMIN_TABS.length - 1; break;
+    default: return;
+  }
+  ev.preventDefault();
+  const clave = ADMIN_TABS[destino];
+  adminTab(clave);
+  const btn = document.getElementById('tab-'+clave);
+  if (btn) btn.focus();
 }
 /* ══════════ personalización de marca — color del tenant (solo vista previa) ══════════ */
 function wlColor(btn, color){

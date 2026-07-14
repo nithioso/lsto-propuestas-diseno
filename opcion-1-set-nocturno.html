@@ -53,6 +53,8 @@ button{font-family:inherit;cursor:pointer}
 
 .skip-link{position:absolute;left:-9999px;top:0;background:var(--carmesi);color:#fff;padding:var(--s-3) var(--s-4);z-index:200;border-radius:0 0 var(--r-s) 0;font-weight:700}
 .skip-link:focus{left:0}
+/* Oculto visualmente, disponible para lectores de pantalla (WCAG 1.1.1 / 1.4.1) */
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* ===== Barra fija de la propuesta ===== */
 .demo-bar{
@@ -110,11 +112,13 @@ button{font-family:inherit;cursor:pointer}
 .bottomnav{
   display:flex;border-top:1px solid var(--linea);background:#101013;
   position:sticky;bottom:0;z-index:5;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
 }
+.bottomnav::-webkit-scrollbar{display:none}
 .bottomnav button{
-  flex:1;background:transparent;border:0;color:var(--arena);
-  padding:var(--s-2) var(--s-1) calc(var(--s-2) + 2px);
-  display:flex;flex-direction:column;align-items:center;gap:2px;
+  flex:1 0 auto;min-width:56px;min-height:52px;background:transparent;border:0;color:var(--arena);
+  padding:var(--s-2) var(--s-2) calc(var(--s-2) + 2px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
   font-size:10.5px;font-weight:600;transition:var(--transicion);
   border-top:3px solid transparent;
 }
@@ -370,7 +374,7 @@ hr.sep{border:0;border-top:1px solid var(--linea);margin:var(--s-4) 0}
 .perm-cell{text-align:center}
 .perm{display:inline-flex;width:22px;height:22px;border-radius:6px;align-items:center;justify-content:center;font-size:12px;font-weight:800}
 .perm--allow{color:var(--verde);background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.35)}
-.perm--deny{color:#8E887C;background:rgba(255,255,255,.04);border:1px solid var(--linea)}
+.perm--deny{color:#B9B2A6;background:rgba(255,255,255,.04);border:1px solid var(--linea)}
 .perm--read{color:var(--ambar);background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.35)}
 .cat-chips{display:flex;flex-wrap:wrap;gap:var(--s-2)}
 .cat-chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--linea);border-radius:999px;padding:6px 6px 6px 12px;font-size:13px;background:#101013}
@@ -1224,11 +1228,11 @@ footer.demo-foot{max-width:1440px;margin:0 auto;padding:var(--s-4) var(--s-6) va
           </div>
 
           <div class="tabs" role="tablist" aria-label="Secciones de administración">
-            <button type="button" class="tab" role="tab" id="tab-usuarios" aria-selected="true" aria-controls="tp-usuarios" onclick="adminTab('usuarios')">Usuarios y roles</button>
-            <button type="button" class="tab" role="tab" id="tab-permisos" aria-selected="false" aria-controls="tp-permisos" onclick="adminTab('permisos')">Matriz de permisos</button>
-            <button type="button" class="tab" role="tab" id="tab-catalogos" aria-selected="false" aria-controls="tp-catalogos" onclick="adminTab('catalogos')">Catálogos</button>
-            <button type="button" class="tab" role="tab" id="tab-wl" aria-selected="false" aria-controls="tp-wl" onclick="adminTab('wl')">Personalización de marca</button>
-            <button type="button" class="tab" role="tab" id="tab-log" aria-selected="false" aria-controls="tp-log" onclick="adminTab('log')">Log de auditoría</button>
+            <button type="button" class="tab" role="tab" id="tab-usuarios" aria-selected="true" tabindex="0" aria-controls="tp-usuarios" onclick="adminTab('usuarios')">Usuarios y roles</button>
+            <button type="button" class="tab" role="tab" id="tab-permisos" aria-selected="false" tabindex="-1" aria-controls="tp-permisos" onclick="adminTab('permisos')">Matriz de permisos</button>
+            <button type="button" class="tab" role="tab" id="tab-catalogos" aria-selected="false" tabindex="-1" aria-controls="tp-catalogos" onclick="adminTab('catalogos')">Catálogos</button>
+            <button type="button" class="tab" role="tab" id="tab-wl" aria-selected="false" tabindex="-1" aria-controls="tp-wl" onclick="adminTab('wl')">Personalización de marca</button>
+            <button type="button" class="tab" role="tab" id="tab-log" aria-selected="false" tabindex="-1" aria-controls="tp-log" onclick="adminTab('log')">Log de auditoría</button>
           </div>
 
           <!-- Usuarios y roles -->
@@ -1275,41 +1279,41 @@ footer.demo-foot{max-width:1440px;margin:0 auto;padding:var(--s-4) var(--s-6) va
                 </thead>
                 <tbody>
                   <tr><th scope="row">Torre de Control</th>
-                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
-                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
-                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura">◐</span></td>
-                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
-                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura">◐</span></td></tr>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total" aria-hidden="true">✓</span><span class="sr-only">Concedido</span></td>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total" aria-hidden="true">✓</span><span class="sr-only">Concedido</span></td>
+                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura" aria-hidden="true">◐</span><span class="sr-only">Parcial (solo lectura)</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado" aria-hidden="true">✕</span><span class="sr-only">Denegado</span></td>
+                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura" aria-hidden="true">◐</span><span class="sr-only">Parcial (solo lectura)</span></td></tr>
                   <tr><th scope="row">Conductor / servicios</th>
-                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
-                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
-                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
-                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
-                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura">◐</span></td></tr>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total" aria-hidden="true">✓</span><span class="sr-only">Concedido</span></td>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total" aria-hidden="true">✓</span><span class="sr-only">Concedido</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado" aria-hidden="true">✕</span><span class="sr-only">Denegado</span></td>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total" aria-hidden="true">✓</span><span class="sr-only">Concedido</span></td>
+                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura" aria-hidden="true">◐</span><span class="sr-only">Parcial (solo lectura)</span></td></tr>
                   <tr><th scope="row">Portal de aliados</th>
-                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
-                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura">◐</span></td>
-                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
-                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
-                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura">◐</span></td></tr>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total" aria-hidden="true">✓</span><span class="sr-only">Concedido</span></td>
+                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura" aria-hidden="true">◐</span><span class="sr-only">Parcial (solo lectura)</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado" aria-hidden="true">✕</span><span class="sr-only">Denegado</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado" aria-hidden="true">✕</span><span class="sr-only">Denegado</span></td>
+                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura" aria-hidden="true">◐</span><span class="sr-only">Parcial (solo lectura)</span></td></tr>
                   <tr><th scope="row">Financiero / cartera</th>
-                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
-                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
-                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
-                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
-                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura">◐</span></td></tr>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total" aria-hidden="true">✓</span><span class="sr-only">Concedido</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado" aria-hidden="true">✕</span><span class="sr-only">Denegado</span></td>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total" aria-hidden="true">✓</span><span class="sr-only">Concedido</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado" aria-hidden="true">✕</span><span class="sr-only">Denegado</span></td>
+                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura" aria-hidden="true">◐</span><span class="sr-only">Parcial (solo lectura)</span></td></tr>
                   <tr><th scope="row">Reportes</th>
-                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
-                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura">◐</span></td>
-                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
-                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
-                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura">◐</span></td></tr>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total" aria-hidden="true">✓</span><span class="sr-only">Concedido</span></td>
+                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura" aria-hidden="true">◐</span><span class="sr-only">Parcial (solo lectura)</span></td>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total" aria-hidden="true">✓</span><span class="sr-only">Concedido</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado" aria-hidden="true">✕</span><span class="sr-only">Denegado</span></td>
+                    <td class="perm-cell"><span class="perm perm--read" title="Solo lectura" aria-hidden="true">◐</span><span class="sr-only">Parcial (solo lectura)</span></td></tr>
                   <tr><th scope="row">Administración</th>
-                    <td class="perm-cell"><span class="perm perm--allow" title="Total">✓</span></td>
-                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
-                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
-                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td>
-                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado">✕</span></td></tr>
+                    <td class="perm-cell"><span class="perm perm--allow" title="Total" aria-hidden="true">✓</span><span class="sr-only">Concedido</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado" aria-hidden="true">✕</span><span class="sr-only">Denegado</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado" aria-hidden="true">✕</span><span class="sr-only">Denegado</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado" aria-hidden="true">✕</span><span class="sr-only">Denegado</span></td>
+                    <td class="perm-cell"><span class="perm perm--deny" title="Denegado" aria-hidden="true">✕</span><span class="sr-only">Denegado</span></td></tr>
                 </tbody>
               </table>
             </div>
@@ -1387,9 +1391,9 @@ footer.demo-foot{max-width:1440px;margin:0 auto;padding:var(--s-4) var(--s-6) va
                   <div class="swatches" role="group" aria-label="Color de acento">
                     <button type="button" class="swatch" style="background:#C8102E" aria-pressed="true" aria-label="Carmesí L&STO" onclick="wlColor(this,'#C8102E')"></button>
                     <button type="button" class="swatch" style="background:#1D4ED8" aria-pressed="false" aria-label="Azul" onclick="wlColor(this,'#1D4ED8')"></button>
-                    <button type="button" class="swatch" style="background:#047857" aria-pressed="false" aria-label="Verde" onclick="wlColor(this,'#047857')"></button>
+                    <button type="button" class="swatch" style="background:#065F46" aria-pressed="false" aria-label="Verde" onclick="wlColor(this,'#065F46')"></button>
                     <button type="button" class="swatch" style="background:#7C3AED" aria-pressed="false" aria-label="Morado" onclick="wlColor(this,'#7C3AED')"></button>
-                    <button type="button" class="swatch" style="background:#B45309" aria-pressed="false" aria-label="Ámbar oscuro" onclick="wlColor(this,'#B45309')"></button>
+                    <button type="button" class="swatch" style="background:#92400E" aria-pressed="false" aria-label="Ámbar oscuro" onclick="wlColor(this,'#92400E')"></button>
                   </div>
                 </div>
                 <div class="field" style="margin-bottom:0">
@@ -1680,16 +1684,38 @@ function repFrente(btn, nombre){
   if (t) t.textContent = nombre;
 }
 
-/* ====== Administración: pestañas accesibles ====== */
-function adminTab(id){
-  ["usuarios","permisos","catalogos","wl","log"].forEach(function(k){
+/* ====== Administración: pestañas accesibles (patrón WAI-ARIA tabs) ====== */
+var ADMIN_TABS = ["usuarios","permisos","catalogos","wl","log"];
+function adminTab(id, enfocar){
+  ADMIN_TABS.forEach(function(k){
     var tab = document.getElementById("tab-" + k);
     var panel = document.getElementById("tp-" + k);
     var activo = (k === id);
-    if (tab) tab.setAttribute("aria-selected", String(activo));
+    if (tab){
+      tab.setAttribute("aria-selected", String(activo));
+      tab.setAttribute("tabindex", activo ? "0" : "-1"); // roving tabindex
+      if (activo && enfocar) tab.focus();
+    }
     if (panel) panel.hidden = !activo;
   });
 }
+/* Navegación por teclado: flechas ←/→ y Home/End */
+(function(){
+  var lista = document.querySelector('.tabs[role="tablist"]');
+  if (!lista) return;
+  lista.addEventListener("keydown", function(e){
+    var i = ADMIN_TABS.indexOf(document.activeElement.id.replace("tab-",""));
+    if (i < 0) return;
+    var n = null;
+    if (e.key === "ArrowRight") n = (i + 1) % ADMIN_TABS.length;
+    else if (e.key === "ArrowLeft") n = (i - 1 + ADMIN_TABS.length) % ADMIN_TABS.length;
+    else if (e.key === "Home") n = 0;
+    else if (e.key === "End") n = ADMIN_TABS.length - 1;
+    if (n === null) return;
+    e.preventDefault();
+    adminTab(ADMIN_TABS[n], true);
+  });
+})();
 
 /* ====== personalización de marca: vista previa en vivo ====== */
 function wlSync(){
