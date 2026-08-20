@@ -4,106 +4,377 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Propuestas de diseño · Plataforma L&amp;STO</title>
+<title>LYSTRAX · Propuesta de interfaz para aprobación</title>
+<meta name="description" content="Prototipo navegable del ecosistema digital LYSTRAX: ocho superficies, siete perfiles, tema claro y oscuro.">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#171515" media="(prefers-color-scheme: dark)">
 <style>
-  :root{
-    --negro:#111214; --carmesi:#C8102E; --carmesi-osc:#9E0C24;
-    --blanco:#ffffff; --gris:#F4F5F7; --gris-linea:#E4E6EB; --texto-sec:#5A616B;
-    --radio:14px; --sombra:0 8px 30px rgba(17,18,20,.10);
-    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+/* ============================================================================
+   LYSTRAX / L&STRAX — Design tokens
+   Fuente: Manual de Identidad Visual v1.0 (agosto de 2026), L&STO GROUP S.A.S.
+   Todos los pares de color de este archivo fueron verificados numéricamente
+   contra WCAG 2.2 (relación de contraste calculada, no estimada).
+   Un solo sistema, dos temas: claro por defecto y oscuro por preferencia o
+   por atributo data-tema="oscuro" / "claro".
+   ============================================================================ */
+
+:root {
+  /* --- Colores oficiales de marca (no alterar) --------------------------- */
+  --lx-negro-grafito: #201E1E;   /* Pantone 419 PC */
+  --lx-rojo-oscuro:   #9F1F27;   /* Pantone 704 C — acento, nunca fondo extenso */
+  --lx-gris-connect:  #A6A6A6;   /* descriptor CONNECT y grafismos decorativos */
+
+  /* --- Tokens del logotipo (los consume el SVG inline) ------------------- */
+  --lx-ink:   var(--lx-negro-grafito);
+  --lx-brand: var(--lx-rojo-oscuro);
+  --lx-muted: var(--lx-gris-connect);
+
+  /* --- Superficies (tema claro) ------------------------------------------ */
+  --lx-fondo:          #FFFFFF;
+  --lx-superficie:     #FFFFFF;
+  --lx-superficie-2:   #F7F5F5;
+  --lx-superficie-3:   #EFECEC;
+  --lx-borde:          #E3DFDF;
+  --lx-borde-fuerte:   #D6D1D1;
+
+  /* --- Texto (tema claro) — contraste verificado sobre --lx-fondo -------- */
+  --lx-texto:          #201E1E;  /* 16.59:1 AA/AAA */
+  --lx-texto-2:        #575353;  /*  7.59:1 AA/AAA */
+  --lx-texto-3:        #6E6A6A;  /*  5.34:1 AA      */
+  --lx-texto-inverso:  #FFFFFF;
+
+  /* --- Acento de acción (tema claro) ------------------------------------- */
+  --lx-accion:            #9F1F27;  /* fondo de botón primario; blanco encima 7.78:1 */
+  --lx-accion-hover:      #86181F;
+  --lx-accion-texto:      #FFFFFF;
+  --lx-accion-sobre-fondo: #9F1F27; /* rojo como TEXTO sobre blanco: 7.78:1 AA */
+  --lx-foco:              #9F1F27;  /* anillo de foco visible, grosor ≥2px */
+
+  /* --- Estados semánticos (tema claro, todos ≥4.5:1 sobre blanco) -------- */
+  --lx-exito:  #1E7A45;  /* 5.35:1 */
+  --lx-alerta: #8A5A00;  /* 5.93:1 */
+  --lx-error:  #9F1F27;  /* 7.78:1 */
+  --lx-info:   #1F5F8B;  /* 6.84:1 */
+
+  /* --- Tipografía ------------------------------------------------------- */
+  --lx-fuente-titulos: "Montserrat", "Poppins", "Segoe UI", system-ui, sans-serif;
+  --lx-fuente-cuerpo:  "Inter", "Montserrat", system-ui, -apple-system, sans-serif;
+  --lx-peso-titulo: 700;
+  --lx-peso-cuerpo: 400;
+
+  /* --- Métricas --------------------------------------------------------- */
+  --lx-radio-sm: 6px;
+  --lx-radio-md: 10px;
+  --lx-radio-lg: 16px;
+  --lx-toque-min: 44px;          /* WCAG 2.2 objetivo táctil */
+  --lx-logo-min-ancho: 160px;    /* manual §4, con descriptor CONNECT */
+  --lx-simbolo-min-ancho: 32px;  /* manual §4, símbolo "&" aislado */
+  --lx-sombra-1: 0 1px 2px rgba(32,30,30,.08), 0 2px 8px rgba(32,30,30,.06);
+  --lx-sombra-2: 0 6px 24px rgba(32,30,30,.12);
+}
+
+/* ============================================================================
+   TEMA OSCURO
+   Extensión del manual documentada en marca-tema-oscuro.md: el manual v1.0 no
+   define versión funcional para fondo oscuro (solo autoriza la premium metálica
+   en piezas institucionales, prohibida en interfaz). El rojo oficial #9F1F27
+   sobre #201E1E rinde 2.13:1 — ilegible. Se conserva el rojo oficial como
+   FONDO de acción (blanco encima 7.78:1) y se define un rojo aclarado
+   #E2606A únicamente para texto, iconos y trazos sobre superficies oscuras
+   (4.83:1 AA). Pendiente de ratificación del titular de la marca.
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) {
+    --lx-ink:   #F4F1F1;
+    --lx-brand: #E2606A;
+    --lx-muted: #B9B4B4;
+
+    --lx-fondo:        #171515;
+    --lx-superficie:   #201E1E;
+    --lx-superficie-2: #2A2727;
+    --lx-superficie-3: #343030;
+    --lx-borde:        #3F3A3A;
+    --lx-borde-fuerte: #4B4545;
+
+    --lx-texto:         #F4F1F1;  /* 14.77:1 sobre #201E1E */
+    --lx-texto-2:       #D3CECE;
+    --lx-texto-3:       #B9B4B4;  /*  8.10:1 sobre #201E1E */
+    --lx-texto-inverso: #171515;
+
+    --lx-accion:             #9F1F27;  /* fondo; blanco encima 7.78:1 */
+    --lx-accion-hover:       #B8262F;
+    --lx-accion-texto:       #FFFFFF;
+    --lx-accion-sobre-fondo: #E2606A;  /* rojo como TEXTO sobre oscuro: 4.83:1 */
+    --lx-foco:               #E2606A;
+
+    --lx-exito:  #4CC38A;  /* 7.49:1 */
+    --lx-alerta: #E8B341;  /* 8.65:1 */
+    --lx-error:  #E2606A;  /* 4.83:1 */
+    --lx-info:   #6FB3E0;  /* 7.27:1 */
+
+    --lx-sombra-1: 0 1px 2px rgba(0,0,0,.5), 0 2px 8px rgba(0,0,0,.35);
+    --lx-sombra-2: 0 6px 24px rgba(0,0,0,.55);
   }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:var(--font);color:var(--negro);background:var(--gris);line-height:1.5;-webkit-font-smoothing:antialiased}
-  a{color:inherit;text-decoration:none}
-  header{background:var(--blanco);border-bottom:1px solid var(--gris-linea)}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-  .top{display:flex;align-items:center;gap:16px;padding:20px 0}
-  .top img{height:46px;width:auto}
-  .top .sep{width:1px;height:34px;background:var(--gris-linea)}
-  .top .t{font-size:13px;color:var(--texto-sec);font-weight:500}
-  .hero{padding:40px 0 24px}
-  .badge{display:inline-block;background:rgba(200,16,46,.10);color:var(--carmesi-osc);font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:16px}
-  h1{font-size:30px;margin:0 0 10px;letter-spacing:-.02em}
-  .lead{font-size:16px;color:var(--texto-sec);max-width:70ch;margin:0}
-  .aviso{margin:22px 0 4px;background:#FFF8E6;border:1px solid #F2E2AD;color:#6b5b17;border-radius:12px;padding:12px 16px;font-size:13.5px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;padding:26px 0 12px}
-  .card{background:var(--blanco);border:1px solid var(--gris-linea);border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra);display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease}
-  .card:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(17,18,20,.16)}
-  .card .band{height:8px}
-  .card .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
-  .card .n{font-size:12px;font-weight:700;color:var(--texto-sec);letter-spacing:.06em;text-transform:uppercase}
-  .card h2{font-size:21px;margin:6px 0 8px}
-  .card p{font-size:14px;color:var(--texto-sec);margin:0 0 18px;flex:1}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--negro);color:var(--blanco);font-weight:600;font-size:14px;padding:12px 16px;border-radius:10px;width:100%}
-  .btn:hover{background:var(--carmesi)}
-  .card .tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px}
-  .tag{font-size:11px;background:var(--gris);border:1px solid var(--gris-linea);color:var(--texto-sec);padding:3px 8px;border-radius:999px}
-  .cover7{font-size:12.5px;color:var(--texto-sec);padding:6px 0 30px}
-  footer{border-top:1px solid var(--gris-linea);background:var(--blanco);margin-top:20px}
-  footer .wrap{padding:22px 20px;font-size:12.5px;color:var(--texto-sec);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-  @media (max-width:520px){h1{font-size:24px}.top img{height:38px}}
+}
+
+:root[data-tema="oscuro"] {
+  --lx-ink: #F4F1F1; --lx-brand: #E2606A; --lx-muted: #B9B4B4;
+  --lx-fondo: #171515; --lx-superficie: #201E1E; --lx-superficie-2: #2A2727;
+  --lx-superficie-3: #343030; --lx-borde: #3F3A3A; --lx-borde-fuerte: #4B4545;
+  --lx-texto: #F4F1F1; --lx-texto-2: #D3CECE; --lx-texto-3: #B9B4B4; --lx-texto-inverso: #171515;
+  --lx-accion: #9F1F27; --lx-accion-hover: #B8262F; --lx-accion-texto: #FFFFFF;
+  --lx-accion-sobre-fondo: #E2606A; --lx-foco: #E2606A;
+  --lx-exito: #4CC38A; --lx-alerta: #E8B341; --lx-error: #E2606A; --lx-info: #6FB3E0;
+  --lx-sombra-1: 0 1px 2px rgba(0,0,0,.5), 0 2px 8px rgba(0,0,0,.35);
+  --lx-sombra-2: 0 6px 24px rgba(0,0,0,.55);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--lx-fondo); color: var(--lx-texto);
+  font-family: var(--lx-fuente-cuerpo); line-height: 1.55;
+  -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent;
+}
+a { color: inherit; }
+.envoltura { max-width: 1060px; margin: 0 auto; padding: 0 20px; }
+header { background: var(--lx-superficie); border-bottom: 1px solid var(--lx-borde); }
+.barra { display: flex; align-items: center; gap: 16px; padding: 18px 0; flex-wrap: wrap; }
+.barra svg { width: 190px; height: auto; display: block; }
+.barra .div { width: 1px; height: 32px; background: var(--lx-borde); }
+.barra .rot {
+  font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--lx-texto-3); font-weight: 600;
+}
+.tema {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 8px;
+  min-height: 44px; padding: 0 16px; border-radius: 999px; cursor: pointer;
+  background: var(--lx-superficie-2); border: 1px solid var(--lx-borde-fuerte);
+  color: var(--lx-texto); font: inherit; font-size: 13.5px; font-weight: 600;
+}
+.tema:hover { background: var(--lx-superficie-3); }
+.tema:focus-visible { outline: 3px solid var(--lx-foco); outline-offset: 2px; }
+main { padding: 40px 0 8px; }
+.insignia {
+  display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--lx-accion-sobre-fondo);
+  border: 1px solid var(--lx-accion-sobre-fondo); border-radius: 999px; padding: 5px 12px;
+}
+h1 { font-family: var(--lx-fuente-titulos); font-size: clamp(26px, 4vw, 36px); letter-spacing: -.02em; margin: 16px 0 10px; text-wrap: balance; }
+.entrada { font-size: 16.5px; color: var(--lx-texto-2); max-width: 68ch; margin: 0; }
+.principal {
+  margin: 30px 0 10px; background: var(--lx-superficie); border: 1px solid var(--lx-borde);
+  border-left: 4px solid var(--lx-accion); border-radius: var(--lx-radio-lg);
+  padding: 26px; box-shadow: var(--lx-sombra-2);
+}
+.principal h2 { font-family: var(--lx-fuente-titulos); font-size: 22px; margin: 0 0 8px; }
+.principal p { color: var(--lx-texto-2); margin: 0 0 18px; max-width: 66ch; }
+.boton {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 48px; padding: 0 24px; border-radius: var(--lx-radio-md);
+  background: var(--lx-accion); color: var(--lx-accion-texto);
+  font-weight: 700; font-size: 15px; text-decoration: none;
+}
+.boton:hover { background: var(--lx-accion-hover); }
+.boton:focus-visible { outline: 3px solid var(--lx-foco); outline-offset: 3px; }
+.lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px 24px; margin: 22px 0 0; padding: 0; list-style: none; }
+.lista li { font-size: 14px; color: var(--lx-texto-2); padding-left: 20px; position: relative; }
+.lista li::before { content: ""; position: absolute; left: 0; top: .55em; width: 9px; height: 2px; background: var(--lx-accion); }
+h3 { font-family: var(--lx-fuente-titulos); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--lx-texto-3); margin: 40px 0 14px; }
+.rejilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.tarjeta { background: var(--lx-superficie); border: 1px solid var(--lx-borde); border-radius: var(--lx-radio-md); padding: 18px; }
+.tarjeta h4 { font-family: var(--lx-fuente-titulos); font-size: 16px; margin: 0 0 6px; }
+.tarjeta p { font-size: 13.5px; color: var(--lx-texto-3); margin: 0 0 14px; }
+.tarjeta a { font-size: 13.5px; font-weight: 600; color: var(--lx-accion-sobre-fondo); text-decoration: none; }
+.tarjeta a:hover { text-decoration: underline; }
+.tarjeta a:focus-visible { outline: 2px solid var(--lx-foco); outline-offset: 3px; }
+.marca-historica { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--lx-texto-3); }
+footer { margin-top: 44px; border-top: 1px solid var(--lx-borde); background: var(--lx-superficie); }
+footer .envoltura { padding: 22px 20px; font-size: 12.5px; color: var(--lx-texto-3); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+footer svg { width: 26px; height: auto; vertical-align: middle; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 </style>
 </head>
 <body>
-  <header>
-    <div class="wrap top">
-      <img src="logo-lsto.png" alt="Logo L&amp;STO">
-      <div class="sep"></div>
-      <div class="t">Plataforma logística · Propuestas de diseño para aprobación</div>
+<header>
+  <div class="envoltura barra">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="82 452 462 116" role="img" aria-label="L&STRAX CONNECT">
+<title>L&STRAX CONNECT</title>
+<desc>Logotipo funcional L&STRAX con descriptor CONNECT. Colores por variables CSS: --lx-ink, --lx-brand, --lx-muted.</desc>
+<defs>
+<g>
+<g id="glyph-0-0">
+<path d="M 10.890625 -1.921875 C 10.890625 -1.8125 10.890625 -1.71875 10.875 -1.640625 C 10.875 -1.546875 10.875 -1.46875 10.859375 -1.421875 C 10.828125 -1.359375 10.8125 -1.296875 10.78125 -1.25 C 10.75 -1.1875 10.703125 -1.140625 10.640625 -1.0625 C 10.546875 -0.984375 10.421875 -0.875 10.1875 -0.75 C 9.96875 -0.609375 9.6875 -0.453125 9.34375 -0.328125 C 9.015625 -0.1875 8.640625 -0.0625 8.203125 0.015625 C 7.765625 0.125 7.296875 0.171875 6.796875 0.171875 C 5.90625 0.171875 5.109375 0.015625 4.390625 -0.28125 C 3.6875 -0.5625 3.078125 -1.015625 2.578125 -1.578125 C 2.09375 -2.15625 1.703125 -2.859375 1.421875 -3.703125 C 1.15625 -4.546875 1.015625 -5.53125 1.015625 -6.625 C 1.015625 -7.75 1.15625 -8.765625 1.46875 -9.640625 C 1.75 -10.53125 2.15625 -11.28125 2.6875 -11.890625 C 3.203125 -12.515625 3.828125 -12.96875 4.5625 -13.28125 C 5.296875 -13.609375 6.109375 -13.78125 7 -13.78125 C 7.40625 -13.78125 7.765625 -13.734375 8.15625 -13.671875 C 8.53125 -13.59375 8.875 -13.5 9.171875 -13.390625 C 9.5 -13.265625 9.78125 -13.140625 10.015625 -13 C 10.265625 -12.859375 10.4375 -12.71875 10.53125 -12.640625 C 10.609375 -12.53125 10.671875 -12.46875 10.71875 -12.421875 C 10.75 -12.359375 10.765625 -12.3125 10.78125 -12.25 C 10.8125 -12.1875 10.8125 -12.09375 10.828125 -12.015625 C 10.828125 -11.90625 10.859375 -11.796875 10.859375 -11.6875 C 10.859375 -11.546875 10.828125 -11.4375 10.828125 -11.328125 C 10.8125 -11.21875 10.78125 -11.15625 10.765625 -11.0625 C 10.71875 -11 10.703125 -10.953125 10.65625 -10.9375 C 10.609375 -10.890625 10.578125 -10.875 10.5 -10.875 C 10.421875 -10.875 10.265625 -10.953125 10.09375 -11.09375 C 9.921875 -11.21875 9.703125 -11.375 9.4375 -11.546875 C 9.15625 -11.71875 8.8125 -11.859375 8.421875 -12 C 8.03125 -12.125 7.5625 -12.1875 7 -12.1875 C 6.390625 -12.1875 5.828125 -12.078125 5.34375 -11.84375 C 4.84375 -11.578125 4.4375 -11.234375 4.09375 -10.765625 C 3.71875 -10.296875 3.46875 -9.734375 3.265625 -9.046875 C 3.078125 -8.375 2.96875 -7.59375 2.96875 -6.734375 C 2.96875 -5.875 3.078125 -5.109375 3.25 -4.4375 C 3.4375 -3.796875 3.703125 -3.234375 4.046875 -2.78125 C 4.390625 -2.34375 4.828125 -2 5.34375 -1.765625 C 5.828125 -1.546875 6.421875 -1.421875 7.046875 -1.421875 C 7.578125 -1.421875 8.046875 -1.5 8.46875 -1.640625 C 8.875 -1.765625 9.21875 -1.921875 9.5 -2.09375 C 9.78125 -2.234375 10.015625 -2.390625 10.1875 -2.515625 C 10.375 -2.640625 10.5 -2.734375 10.609375 -2.734375 C 10.671875 -2.734375 10.703125 -2.71875 10.75 -2.6875 C 10.78125 -2.671875 10.8125 -2.625 10.828125 -2.5625 C 10.859375 -2.515625 10.875 -2.4375 10.875 -2.328125 C 10.890625 -2.21875 10.890625 -2.09375 10.890625 -1.921875 Z M 10.890625 -1.921875 "/>
+</g>
+<g id="glyph-0-1">
+<path d="M 13.203125 -6.953125 C 13.203125 -5.859375 13.0625 -4.859375 12.8125 -3.984375 C 12.546875 -3.09375 12.171875 -2.34375 11.65625 -1.71875 C 11.125 -1.125 10.484375 -0.625 9.703125 -0.296875 C 8.9375 0.046875 8.03125 0.1875 7 0.1875 C 5.96875 0.1875 5.078125 0.046875 4.34375 -0.265625 C 3.59375 -0.5625 2.96875 -1.015625 2.5 -1.59375 C 2 -2.171875 1.640625 -2.890625 1.40625 -3.75 C 1.15625 -4.609375 1.03125 -5.625 1.03125 -6.734375 C 1.03125 -7.796875 1.15625 -8.78125 1.421875 -9.640625 C 1.703125 -10.53125 2.09375 -11.28125 2.609375 -11.890625 C 3.125 -12.515625 3.765625 -12.984375 4.546875 -13.3125 C 5.3125 -13.625 6.21875 -13.796875 7.25 -13.796875 C 8.265625 -13.796875 9.15625 -13.65625 9.890625 -13.34375 C 10.640625 -13.046875 11.234375 -12.625 11.734375 -12.03125 C 12.234375 -11.453125 12.59375 -10.75 12.859375 -9.890625 C 13.09375 -9.046875 13.203125 -8.046875 13.203125 -6.953125 Z M 11.296875 -6.828125 C 11.296875 -7.59375 11.234375 -8.328125 11.09375 -8.984375 C 10.953125 -9.640625 10.75 -10.234375 10.421875 -10.703125 C 10.09375 -11.203125 9.671875 -11.578125 9.125 -11.84375 C 8.609375 -12.125 7.9375 -12.25 7.171875 -12.25 C 6.375 -12.25 5.734375 -12.125 5.1875 -11.828125 C 4.65625 -11.515625 4.21875 -11.125 3.890625 -10.640625 C 3.546875 -10.140625 3.3125 -9.578125 3.171875 -8.90625 C 3.03125 -8.265625 2.953125 -7.578125 2.953125 -6.84375 C 2.953125 -6.046875 3.015625 -5.3125 3.171875 -4.65625 C 3.296875 -3.984375 3.515625 -3.40625 3.828125 -2.90625 C 4.140625 -2.40625 4.5625 -2.046875 5.109375 -1.765625 C 5.625 -1.5 6.28125 -1.375 7.078125 -1.375 C 7.875 -1.375 8.546875 -1.5 9.09375 -1.8125 C 9.625 -2.109375 10.0625 -2.5 10.40625 -3 C 10.71875 -3.515625 10.953125 -4.09375 11.09375 -4.734375 C 11.234375 -5.40625 11.296875 -6.09375 11.296875 -6.828125 Z M 11.296875 -6.828125 "/>
+</g>
+<g id="glyph-0-2">
+<path d="M 12.09375 -0.75 C 12.09375 -0.609375 12.078125 -0.5 12.015625 -0.390625 C 11.96875 -0.296875 11.921875 -0.21875 11.84375 -0.15625 C 11.78125 -0.09375 11.6875 -0.046875 11.609375 -0.015625 C 11.5 0.015625 11.40625 0.046875 11.328125 0.046875 L 10.75 0.046875 C 10.578125 0.046875 10.40625 0.015625 10.265625 -0.015625 C 10.140625 -0.0625 10.015625 -0.125 9.890625 -0.234375 C 9.75 -0.34375 9.625 -0.46875 9.515625 -0.640625 C 9.390625 -0.8125 9.265625 -1.0625 9.109375 -1.328125 L 4.828125 -9.0625 C 4.59375 -9.46875 4.375 -9.890625 4.140625 -10.3125 C 3.921875 -10.765625 3.703125 -11.171875 3.515625 -11.609375 L 3.484375 -11.609375 C 3.484375 -11.09375 3.515625 -10.578125 3.515625 -10.0625 C 3.515625 -9.515625 3.53125 -9 3.53125 -8.484375 L 3.53125 -0.28125 C 3.53125 -0.234375 3.515625 -0.171875 3.484375 -0.125 C 3.4375 -0.09375 3.40625 -0.046875 3.34375 -0.015625 C 3.265625 0 3.1875 0.015625 3.078125 0.046875 C 2.96875 0.0625 2.828125 0.0625 2.671875 0.0625 C 2.5 0.0625 2.34375 0.0625 2.234375 0.046875 C 2.125 0.015625 2.046875 0 1.984375 -0.015625 C 1.921875 -0.046875 1.875 -0.09375 1.859375 -0.125 C 1.828125 -0.171875 1.8125 -0.234375 1.8125 -0.28125 L 1.8125 -12.828125 C 1.8125 -13.109375 1.890625 -13.3125 2.046875 -13.4375 C 2.203125 -13.546875 2.375 -13.609375 2.546875 -13.609375 L 3.40625 -13.609375 C 3.625 -13.609375 3.796875 -13.59375 3.921875 -13.546875 C 4.046875 -13.515625 4.171875 -13.453125 4.28125 -13.375 C 4.390625 -13.3125 4.5 -13.171875 4.609375 -13.046875 C 4.6875 -12.890625 4.828125 -12.71875 4.9375 -12.515625 L 8.21875 -6.53125 C 8.4375 -6.15625 8.640625 -5.8125 8.828125 -5.46875 C 9.015625 -5.125 9.1875 -4.78125 9.359375 -4.4375 C 9.53125 -4.109375 9.703125 -3.765625 9.890625 -3.4375 C 10.0625 -3.125 10.234375 -2.796875 10.40625 -2.453125 C 10.40625 -3.015625 10.375 -3.59375 10.375 -4.203125 C 10.375 -4.78125 10.375 -5.359375 10.375 -5.921875 L 10.375 -13.3125 C 10.375 -13.34375 10.40625 -13.390625 10.421875 -13.4375 C 10.4375 -13.484375 10.484375 -13.515625 10.578125 -13.546875 C 10.640625 -13.59375 10.71875 -13.609375 10.828125 -13.609375 C 10.9375 -13.625 11.0625 -13.625 11.265625 -13.625 C 11.40625 -13.625 11.546875 -13.625 11.65625 -13.609375 C 11.75 -13.609375 11.84375 -13.59375 11.90625 -13.546875 C 11.96875 -13.515625 12.015625 -13.484375 12.0625 -13.4375 C 12.078125 -13.390625 12.09375 -13.34375 12.09375 -13.3125 Z M 12.09375 -0.75 "/>
+</g>
+<g id="glyph-0-3">
+<path d="M 9.390625 -0.75 C 9.390625 -0.625 9.359375 -0.515625 9.359375 -0.40625 C 9.34375 -0.328125 9.328125 -0.234375 9.28125 -0.171875 C 9.265625 -0.109375 9.21875 -0.0625 9.171875 -0.046875 C 9.125 -0.015625 9.0625 0 9.015625 0 L 2.46875 0 C 2.328125 0 2.171875 -0.0625 2.03125 -0.171875 C 1.875 -0.28125 1.8125 -0.46875 1.8125 -0.734375 L 1.8125 -12.875 C 1.8125 -13.140625 1.875 -13.328125 2.03125 -13.4375 C 2.171875 -13.546875 2.328125 -13.609375 2.46875 -13.609375 L 8.9375 -13.609375 C 9 -13.609375 9.046875 -13.59375 9.09375 -13.5625 C 9.125 -13.546875 9.171875 -13.5 9.1875 -13.4375 C 9.234375 -13.375 9.265625 -13.28125 9.28125 -13.203125 C 9.28125 -13.09375 9.296875 -12.984375 9.296875 -12.828125 C 9.296875 -12.703125 9.28125 -12.59375 9.28125 -12.515625 C 9.265625 -12.40625 9.234375 -12.34375 9.1875 -12.265625 C 9.171875 -12.203125 9.125 -12.171875 9.09375 -12.140625 C 9.046875 -12.125 9 -12.09375 8.9375 -12.09375 L 3.625 -12.09375 L 3.625 -7.84375 L 8.1875 -7.84375 C 8.25 -7.84375 8.296875 -7.8125 8.328125 -7.796875 C 8.375 -7.75 8.421875 -7.703125 8.4375 -7.671875 C 8.484375 -7.59375 8.5 -7.515625 8.53125 -7.421875 C 8.53125 -7.328125 8.546875 -7.21875 8.546875 -7.078125 C 8.546875 -6.953125 8.53125 -6.84375 8.53125 -6.765625 C 8.5 -6.65625 8.484375 -6.59375 8.4375 -6.53125 C 8.421875 -6.484375 8.375 -6.4375 8.328125 -6.421875 C 8.296875 -6.390625 8.25 -6.375 8.1875 -6.375 L 3.625 -6.375 L 3.625 -1.5 L 9.015625 -1.5 C 9.0625 -1.5 9.125 -1.484375 9.171875 -1.46875 C 9.21875 -1.4375 9.265625 -1.40625 9.28125 -1.328125 C 9.328125 -1.265625 9.34375 -1.203125 9.359375 -1.09375 C 9.359375 -1.015625 9.390625 -0.875 9.390625 -0.75 Z M 9.390625 -0.75 "/>
+</g>
+<g id="glyph-0-4">
+<path d="M 10.328125 -12.828125 C 10.328125 -12.703125 10.328125 -12.578125 10.3125 -12.484375 C 10.296875 -12.375 10.265625 -12.296875 10.25 -12.25 C 10.203125 -12.1875 10.1875 -12.140625 10.140625 -12.125 C 10.078125 -12.078125 10.03125 -12.078125 9.96875 -12.078125 L 6.15625 -12.078125 L 6.15625 -0.28125 C 6.15625 -0.21875 6.140625 -0.171875 6.109375 -0.125 C 6.078125 -0.09375 6.03125 -0.046875 5.96875 -0.015625 C 5.90625 0 5.796875 0.015625 5.6875 0.046875 C 5.578125 0.0625 5.421875 0.0625 5.25 0.0625 C 5.078125 0.0625 4.9375 0.0625 4.828125 0.046875 C 4.6875 0.015625 4.609375 0 4.546875 -0.015625 C 4.453125 -0.046875 4.40625 -0.09375 4.390625 -0.125 C 4.34375 -0.171875 4.34375 -0.21875 4.34375 -0.28125 L 4.34375 -12.078125 L 0.515625 -12.078125 C 0.453125 -12.078125 0.40625 -12.078125 0.359375 -12.125 C 0.328125 -12.140625 0.28125 -12.1875 0.265625 -12.25 C 0.234375 -12.296875 0.1875 -12.375 0.1875 -12.484375 C 0.171875 -12.578125 0.15625 -12.703125 0.15625 -12.828125 C 0.15625 -12.96875 0.171875 -13.0625 0.1875 -13.171875 C 0.1875 -13.28125 0.234375 -13.375 0.265625 -13.4375 C 0.28125 -13.5 0.328125 -13.546875 0.359375 -13.5625 C 0.40625 -13.59375 0.453125 -13.609375 0.515625 -13.609375 L 9.96875 -13.609375 C 10.03125 -13.609375 10.078125 -13.59375 10.140625 -13.5625 C 10.1875 -13.546875 10.203125 -13.5 10.25 -13.4375 C 10.265625 -13.375 10.296875 -13.28125 10.3125 -13.171875 C 10.328125 -13.0625 10.328125 -12.96875 10.328125 -12.828125 Z M 10.328125 -12.828125 "/>
+</g>
+</g>
+</defs>
+<path fill-rule="evenodd" fill="var(--lx-ink, #201E1E)" fill-opacity="1" d="M 84.925781 469.050781 L 98.160156 469.050781 L 98.160156 511.839844 C 98.160156 511.839844 97.292969 517.636719 103.472656 517.539062 C 109.65625 517.445312 150.304688 517.347656 150.304688 517.347656 L 155.882812 521.375 L 152.304688 529.710938 L 101.929688 529.710938 C 101.929688 529.710938 84.636719 531.835938 84.734375 512.613281 C 84.832031 493.390625 84.925781 469.050781 84.925781 469.050781 "/>
+<path fill-rule="evenodd" fill="var(--lx-ink, #201E1E)" fill-opacity="1" d="M 488.5625 469.082031 L 468.234375 469.082031 L 494.660156 499.34375 L 469.640625 529.285156 L 488.574219 529.304688 L 504.234375 510.617188 L 519.847656 529.332031 L 540.0625 529.269531 Z M 488.5625 469.082031 "/>
+<path fill-rule="evenodd" fill="var(--lx-ink, #201E1E)" fill-opacity="1" d="M 540.957031 469.195312 L 520.292969 469.195312 L 506.773438 486.382812 L 516.519531 497.371094 Z M 540.957031 469.195312 "/>
+<path fill-rule="evenodd" fill="var(--lx-brand, #9F1F27)" fill-opacity="1" d="M 171.449219 472.890625 C 172.3125 475.253906 172.8125 477.523438 172.945312 479.667969 C 173.050781 481.84375 172.941406 484.15625 172.625 486.644531 C 171.625 486.074219 170.601562 485.433594 169.535156 484.699219 C 168.476562 484.007812 167.496094 483.183594 166.554688 482.265625 C 165.636719 481.335938 164.785156 480.398438 164.039062 479.425781 C 163.28125 478.433594 162.691406 477.394531 162.308594 476.265625 C 161.257812 473.507812 160.6875 471.273438 160.542969 469.609375 C 160.386719 467.917969 160.445312 466.648438 160.707031 465.757812 C 160.96875 464.871094 161.296875 464.304688 161.679688 464.042969 C 162.054688 463.78125 162.28125 463.644531 162.355469 463.609375 C 162.414062 463.585938 162.746094 463.519531 163.289062 463.4375 C 163.851562 463.363281 164.566406 463.550781 165.441406 464 C 166.328125 464.484375 167.289062 465.382812 168.328125 466.71875 C 169.398438 468.066406 170.414062 470.136719 171.449219 472.890625 Z M 178.210938 519.429688 C 179.4375 516.375 180.503906 513.191406 181.421875 509.851562 C 182.300781 506.542969 183.042969 503.46875 183.5625 500.664062 C 185.390625 501.511719 186.78125 502.480469 187.765625 503.546875 C 188.75 504.652344 189.640625 506.234375 190.40625 508.304688 C 191.085938 510.1875 191.410156 511.910156 191.304688 513.464844 C 191.207031 515.054688 190.84375 516.464844 190.210938 517.726562 C 189.578125 518.988281 188.738281 520.0625 187.667969 520.957031 C 186.644531 521.839844 185.488281 522.53125 184.230469 522.988281 L 180.082031 524.515625 Z M 170.824219 455.234375 C 172.828125 455.328125 174.84375 455.757812 176.828125 456.578125 C 178.800781 457.359375 180.691406 458.613281 182.433594 460.300781 C 184.207031 461.953125 185.628906 464.324219 186.75 467.363281 C 187.730469 470.003906 187.992188 473.296875 187.5625 477.226562 C 187.117188 481.171875 186.320312 485.292969 185.152344 489.582031 C 189.449219 491.023438 192.898438 492.328125 196.925781 494.300781 C 206.992188 499.230469 207.679688 514.574219 202.605469 519.765625 C 199.804688 523.207031 196.230469 526.449219 190.269531 528.75 C 189.09375 529.207031 188.507812 529.445312 188.507812 529.445312 L 170.933594 535.925781 L 168.253906 541.328125 L 158.320312 543.546875 L 156.316406 534.570312 L 161.90625 521.054688 L 151.605469 513.453125 L 151.589844 513.375 L 160.667969 500.039062 L 168.070312 506.042969 L 171.980469 496.449219 C 169.234375 495.648438 166.523438 494.816406 163.851562 493.945312 C 161.171875 493.09375 158.71875 492.089844 156.472656 490.929688 C 154.238281 489.804688 152.304688 488.496094 150.683594 487.0625 C 149.058594 485.621094 147.863281 483.921875 147.164062 481.984375 C 146.070312 478.992188 145.574219 476.28125 145.765625 473.859375 C 145.921875 471.453125 146.472656 469.304688 147.382812 467.410156 C 148.316406 465.542969 149.484375 463.941406 150.871094 462.578125 C 152.261719 461.253906 153.621094 460.175781 154.917969 459.328125 C 156.226562 458.480469 157.363281 457.867188 158.304688 457.417969 C 161.921875 455.886719 166.863281 455.085938 170.824219 455.234375 "/>
+<path fill-rule="evenodd" fill="var(--lx-ink, #201E1E)" fill-opacity="1" d="M 268.929688 468.855469 L 261.25 481.730469 L 229.179688 481.730469 C 229.179688 481.730469 220.824219 481.617188 220.710938 487.035156 C 220.597656 492.457031 225.34375 493.472656 227.488281 493.472656 L 250.976562 493.472656 C 250.976562 493.472656 269.382812 493.359375 269.605469 510.410156 C 269.832031 527.464844 258.992188 529.835938 251.085938 529.835938 C 243.183594 529.835938 196.378906 529.835938 196.378906 529.835938 C 202.699219 526.386719 207.070312 522.429688 208.289062 517.636719 L 249.394531 517.527344 C 249.394531 517.527344 257.410156 518.089844 257.410156 511.203125 C 257.410156 504.3125 249.054688 505.332031 249.054688 505.332031 L 223.648438 505.332031 C 220.589844 505.332031 205.796875 503.539062 206.484375 487.261719 C 207.167969 470.988281 221.164062 468.976562 224.210938 468.96875 Z M 268.929688 468.855469 "/>
+<path fill-rule="evenodd" fill="var(--lx-ink, #201E1E)" fill-opacity="1" d="M 268.589844 481.390625 L 275.589844 468.96875 L 329.335938 468.96875 L 322.722656 481.503906 L 305.515625 481.503906 L 305.515625 529.722656 L 292.753906 529.722656 L 292.867188 481.503906 Z M 268.589844 481.390625 "/>
+<path fill-rule="evenodd" fill="var(--lx-ink, #201E1E)" fill-opacity="1" d="M 336.457031 468.96875 L 369.769531 468.96875 C 369.769531 468.96875 388.851562 468.519531 388.851562 486.246094 C 388.851562 503.976562 374.511719 505.21875 372.589844 505.21875 C 370.671875 505.21875 367.960938 505.21875 367.960938 505.21875 L 388.851562 529.042969 L 371.6875 529.042969 L 350.796875 508.152344 L 343.796875 508.152344 L 343.796875 529.382812 L 329.566406 529.382812 L 329.566406 494.941406 L 368.230469 494.941406 C 371.28125 494.988281 375.515625 494.0625 375.703125 488.558594 C 375.894531 483.050781 373.460938 481.558594 369.359375 481.558594 L 329.328125 481.558594 Z M 336.457031 468.96875 "/>
+<path fill-rule="evenodd" fill="var(--lx-ink, #201E1E)" fill-opacity="1" d="M 391.335938 529.042969 L 430.070312 468.96875 L 467.445312 529.496094 L 452.539062 529.609375 L 430.519531 493.472656 L 406.582031 529.042969 Z M 391.335938 529.042969 "/>
+<path fill-rule="evenodd" fill="var(--lx-ink, #201E1E)" fill-opacity="1" d="M 429.957031 510.234375 L 417.554688 529.609375 L 442.046875 529.609375 Z M 429.957031 510.234375 "/>
+<path fill-rule="evenodd" fill="var(--lx-brand, #9F1F27)" fill-opacity="1" d="M 435.863281 553.050781 L 526.8125 553.050781 L 526.8125 556.050781 L 435.863281 556.050781 Z M 435.863281 553.050781 "/>
+<path fill-rule="evenodd" fill="var(--lx-brand, #9F1F27)" fill-opacity="1" d="M 90.144531 553.050781 L 181.089844 553.050781 L 181.089844 556.050781 L 90.144531 556.050781 Z M 90.144531 553.050781 "/>
+<g fill="var(--lx-muted, #A6A6A6)" fill-opacity="1">
+<use xlink:href="#glyph-0-0" x="194.6721" y="563.0406"/>
+</g>
+<g fill="var(--lx-muted, #A6A6A6)" fill-opacity="1">
+<use xlink:href="#glyph-0-1" x="229.0337" y="563.0406"/>
+</g>
+<g fill="var(--lx-muted, #A6A6A6)" fill-opacity="1">
+<use xlink:href="#glyph-0-2" x="266.3626" y="563.0406"/>
+</g>
+<g fill="var(--lx-muted, #A6A6A6)" fill-opacity="1">
+<use xlink:href="#glyph-0-2" x="303.3323" y="563.0406"/>
+</g>
+<g fill="var(--lx-muted, #A6A6A6)" fill-opacity="1">
+<use xlink:href="#glyph-0-3" x="340.302" y="563.0406"/>
+</g>
+<g fill="var(--lx-muted, #A6A6A6)" fill-opacity="1">
+<use xlink:href="#glyph-0-0" x="373.6374" y="563.0406"/>
+</g>
+<g fill="var(--lx-muted, #A6A6A6)" fill-opacity="1">
+<use xlink:href="#glyph-0-4" x="408.2932" y="563.0406"/>
+</g>
+</svg>
+    <div class="div" aria-hidden="true"></div>
+    <span class="rot">Propuesta de interfaz</span>
+    <button class="tema" type="button" id="tema" aria-pressed="false">
+      <span id="temaTexto">Tema claro</span>
+    </button>
+  </div>
+</header>
+
+<main class="envoltura">
+  <span class="insignia">Para aprobación del responsable</span>
+  <h1>Una sola propuesta de interfaz para LYSTRAX</h1>
+  <p class="entrada">Prototipo navegable del ecosistema digital: <strong>ocho superficies</strong> y
+  <strong>siete perfiles de acceso</strong>, con la identidad L&amp;STRAX en <strong>tema claro y
+  oscuro</strong>. Reemplaza el esquema anterior de tres opciones: esta propuesta toma lo mejor de las
+  tres y cierra los defectos que compartían.</p>
+
+  <div class="principal">
+    <h2>Prototipo LYSTRAX</h2>
+    <p>Se entra por perfil, con un clic y sin credenciales. Cada perfil ve solo lo que le corresponde:
+    el portal de la productora no alcanza la Torre de Control, y el ciclo del dinero está repartido
+    entre tres manos distintas.</p>
+    <a class="boton" href="lystrax-propuesta-unificada.html">Abrir el prototipo</a>
+    <ul class="lista">
+      <li>Torre de Control y despacho, con bloqueo de antiduplicidad PESV</li>
+      <li>App del conductor, con captura sin conexión y firma en set</li>
+      <li>Onboarding de aliados y habilitación documental</li>
+      <li>Portal de la productora cliente, aislado a su compañía</li>
+      <li>Administrativo y financiero, con FUEC y cartera</li>
+      <li>Reporteador dinámico</li>
+      <li>Administración, parámetros y personalización de marca</li>
+      <li>Acceso por perfil</li>
+    </ul>
+  </div>
+
+  <h3>Qué conviene probar</h3>
+  <div class="rejilla">
+    <div class="tarjeta">
+      <h4>Los siete perfiles</h4>
+      <p>Entre con cada uno y compruebe que solo ve lo suyo. Vuelva al acceso con el enlace del
+      encabezado.</p>
     </div>
-  </header>
-
-  <main class="wrap">
-    <section class="hero">
-      <span class="badge">Inception · PRD §6.1</span>
-      <h1>Tres propuestas de interfaz para la plataforma L&amp;STO</h1>
-      <p class="lead">Prototipos navegables (web y móvil) para elegir una sola dirección visual antes de desarrollar el frontend. Cada propuesta cubre las siete superficies de la plataforma: inicio de sesión, torre de control, flujo del conductor, portal del aliado, administrativo y financiero, reportes y administración.</p>
-      <div class="aviso"><strong>Nota:</strong> prototipos de demostración con <strong>datos ficticios</strong>. No contienen información real de clientes, aliados ni personas.</div>
-    </section>
-
-    <section class="grid">
-      <article class="card">
-        <div class="band" style="background:linear-gradient(90deg,#0b0d12,#C8102E)"></div>
-        <div class="body">
-          <div class="n">Propuesta 1</div>
-          <h2>Set Nocturno</h2>
-          <p>Interfaz en clave oscura con tipografía display fuerte; estética de set de rodaje nocturno. Alto impacto visual, pensada para monitoreo y torre de control.</p>
-          <div class="tags"><span class="tag">Modo oscuro</span><span class="tag">Alto contraste</span><span class="tag">Monitoreo</span></div>
-          <a class="btn" href="opcion-1-set-nocturno.html">Abrir propuesta 1 →</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="band" style="background:linear-gradient(90deg,#111214,#5A616B)"></div>
-        <div class="body">
-          <div class="n">Propuesta 2</div>
-          <h2>Operación Clara</h2>
-          <p>Interfaz clara y densa en datos, con tipografía monoespaciada para cifras y tablas. Máxima legibilidad operativa y financiera para el trabajo diario.</p>
-          <div class="tags"><span class="tag">Modo claro</span><span class="tag">Denso en datos</span><span class="tag">Legibilidad</span></div>
-          <a class="btn" href="opcion-2-operacion-clara.html">Abrir propuesta 2 →</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="band" style="background:linear-gradient(90deg,#C8102E,#FF7A00)"></div>
-        <div class="body">
-          <div class="n">Propuesta 3</div>
-          <h2>Ruta Viva</h2>
-          <p>Sistema de espaciado 4/8&nbsp;px con acentos de marca y sensación de movimiento. Equilibrio entre claridad y dinamismo, diseñada mobile-first.</p>
-          <div class="tags"><span class="tag">Mobile-first</span><span class="tag">Dinámica</span><span class="tag">Equilibrada</span></div>
-          <a class="btn" href="opcion-3-ruta-viva.html">Abrir propuesta 3 →</a>
-        </div>
-      </article>
-    </section>
-
-    <p class="cover7">Cada propuesta incluye: Login · Torre de Control · Flujo del conductor · Portal del aliado · Administrativo y financiero · Reportes / reporteador · Administración / parámetros. Navegación web y móvil. Español (Colombia). Accesibilidad WCAG 2.2 AA como objetivo.</p>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <span>L&amp;STO S.A.S. · Logística, Servicios técnicos, Transporte y Operaciones</span>
-      <span>Propuestas de diseño · uso interno para aprobación</span>
+    <div class="tarjeta">
+      <h4>Los dos temas</h4>
+      <p>El conmutador del encabezado alterna claro y oscuro. Sin elegir, manda la preferencia de su
+      sistema.</p>
     </div>
-  </footer>
+    <div class="tarjeta">
+      <h4>La vista móvil</h4>
+      <p>El conmutador Escritorio / Móvil reduce el marco a 390&nbsp;px con la barra inferior, sin
+      cambiar el contenido.</p>
+    </div>
+    <div class="tarjeta">
+      <h4>Solo con teclado</h4>
+      <p>Recorra con la tecla de tabulación: el foco siempre debe verse, y al cambiar de pantalla salta
+      al título.</p>
+    </div>
+  </div>
+
+  <h3>Versiones anteriores</h3>
+  <p class="entrada" style="font-size:14px">Las tres propuestas de julio, conservadas como historia del
+  proceso. Usan la identidad anterior y <strong>ya no son la dirección vigente</strong>.</p>
+  <div class="rejilla" style="margin-top:14px">
+    <div class="tarjeta">
+      <span class="marca-historica">Julio · Histórica</span>
+      <h4>Opción 1 · Set Nocturno</h4>
+      <p>Sala de control de turno noche, superficie oscura estratificada.</p>
+      <a href="opcion-1-set-nocturno.html">Ver la versión histórica</a>
+    </div>
+    <div class="tarjeta">
+      <span class="marca-historica">Julio · Histórica</span>
+      <h4>Opción 2 · Operación Clara</h4>
+      <p>Densa y contable, todo tabla y cifra alineada.</p>
+      <a href="opcion-2-operacion-clara.html">Ver la versión histórica</a>
+    </div>
+    <div class="tarjeta">
+      <span class="marca-historica">Julio · Histórica</span>
+      <h4>Opción 3 · Ruta Viva</h4>
+      <p>Cuaderno de ruta, papel cálido y acentos de trazo.</p>
+      <a href="opcion-3-ruta-viva.html">Ver la versión histórica</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="envoltura">
+    <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="143 452 68 95" role="img" aria-label="Símbolo L&amp;STRAX">
+<title>Símbolo L&amp;STRAX</title>
+<desc>Ampersand estilizado en forma de cinta. Color por variable CSS --lx-brand.</desc>
+<path fill-rule="evenodd" fill="var(--lx-brand, #9F1F27)" fill-opacity="1" d="M 171.449219 472.890625 C 172.3125 475.253906 172.8125 477.523438 172.945312 479.667969 C 173.050781 481.84375 172.941406 484.15625 172.625 486.644531 C 171.625 486.074219 170.601562 485.433594 169.535156 484.699219 C 168.476562 484.007812 167.496094 483.183594 166.554688 482.265625 C 165.636719 481.335938 164.785156 480.398438 164.039062 479.425781 C 163.28125 478.433594 162.691406 477.394531 162.308594 476.265625 C 161.257812 473.507812 160.6875 471.273438 160.542969 469.609375 C 160.386719 467.917969 160.445312 466.648438 160.707031 465.757812 C 160.96875 464.871094 161.296875 464.304688 161.679688 464.042969 C 162.054688 463.78125 162.28125 463.644531 162.355469 463.609375 C 162.414062 463.585938 162.746094 463.519531 163.289062 463.4375 C 163.851562 463.363281 164.566406 463.550781 165.441406 464 C 166.328125 464.484375 167.289062 465.382812 168.328125 466.71875 C 169.398438 468.066406 170.414062 470.136719 171.449219 472.890625 Z M 178.210938 519.429688 C 179.4375 516.375 180.503906 513.191406 181.421875 509.851562 C 182.300781 506.542969 183.042969 503.46875 183.5625 500.664062 C 185.390625 501.511719 186.78125 502.480469 187.765625 503.546875 C 188.75 504.652344 189.640625 506.234375 190.40625 508.304688 C 191.085938 510.1875 191.410156 511.910156 191.304688 513.464844 C 191.207031 515.054688 190.84375 516.464844 190.210938 517.726562 C 189.578125 518.988281 188.738281 520.0625 187.667969 520.957031 C 186.644531 521.839844 185.488281 522.53125 184.230469 522.988281 L 180.082031 524.515625 Z M 170.824219 455.234375 C 172.828125 455.328125 174.84375 455.757812 176.828125 456.578125 C 178.800781 457.359375 180.691406 458.613281 182.433594 460.300781 C 184.207031 461.953125 185.628906 464.324219 186.75 467.363281 C 187.730469 470.003906 187.992188 473.296875 187.5625 477.226562 C 187.117188 481.171875 186.320312 485.292969 185.152344 489.582031 C 189.449219 491.023438 192.898438 492.328125 196.925781 494.300781 C 206.992188 499.230469 207.679688 514.574219 202.605469 519.765625 C 199.804688 523.207031 196.230469 526.449219 190.269531 528.75 C 189.09375 529.207031 188.507812 529.445312 188.507812 529.445312 L 170.933594 535.925781 L 168.253906 541.328125 L 158.320312 543.546875 L 156.316406 534.570312 L 161.90625 521.054688 L 151.605469 513.453125 L 151.589844 513.375 L 160.667969 500.039062 L 168.070312 506.042969 L 171.980469 496.449219 C 169.234375 495.648438 166.523438 494.816406 163.851562 493.945312 C 161.171875 493.09375 158.71875 492.089844 156.472656 490.929688 C 154.238281 489.804688 152.304688 488.496094 150.683594 487.0625 C 149.058594 485.621094 147.863281 483.921875 147.164062 481.984375 C 146.070312 478.992188 145.574219 476.28125 145.765625 473.859375 C 145.921875 471.453125 146.472656 469.304688 147.382812 467.410156 C 148.316406 465.542969 149.484375 463.941406 150.871094 462.578125 C 152.261719 461.253906 153.621094 460.175781 154.917969 459.328125 C 156.226562 458.480469 157.363281 457.867188 158.304688 457.417969 C 161.921875 455.886719 166.863281 455.085938 170.824219 455.234375 "/>
+</svg> &nbsp;LYSTRAX / L&amp;STRAX · software de L&amp;STO GROUP S.A.S. · uso operativo
+    autorizado a L&amp;STO S.A.S.</span>
+    <span>Datos de demostración. Ninguna cifra corresponde a operaciones reales.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var raiz = document.documentElement, boton = document.getElementById('tema'),
+      texto = document.getElementById('temaTexto');
+  function efectivo() {
+    var f = raiz.getAttribute('data-tema');
+    if (f) return f;
+    return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'oscuro' : 'claro';
+  }
+  function pintar() {
+    var t = efectivo();
+    texto.textContent = t === 'oscuro' ? 'Tema oscuro' : 'Tema claro';
+    boton.setAttribute('aria-pressed', t === 'oscuro' ? 'true' : 'false');
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute('content', t === 'oscuro' ? '#171515' : '#FFFFFF');
+  }
+  boton.addEventListener('click', function () {
+    raiz.setAttribute('data-tema', efectivo() === 'oscuro' ? 'claro' : 'oscuro');
+    pintar();
+  });
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
+      if (!raiz.hasAttribute('data-tema')) pintar();
+    });
+  }
+  pintar();
+})();
+</script>
 </body>
 </html>
