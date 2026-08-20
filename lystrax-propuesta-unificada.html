@@ -32,10 +32,39 @@
 
 <!-- Favicon e ícono de aplicación (manual §3.1 y §8.1: el símbolo «&» aislado).
      Incrustado como data URI para que el documento no dependa de ningún archivo
-     vecino ni de ningún tercero. Un solo archivo, sin peticiones de red. -->
-<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="143 452 68 95"%3E%3Cpath fill-rule="evenodd" fill="%239F1F27" d="M 171.4 472.9 C 172.3 475.3 172.8 477.5 172.9 479.7 C 173.1 481.8 172.9 484.2 172.6 486.6 C 171.6 486.1 170.6 485.4 169.5 484.7 C 168.5 484 167.5 483.2 166.6 482.3 C 165.6 481.3 164.8 480.4 164 479.4 C 163.3 478.4 162.7 477.4 162.3 476.3 C 161.3 473.5 160.7 471.3 160.5 469.6 C 160.4 467.9 160.4 466.6 160.7 465.8 C 161 464.9 161.3 464.3 161.7 464 C 162.1 463.8 162.3 463.6 162.4 463.6 C 162.4 463.6 162.7 463.5 163.3 463.4 C 163.9 463.4 164.6 463.6 165.4 464 C 166.3 464.5 167.3 465.4 168.3 466.7 C 169.4 468.1 170.4 470.1 171.4 472.9 Z M 178.2 519.4 C 179.4 516.4 180.5 513.2 181.4 509.9 C 182.3 506.5 183 503.5 183.6 500.7 C 185.4 501.5 186.8 502.5 187.8 503.5 C 188.8 504.7 189.6 506.2 190.4 508.3 C 191.1 510.2 191.4 511.9 191.3 513.5 C 191.2 515.1 190.8 516.5 190.2 517.7 C 189.6 519 188.7 520.1 187.7 521 C 186.6 521.8 185.5 522.5 184.2 523 L 180.1 524.5 Z M 170.8 455.2 C 172.8 455.3 174.8 455.8 176.8 456.6 C 178.8 457.4 180.7 458.6 182.4 460.3 C 184.2 462 185.6 464.3 186.8 467.4 C 187.7 470 188 473.3 187.6 477.2 C 187.1 481.2 186.3 485.3 185.2 489.6 C 189.4 491 192.9 492.3 196.9 494.3 C 207 499.2 207.7 514.6 202.6 519.8 C 199.8 523.2 196.2 526.4 190.3 528.8 C 189.1 529.2 188.5 529.4 188.5 529.4 L 170.9 535.9 L 168.3 541.3 L 158.3 543.5 L 156.3 534.6 L 161.9 521.1 L 151.6 513.5 L 151.6 513.4 L 160.7 500 L 168.1 506 L 172 496.4 C 169.2 495.6 166.5 494.8 163.9 493.9 C 161.2 493.1 158.7 492.1 156.5 490.9 C 154.2 489.8 152.3 488.5 150.7 487.1 C 149.1 485.6 147.9 483.9 147.2 482 C 146.1 479 145.6 476.3 145.8 473.9 C 145.9 471.5 146.5 469.3 147.4 467.4 C 148.3 465.5 149.5 463.9 150.9 462.6 C 152.3 461.3 153.6 460.2 154.9 459.3 C 156.2 458.5 157.4 457.9 158.3 457.4 C 161.9 455.9 166.9 455.1 170.8 455.2"/%3E%3C/svg%3E'>
-<link rel="apple-touch-icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="143 452 68 95"%3E%3Cpath fill-rule="evenodd" fill="%239F1F27" d="M 171.4 472.9 C 172.3 475.3 172.8 477.5 172.9 479.7 C 173.1 481.8 172.9 484.2 172.6 486.6 C 171.6 486.1 170.6 485.4 169.5 484.7 C 168.5 484 167.5 483.2 166.6 482.3 C 165.6 481.3 164.8 480.4 164 479.4 C 163.3 478.4 162.7 477.4 162.3 476.3 C 161.3 473.5 160.7 471.3 160.5 469.6 C 160.4 467.9 160.4 466.6 160.7 465.8 C 161 464.9 161.3 464.3 161.7 464 C 162.1 463.8 162.3 463.6 162.4 463.6 C 162.4 463.6 162.7 463.5 163.3 463.4 C 163.9 463.4 164.6 463.6 165.4 464 C 166.3 464.5 167.3 465.4 168.3 466.7 C 169.4 468.1 170.4 470.1 171.4 472.9 Z M 178.2 519.4 C 179.4 516.4 180.5 513.2 181.4 509.9 C 182.3 506.5 183 503.5 183.6 500.7 C 185.4 501.5 186.8 502.5 187.8 503.5 C 188.8 504.7 189.6 506.2 190.4 508.3 C 191.1 510.2 191.4 511.9 191.3 513.5 C 191.2 515.1 190.8 516.5 190.2 517.7 C 189.6 519 188.7 520.1 187.7 521 C 186.6 521.8 185.5 522.5 184.2 523 L 180.1 524.5 Z M 170.8 455.2 C 172.8 455.3 174.8 455.8 176.8 456.6 C 178.8 457.4 180.7 458.6 182.4 460.3 C 184.2 462 185.6 464.3 186.8 467.4 C 187.7 470 188 473.3 187.6 477.2 C 187.1 481.2 186.3 485.3 185.2 489.6 C 189.4 491 192.9 492.3 196.9 494.3 C 207 499.2 207.7 514.6 202.6 519.8 C 199.8 523.2 196.2 526.4 190.3 528.8 C 189.1 529.2 188.5 529.4 188.5 529.4 L 170.9 535.9 L 168.3 541.3 L 158.3 543.5 L 156.3 534.6 L 161.9 521.1 L 151.6 513.5 L 151.6 513.4 L 160.7 500 L 168.1 506 L 172 496.4 C 169.2 495.6 166.5 494.8 163.9 493.9 C 161.2 493.1 158.7 492.1 156.5 490.9 C 154.2 489.8 152.3 488.5 150.7 487.1 C 149.1 485.6 147.9 483.9 147.2 482 C 146.1 479 145.6 476.3 145.8 473.9 C 145.9 471.5 146.5 469.3 147.4 467.4 C 148.3 465.5 149.5 463.9 150.9 462.6 C 152.3 461.3 153.6 460.2 154.9 459.3 C 156.2 458.5 157.4 457.9 158.3 457.4 C 161.9 455.9 166.9 455.1 170.8 455.2"/%3E%3C/svg%3E'>
-<link rel="mask-icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="143 452 68 95"%3E%3Cpath fill-rule="evenodd" fill="%239F1F27" d="M 171.4 472.9 C 172.3 475.3 172.8 477.5 172.9 479.7 C 173.1 481.8 172.9 484.2 172.6 486.6 C 171.6 486.1 170.6 485.4 169.5 484.7 C 168.5 484 167.5 483.2 166.6 482.3 C 165.6 481.3 164.8 480.4 164 479.4 C 163.3 478.4 162.7 477.4 162.3 476.3 C 161.3 473.5 160.7 471.3 160.5 469.6 C 160.4 467.9 160.4 466.6 160.7 465.8 C 161 464.9 161.3 464.3 161.7 464 C 162.1 463.8 162.3 463.6 162.4 463.6 C 162.4 463.6 162.7 463.5 163.3 463.4 C 163.9 463.4 164.6 463.6 165.4 464 C 166.3 464.5 167.3 465.4 168.3 466.7 C 169.4 468.1 170.4 470.1 171.4 472.9 Z M 178.2 519.4 C 179.4 516.4 180.5 513.2 181.4 509.9 C 182.3 506.5 183 503.5 183.6 500.7 C 185.4 501.5 186.8 502.5 187.8 503.5 C 188.8 504.7 189.6 506.2 190.4 508.3 C 191.1 510.2 191.4 511.9 191.3 513.5 C 191.2 515.1 190.8 516.5 190.2 517.7 C 189.6 519 188.7 520.1 187.7 521 C 186.6 521.8 185.5 522.5 184.2 523 L 180.1 524.5 Z M 170.8 455.2 C 172.8 455.3 174.8 455.8 176.8 456.6 C 178.8 457.4 180.7 458.6 182.4 460.3 C 184.2 462 185.6 464.3 186.8 467.4 C 187.7 470 188 473.3 187.6 477.2 C 187.1 481.2 186.3 485.3 185.2 489.6 C 189.4 491 192.9 492.3 196.9 494.3 C 207 499.2 207.7 514.6 202.6 519.8 C 199.8 523.2 196.2 526.4 190.3 528.8 C 189.1 529.2 188.5 529.4 188.5 529.4 L 170.9 535.9 L 168.3 541.3 L 158.3 543.5 L 156.3 534.6 L 161.9 521.1 L 151.6 513.5 L 151.6 513.4 L 160.7 500 L 168.1 506 L 172 496.4 C 169.2 495.6 166.5 494.8 163.9 493.9 C 161.2 493.1 158.7 492.1 156.5 490.9 C 154.2 489.8 152.3 488.5 150.7 487.1 C 149.1 485.6 147.9 483.9 147.2 482 C 146.1 479 145.6 476.3 145.8 473.9 C 145.9 471.5 146.5 469.3 147.4 467.4 C 148.3 465.5 149.5 463.9 150.9 462.6 C 152.3 461.3 153.6 460.2 154.9 459.3 C 156.2 458.5 157.4 457.9 158.3 457.4 C 161.9 455.9 166.9 455.1 170.8 455.2"/%3E%3C/svg%3E' color="#9F1F27">
+     vecino ni de ningún tercero. Un solo archivo, sin peticiones de red.
+
+     DOS REGLAS QUE ESTE BLOQUE TIENE QUE CUMPLIR, y por qué.
+     (1) NINGUNA COMILLA DOBLE DENTRO DEL data URI. El defecto original escribía
+     el SVG con sus atributos entre comillas dobles (`xmlns="…"`, `viewBox="…"`)
+     dentro de un `href` delimitado también por comillas dobles: el analizador
+     cerraba el atributo en la primera comilla cruda, el `href` quedaba en 32
+     caracteres —`data:image/svg+xml,%3Csvg xmlns=`— y el resto del SVG se
+     convertía en atributos basura del propio <link> (`http:`, `www.w3.org`,
+     `svg"`, `viewbox`, `%3e%3cpath`…). Los tres iconos no decodificaban. Aquí
+     los atributos del SVG van con COMILLAS SIMPLES y el `href` con dobles, así
+     que el valor no puede cortarse; y como remate el URI está percent-encoded de
+     extremo a extremo (`%3C`, `%3E`, `%23`, `%20`), de modo que tampoco depende
+     de que el navegador tolere espacios crudos en una URL. Un intento anterior
+     resolvió el corte cambiando el delimitador del atributo a comilla simple,
+     que funciona pero deja la corrección colgando del delimitador: cualquier
+     reformateo que devuelva el `href` a comillas dobles reabre el defecto, y
+     además los verificadores que buscan `href="…"` no llegan a medir nada.
+     (2) SE COMPRUEBA QUE CARGA, no que el texto parezca correcto: `new Image()`
+     con este `href` resuelve a 95×95 px en los tres <link> (medido en Chrome).
+     LIENZO CUADRADO: el símbolo ocupa de x 143 a 211 (68 de ancho) y de y 452 a
+     547 (95 de alto). El viewBox se amplía a 95×95 centrando en x —129,5 a
+     224,5— sin tocar ni una coordenada del trazo: a 16×16 la relación 68:95
+     dibujaba el ampersand a 11×16 y dejaba banda a los lados en la pestaña. -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='129.5%20452%2095%2095'%20width='95'%20height='95'%3E%3Cpath%20fill-rule='evenodd'%20fill='%239F1F27'%20d='M%20171.4%20472.9%20C%20172.3%20475.3%20172.8%20477.5%20172.9%20479.7%20C%20173.1%20481.8%20172.9%20484.2%20172.6%20486.6%20C%20171.6%20486.1%20170.6%20485.4%20169.5%20484.7%20C%20168.5%20484%20167.5%20483.2%20166.6%20482.3%20C%20165.6%20481.3%20164.8%20480.4%20164%20479.4%20C%20163.3%20478.4%20162.7%20477.4%20162.3%20476.3%20C%20161.3%20473.5%20160.7%20471.3%20160.5%20469.6%20C%20160.4%20467.9%20160.4%20466.6%20160.7%20465.8%20C%20161%20464.9%20161.3%20464.3%20161.7%20464%20C%20162.1%20463.8%20162.3%20463.6%20162.4%20463.6%20C%20162.4%20463.6%20162.7%20463.5%20163.3%20463.4%20C%20163.9%20463.4%20164.6%20463.6%20165.4%20464%20C%20166.3%20464.5%20167.3%20465.4%20168.3%20466.7%20C%20169.4%20468.1%20170.4%20470.1%20171.4%20472.9%20Z%20M%20178.2%20519.4%20C%20179.4%20516.4%20180.5%20513.2%20181.4%20509.9%20C%20182.3%20506.5%20183%20503.5%20183.6%20500.7%20C%20185.4%20501.5%20186.8%20502.5%20187.8%20503.5%20C%20188.8%20504.7%20189.6%20506.2%20190.4%20508.3%20C%20191.1%20510.2%20191.4%20511.9%20191.3%20513.5%20C%20191.2%20515.1%20190.8%20516.5%20190.2%20517.7%20C%20189.6%20519%20188.7%20520.1%20187.7%20521%20C%20186.6%20521.8%20185.5%20522.5%20184.2%20523%20L%20180.1%20524.5%20Z%20M%20170.8%20455.2%20C%20172.8%20455.3%20174.8%20455.8%20176.8%20456.6%20C%20178.8%20457.4%20180.7%20458.6%20182.4%20460.3%20C%20184.2%20462%20185.6%20464.3%20186.8%20467.4%20C%20187.7%20470%20188%20473.3%20187.6%20477.2%20C%20187.1%20481.2%20186.3%20485.3%20185.2%20489.6%20C%20189.4%20491%20192.9%20492.3%20196.9%20494.3%20C%20207%20499.2%20207.7%20514.6%20202.6%20519.8%20C%20199.8%20523.2%20196.2%20526.4%20190.3%20528.8%20C%20189.1%20529.2%20188.5%20529.4%20188.5%20529.4%20L%20170.9%20535.9%20L%20168.3%20541.3%20L%20158.3%20543.5%20L%20156.3%20534.6%20L%20161.9%20521.1%20L%20151.6%20513.5%20L%20151.6%20513.4%20L%20160.7%20500%20L%20168.1%20506%20L%20172%20496.4%20C%20169.2%20495.6%20166.5%20494.8%20163.9%20493.9%20C%20161.2%20493.1%20158.7%20492.1%20156.5%20490.9%20C%20154.2%20489.8%20152.3%20488.5%20150.7%20487.1%20C%20149.1%20485.6%20147.9%20483.9%20147.2%20482%20C%20146.1%20479%20145.6%20476.3%20145.8%20473.9%20C%20145.9%20471.5%20146.5%20469.3%20147.4%20467.4%20C%20148.3%20465.5%20149.5%20463.9%20150.9%20462.6%20C%20152.3%20461.3%20153.6%20460.2%20154.9%20459.3%20C%20156.2%20458.5%20157.4%20457.9%20158.3%20457.4%20C%20161.9%20455.9%20166.9%20455.1%20170.8%20455.2'/%3E%3C/svg%3E">
+<!-- iOS NO rasteriza SVG para apple-touch-icon: al añadir la aplicación a la
+     pantalla de inicio el icono no se dibujaba y el sistema caía a una captura
+     de la página. Se sirve el MISMO símbolo de la cinta rasterizado a 180x180
+     sobre fondo opaco —iOS ignora la transparencia y aplica su propia máscara—,
+     centrado con un 12 % de margen para que el recorte no muerda el trazo. El
+     icono de pestaña y el mask-icon siguen en SVG, que ahí sí es lo correcto. -->
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAGR0lEQVR4nOydMY4cNxBFaVuhD2DADhw6dGT4CHsERYIO4MBH2CMo0AGEjfYIOoKgaEOFCnWLFQECxGA11cNmV5OsqvcCYWCsZ4Dhm89qNln96vn5OQFc4+cEIIAcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIIIcIPIquebbp8/l3/Ki8tu//9QX9TW84Cdn/TmKBE/v3tfXLfz9/3/1X6g4kSN7kIVot0Ei+4EiFfNyZCdKTiiCIgXDcmilhcTd40PwcsSkHGdrUQkeIfauVs6YRzY+KwUuVI3JMdKM+okpqh+W5BhvRv3cFNIPMzXHx9dvBhQZGwSsT23I8eHPv9JsshnZjxQJA3LszYyc/3kgL5dKtYjmx+pydJjxojjQrVRCTS5L35Xdu5hxdVlCd61iSkU8i6WvVrRGosih8m5zi+LBrJscHWO5EfiK+REnPBatOfoKhbdfv2z/gdb18M0P8kGsnWBa4RFkcllUjpOim31fu1hRjm4zWn7QKuERpOwIt8GY8GhnRTm6Z/TGH/Tx8KDmmMbZX71KckTwYzk5jnzp7f8vM0sL3mqORj/YP9yCNzkay47jZWmE7PF24i3UvY+zcXgpy8yihUM52meWBJv4TI7G8MCPbZaTQ2XAQm3JOY8Vk+O4H+3h0UeQyFlRjmH3xrrHGDlsk5Pj4+s3CQ6w6LSidfvjvH0hKQDO2z6ddJKRaWUmuocJuHjpY1E5dLfk6PrBoab56M4FWQ6trefIMZ88Brp+lOsXpph2li5IFU+qVS5L1L4giXPHzuEp+0byGPctpAY50ZSs9OeY3rmlEqqFnI0V0rvHB7ZfjMfMItgZ9UcHoe7y2+tDOndRK07Bkfnl/v4+maL8dmeVINXLX//4PXnHcHvruRFS1nB9V0I0xj+K48dxOHmkRvFjuiXOFPH2MJ4VgsTNQX5vchTK0udES3zMNT7luKT0q5xydVMqVrsp4l+Oyqy6xG4tEkiOynhLjPoRUY7C+Gb75lpjB33o8MTnthiCJ1KPw9xRGpJjKHMvsPfiSo7G69W5wzPmuZYq+JGjff/w9N+ulfDwI0e9QN3+6vsGJl+Ivv36RbF1uonwcCLHZVaXIyrpBIoicTqIeFjnkNLi6rpC3/LGiw1gKrf31l/28JAc0jj9WIIoPvrp+BSzfniYl+NmhXH5B90Fx9X/6H6zsW05WuK9/o36L/VgeKxflpqXo/HPcqnRPRJSQrh/OodhOfYmgboc6XB4LF52WJVj2HbA7eH3HR6G5Uhr4Ph0gsmeYCPNuBkMR5KDglSZp7H7y1vG3uvMYlKONIrGKcPrzGJsWjG3mco0luR4Gn5gKXhTEGNypIG0m+G1h7oZOcYX9gNGjruyOozvd9A+cl4fLGfpaiXLcff4kIawS8QzFuZXwNilbP42FbfrbX9QOh9qDn0GNI/bNWyK20SWwuq9lTLFnPTL2zVs3Y6uv65q+JZ9/nJP6k86YNhMbCTzvMG4m/Z+kt0fbaJlpYcNxoonBhLVxgV+DjVpTTHt16V9p2MM9epwdVZW63tv8aOvV7+tLi60YLjC9mSRnejbrmyuv483OVRWsqVDA+WstvvZpOLq0aGKJ0Hy+9TKtLznkdYJRnuCeZMjKVHeqvRaOfi2dBNcgvE94Lax3ofUT3KstoPQbmBU/CTHOrFhPTAqTpJjqTNObnaeuipI5+JJi4KTaWXinOJmEvkRD8kxa05xrEXBQ3IMjg33TlTMJ8ew2IjjRIWC9AalA4f7Jj5XsT2tnNpqPmBUvMB2cpxxmggnKraTQ7EUrSfq0KJiODm0YoOokIhbkOLETQzL0T2u/ta5T8L2NkF+96cScVohNhqxnRwdw4wZ7YRLDuRox3zNsavswIxdxEoO5NiF+UNNLeNdAmZYyyg3uE2OyHdTtTAvRx378oL7I4p42Al2eXQRFHF14g10oQUDiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiCAHiHwHAAD///ggBUoAAAAGSURBVAMA5UA4eRkfIscAAAAASUVORK5CYII=">
+<link rel="mask-icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='129.5%20452%2095%2095'%20width='95'%20height='95'%3E%3Cpath%20fill-rule='evenodd'%20fill='%239F1F27'%20d='M%20171.4%20472.9%20C%20172.3%20475.3%20172.8%20477.5%20172.9%20479.7%20C%20173.1%20481.8%20172.9%20484.2%20172.6%20486.6%20C%20171.6%20486.1%20170.6%20485.4%20169.5%20484.7%20C%20168.5%20484%20167.5%20483.2%20166.6%20482.3%20C%20165.6%20481.3%20164.8%20480.4%20164%20479.4%20C%20163.3%20478.4%20162.7%20477.4%20162.3%20476.3%20C%20161.3%20473.5%20160.7%20471.3%20160.5%20469.6%20C%20160.4%20467.9%20160.4%20466.6%20160.7%20465.8%20C%20161%20464.9%20161.3%20464.3%20161.7%20464%20C%20162.1%20463.8%20162.3%20463.6%20162.4%20463.6%20C%20162.4%20463.6%20162.7%20463.5%20163.3%20463.4%20C%20163.9%20463.4%20164.6%20463.6%20165.4%20464%20C%20166.3%20464.5%20167.3%20465.4%20168.3%20466.7%20C%20169.4%20468.1%20170.4%20470.1%20171.4%20472.9%20Z%20M%20178.2%20519.4%20C%20179.4%20516.4%20180.5%20513.2%20181.4%20509.9%20C%20182.3%20506.5%20183%20503.5%20183.6%20500.7%20C%20185.4%20501.5%20186.8%20502.5%20187.8%20503.5%20C%20188.8%20504.7%20189.6%20506.2%20190.4%20508.3%20C%20191.1%20510.2%20191.4%20511.9%20191.3%20513.5%20C%20191.2%20515.1%20190.8%20516.5%20190.2%20517.7%20C%20189.6%20519%20188.7%20520.1%20187.7%20521%20C%20186.6%20521.8%20185.5%20522.5%20184.2%20523%20L%20180.1%20524.5%20Z%20M%20170.8%20455.2%20C%20172.8%20455.3%20174.8%20455.8%20176.8%20456.6%20C%20178.8%20457.4%20180.7%20458.6%20182.4%20460.3%20C%20184.2%20462%20185.6%20464.3%20186.8%20467.4%20C%20187.7%20470%20188%20473.3%20187.6%20477.2%20C%20187.1%20481.2%20186.3%20485.3%20185.2%20489.6%20C%20189.4%20491%20192.9%20492.3%20196.9%20494.3%20C%20207%20499.2%20207.7%20514.6%20202.6%20519.8%20C%20199.8%20523.2%20196.2%20526.4%20190.3%20528.8%20C%20189.1%20529.2%20188.5%20529.4%20188.5%20529.4%20L%20170.9%20535.9%20L%20168.3%20541.3%20L%20158.3%20543.5%20L%20156.3%20534.6%20L%20161.9%20521.1%20L%20151.6%20513.5%20L%20151.6%20513.4%20L%20160.7%20500%20L%20168.1%20506%20L%20172%20496.4%20C%20169.2%20495.6%20166.5%20494.8%20163.9%20493.9%20C%20161.2%20493.1%20158.7%20492.1%20156.5%20490.9%20C%20154.2%20489.8%20152.3%20488.5%20150.7%20487.1%20C%20149.1%20485.6%20147.9%20483.9%20147.2%20482%20C%20146.1%20479%20145.6%20476.3%20145.8%20473.9%20C%20145.9%20471.5%20146.5%20469.3%20147.4%20467.4%20C%20148.3%20465.5%20149.5%20463.9%20150.9%20462.6%20C%20152.3%20461.3%20153.6%20460.2%20154.9%20459.3%20C%20156.2%20458.5%20157.4%20457.9%20158.3%20457.4%20C%20161.9%20455.9%20166.9%20455.1%20170.8%20455.2'/%3E%3C/svg%3E" color="#9F1F27">
 
 <!-- SIN TIPOGRAFÍA DE TERCEROS. Antes se servían Montserrat e Inter desde
      fonts.googleapis.com: sin red el documento perdía la tipografía de marca y
@@ -251,9 +280,17 @@
      pone en riesgo la lectura en vía, que es el caso de uso declarado del FUEC.
      Existen como par con nombre propio para que los dos códigos del documento
      los consuman y la regla deje de depender de que alguien la copie bien.
-     Valores: #FFFFFF y #201E1E en los dos temas, 16,59:1. */
-  --lx-qr-fondo:  var(--lx-accion-texto);
-  --lx-qr-modulo: var(--lx-negro-grafito);
+     Valores: #FFFFFF y #201E1E en los dos temas, 16,59:1.
+     LITERALES A PROPÓSITO, sin indirección: --lx-accion-texto, que era el alias
+     anterior del fondo, se redefine en los tres bloques de tema, así que la
+     promesa «no cambia con el tema» se cumplía por coincidencia de valores y se
+     habría roto en silencio en cuanto alguien ajustara el blanco del botón
+     primario en oscuro. Aquí la regla es una invariante, no una coincidencia:
+     estos dos tokens se declaran una sola vez, en :root, y no tienen gemelo en
+     ningún bloque de tema. Son los mismos valores que fija
+     marca-lystrax/tokens-visualizacion.css. */
+  --lx-qr-fondo:  #FFFFFF;
+  --lx-qr-modulo: #201E1E;
 
   --lx-cinta-grosor: 3px;
   --lx-cinta-filete: 4px;
@@ -394,6 +431,18 @@ input[type="datetime-local"]:focus-within {
   outline-offset: 4px;
 }
 
+/* Resalte de toque del sistema apagado A PROPÓSITO (G2 del pase de skills). En
+   Chrome de Android y en Safari de iOS el destello gris del sistema se pinta
+   ENCIMA del estado :active propio del producto, que es el de la regla de
+   abajo: se tapaba una realimentación medida con una que no lo está. No se
+   pierde nada al quitarlo porque el estado propio cambia la superficie del
+   control, y esa sí se ve en dedo y en ratón. */
+.lx-btn, .lx-lateral__enlace, .lx-inferior__enlace, .lx-subnav__enlace,
+.lx-pestanas__tab, .lx-segmentado__opcion, .lx-perfil, .lx-conmutador,
+.lx-modal__cerrar {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* Estado :active propio, ya que se apagó el resalte de toque del sistema.
    Se nota en dedo y en ratón, y no depende del color: la superficie cambia. */
 .lx-btn:active, .lx-lateral__enlace:active, .lx-inferior__enlace:active,
@@ -519,9 +568,15 @@ body[data-vista="movil"] .lx-app {
 /* Escalonado de las TRES piezas del kit (manual §2.1 y §4):
    lockup completo con descriptor ≥720 px · wordmark sin descriptor 720-360 px ·
    símbolo aislado solo por debajo de 360 px. */
+/* La clase BASE es la que declara el comportamiento común —una pieza está
+   oculta salvo que su punto de corte la encienda—, y cada modificador enciende
+   la suya. Antes la base no tenía ninguna declaración: era una clase escrita en
+   el marcado sin regla en la hoja, es decir peso muerto en un catálogo cerrado,
+   y las tres reglas repetían el `display: none` que ahora vive en un solo sitio.
+   La base va PRIMERO a propósito: tiene la misma especificidad que los
+   modificadores, así que el orden de origen es el que decide. */
+.lx-marca__pieza { display: none; }
 .lx-marca__pieza--completa { display: block; }
-.lx-marca__pieza--media    { display: none; }
-.lx-marca__pieza--compacta { display: none; }
 /* El mínimo lo impone el SISTEMA, no un número escrito a mano: los dos tokens
    del manual §4 se consumen de verdad. */
 .lx-marca__logo { width: 168px; min-width: var(--lx-logo-min-ancho); height: auto; display: block; }
@@ -733,6 +788,17 @@ body[data-vista="movil"] .lx-app {
 .lx-rejilla--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .lx-rejilla--banda { grid-template-columns: 1.6fr 1fr; }   /* situación | excepciones */
 .lx-rejilla--lados { grid-template-columns: 1fr 1.6fr; }
+/* CARTERA DE S6: la tarjeta corta no se estira contra la larga. Medido a
+   1440×900 con perfil contable: «Cartera por edades» llena su caja —758 px de
+   contenido útil en un cuerpo de 785— y «Cartera por productora» tiene 319 px
+   de contenido útil en un cuerpo de 767, es decir 448 px en blanco entre la fila
+   de totales y el pie de la tarjeta. En una pantalla financiera densa medio
+   panel vacío se lee como contenido que falta, y aquí no falta nada: la tabla
+   tiene tres productoras más totales y no va a crecer. Se corrige donde está el
+   defecto —el estirado de esta rejilla— y no en el catálogo: `.lx-rejilla--lados`
+   sigue estirando en las otras tres pantallas que la usan, donde las dos
+   tarjetas sí se llenan. */
+#p-s6 [data-subpanel="cartera"] > .lx-rejilla--lados { align-items: start; }
 
 /* --- 2.9 Tarjeta --------------------------------------------------------- */
 .lx-tarjeta {
@@ -1014,6 +1080,17 @@ body[data-vista="movil"] .lx-app {
 }
 .lx-campo__control::placeholder { color: var(--lx-texto-3); }
 textarea.lx-campo__control { min-height: 84px; resize: vertical; }
+/* LISTA MÚLTIPLE: el remate cae en el LÍMITE de una fila, no en su mitad. En un
+   <select multiple> el relleno vive DENTRO del área desplazable, así que con
+   `size="6"` el navegador dimensionaba la caja a seis filas más los dos rellenos
+   y por la franja inferior asomaba la séptima: 7 px de sus 23, media línea de
+   glifos cortados que se lee como error de render y no como «hay más abajo».
+   El alto NO se fija en píxeles —la altura de fila la decide la métrica del
+   navegador, y aquí son 23,2 px, que no es múltiplo de nada—: se quita el
+   relleno inferior, con lo que el borde queda justo bajo la sexta fila cualquiera
+   que sea esa métrica. El control sigue teniendo sus 10 opciones y su
+   desplazamiento con rueda, teclado y barra. */
+select[multiple].lx-campo__control { padding-bottom: 0; }
 .lx-campo__ayuda { font-size: 11.5px; color: var(--lx-texto-3); max-width: 66ch; }
 .lx-campo__error { font-size: 12px; color: var(--lx-error); font-weight: 600; }
 .lx-campo[data-error="true"] .lx-campo__control { border-color: var(--lx-error); border-width: 2px; }
@@ -1142,11 +1219,53 @@ textarea.lx-campo__control { min-height: 84px; resize: vertical; }
 /* Posición en vivo: es DATO, así que sale del rojo de marca y toma el extremo
    de la rampa. Y cambia de FORMA respecto de los nodos —anillo abierto frente
    a disco relleno— para que no se confunda con ellos si el color falla. */
+/* EL PULSO LATE CON GEOMETRÍA, NO CON OPACIDAD (último resto de opacidad de la
+   hoja, cerrado en este pase). Antes, el fotograma central de lx-pulso bajaba la
+   opacidad del anillo a 0,45 y la devolvía a 1 en los extremos del ciclo.
+   Ese anillo NO es cromo decorativo: desde que la leyenda lo nombra
+   (.lx-grafico__clave--pulso, «último reporte del equipo a bordo») es una CLAVE
+   DE DATO, así que le aplica el piso de 3:1 de SC 1.4.11 en todo instante del
+   ciclo. MEDIDO: --lx-seq-6 al 45 % sobre la superficie del gráfico compone
+   #92A6C0 en tema claro y rinde 2,46:1 —por debajo del piso— durante el fotograma
+   central de cada 2,4 s; en oscuro compone #6E8095 sobre #201E1E y rinde 3,55:1,
+   es decir el mismo dato se lee la mitad de bien en un tema que en el otro. Y la
+   regla 5.2 de 01-especificacion es explícita: si un par falla se cambia el token
+   que se usa, no su valor —y una opacidad de elemento cambia el valor efectivo del
+   token que hay debajo.
+   AHORA late la GEOMETRÍA, que es además el canal propio de la marca
+   (visualizacion-lystrax.md regla 11: la cinta identifica por geometría, no por
+   hue): el anillo se abre y su trazo adelgaza, como un eco de radar. El color no
+   se toca en ningún fotograma, así que el anillo mide 10,34:1 en claro y 10,351:1
+   en oscuro de principio a fin. `transform-box: fill-box` ancla el escalado al
+   propio círculo, así que sirve para los tres <circle> del prototipo aunque
+   tengan radios distintos (r=6 en S2, r=9 en S5) y ninguno se sale de su viewBox:
+   el peor caso es (103,157) r 9 en un lienzo de 640×210, que crece a 13,5 de radio
+   exterior y llega a y=170,5. El bloque de prefers-reduced-motion ya lo detiene. */
 .lx-mapa__pulso {
   fill: none; stroke: var(--lx-seq-6); stroke-width: 3.5;
-  animation: lx-pulso 2.4s ease-in-out infinite; transform-origin: center;
+  animation: lx-pulso 2.4s ease-in-out infinite;
 }
-@keyframes lx-pulso { 0%,100% { opacity: 1; } 50% { opacity: .45; } }
+@keyframes lx-pulso {
+  0%, 100% { stroke-width: 3.5; }
+  50%      { stroke-width: 1.75; }
+}
+/* El eco que se abre necesita `transform-box: fill-box`, porque sin él el
+   origen del `transform` de un elemento SVG es el del viewBox y `scale()`
+   DESPLAZARÍA el anillo en vez de agrandarlo (el círculo de S2 está en 54,133
+   dentro de un lienzo de 340×176). Va guardado, con la misma disciplina que el
+   respaldo de `subgrid` de los gráficos: si el motor no lo soporta, el pulso se
+   queda solo en el latido del trazo —que ya es visible— y nada se mueve de
+   sitio. La opacidad no entra en ninguna de las dos variantes. */
+@supports (transform-box: fill-box) {
+  .lx-mapa__pulso {
+    transform-box: fill-box; transform-origin: center;
+    animation-name: lx-pulso-eco;
+  }
+  @keyframes lx-pulso-eco {
+    0%, 100% { stroke-width: 3.5;  transform: scale(1); }
+    50%      { stroke-width: 1.75; transform: scale(1.3); }
+  }
+}
 
 /* Barras accesibles sin SVG: la altura viene de --v (0..100). */
 /* La capa de hover vive en la franja superior reservada por el padding, no
@@ -1304,6 +1423,20 @@ textarea.lx-campo__control { min-height: 84px; resize: vertical; }
    «Atender», que da un recorrido de teclado natural por la cola. */
 .lx-alarmas { display: flex; flex-direction: column; max-height: 300px; overflow-y: auto; overscroll-behavior: contain; }
 .lx-alarmas:focus-visible { outline: 3px solid var(--lx-foco); outline-offset: 2px; }
+/* La cola de la Torre NO se estrangula a 300 px: medido, tenía 608 px de
+   contenido —4 alarmas de 135, 152, 169 y 152— dentro de una tarjeta de 962 px
+   que la banda 1.6fr/1fr estira contra el esquema de flota, de modo que solo
+   caben 2 de las 4 severidades y quedan ~600 px de tarjeta en blanco debajo. En
+   la pantalla que se llama «torre de control» eso contradice el propósito del
+   panel y el pie que dice «se ordenan por severidad». La tarjeta reparte su alto
+   y la cola toma el que quede: con las 4 actuales desaparece el desplazamiento,
+   y cuando la cola crezca vuelve solo —con su parada de teclado, porque
+   initRegionesDesplazables remide en cada cambio de pantalla y de subvista—.
+   El techo de 300 px se conserva donde SÍ es correcto: el chat de la Torre, que
+   vive dentro de un modal de alto acotado. */
+#s2-cola-alarmas { display: flex; flex-direction: column; }
+#s2-cola-alarmas > .lx-tarjeta__cuerpo { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
+#s2-cola-alarmas .lx-alarmas { max-height: none; flex: 0 1 auto; min-height: 0; }
 .lx-alarma {
   display: flex; gap: 10px; align-items: flex-start;
   padding: 10px 14px; border-bottom: 1px solid var(--lx-borde);
@@ -1558,7 +1691,18 @@ body.lx-sin-scroll { overflow: hidden; }
 /* 2.31.1 Tonos de cinta para distinguir servicios simultáneos. NO son colores
    de dato: son identidad de agrupación, y por eso van con etiqueta de texto
    («OS-2026-1207») siempre visible en la tarjeta. */
-.lx-cinta--b { --lx-cinta-color: var(--lx-serie-1); }
+/* El segundo tono de la cinta es un segundo TONO DEL ROJO DE INTERFAZ, no un
+   color de dato. Antes tomaba --lx-serie-1, que en tema claro vale #2A78D6: el
+   mismo hexadecimal que --lx-seq-4, que es el trazo de los corredores del
+   esquema de flota y el relleno por defecto de .lx-barras__barra. En S2 el
+   mismo azul significaba a la vez «agrupación de tarjetas» y «magnitud», que es
+   justo lo que 02-sistema-de-diseno §8 prohíbe («la cinta es cromo, nunca color
+   de dato») y lo que visualizacion-lystrax §11 declara al decir que el elemento
+   distintivo no es un canal de dato. --lx-accion-hover rinde 12,03:1 sobre
+   blanco en claro y #B8262F en oscuro, y §8.3 autoriza exactamente eso: que los
+   tonos de cinta solo cambien el tono. Con esto --lx-serie-* deja de tener
+   consumidores fuera de los gráficos. */
+.lx-cinta--b { --lx-cinta-color: var(--lx-accion-hover); }
 /* Aquí vivía .lx-cinta--c, que redefinía el filete a --lx-serie-3 (aqua) y no
    se instanciaba en ninguna superficie: misma regla que las siete claves de
    serie, un tono disponible y sin uso en un catálogo cerrado es una invitación
@@ -1666,18 +1810,22 @@ body[data-auth="fuera"] .lx-main { padding: 40px 20px 48px; }
   .lx-barra-perfil__tenant { font-size: 11.5px; }
   .lx-barras { gap: 6px; }
 
-  /* S3 EN MÓVIL: LA TAREA PRIMERO. .lx-pantalla es un contenedor flex en
-     columna, así que el orden visual se ajusta sin mover el marcado y sin tocar
-     el escritorio, donde la banda de KPIs sí debe encabezar. Queda: migas,
-     título, indicador de trabajo sin conexión, línea de tiempo de la jornada y
-     después la banda de KPIs. No hay desajuste de orden de foco (SC 2.4.3): el
-     bloque que se desplaza, .lx-kpis, no contiene ningún elemento enfocable, así
-     que la secuencia de tabulación sigue siendo la del marcado. */
-  #p-s3 > * { order: 3; }
-  #p-s3 > .lx-migas { order: 0; }
-  #p-s3 > .lx-titulo-pagina { order: 1; }
-  #p-s3 > .lx-sinconexion { order: 2; }
-  #p-s3 > .lx-rejilla { order: 2; }
+  /* S3 EN MÓVIL: UN SOLO ORDEN DE LECTURA. Aquí vivían cinco reglas de `order`
+     que en móvil bajaban la banda de KPIs de la jornada por debajo de la línea
+     de tiempo. El §3.5 del catálogo cerrado lo prohíbe sin matices —«el orden
+     del DOM es el orden de lectura; no se reordena visualmente con order ni
+     grid-row»— y el criterio que fallaba no era el del orden de foco (SC 2.4.3,
+     que en efecto no se rompía porque .lx-kpis no tiene elementos enfocables)
+     sino SC 1.3.2 Secuencia significativa: quien usa lector de pantalla oía la
+     banda entre el indicador de trabajo sin conexión y la línea de tiempo,
+     mientras quien la ve la encontraba 2.243 px más abajo. Retiradas las cinco
+     reglas, el orden del DOM y el visual coinciden a 390 px y a 1366 px, y son
+     el mismo orden: migas, título, trabajo sin conexión, banda de KPIs y línea
+     de tiempo. La banda no es un accesorio que se pueda enterrar: son las
+     cuatro cifras que el conductor REPORTA —horas de disponibilidad, hora
+     extra, novedades y firma del responsable en set—, y la última es la que
+     retiene la liquidación. A 390 px la primera queda a 512 px en vez de a
+     2.755 px, y la línea de tiempo sigue en el segundo pantallazo. */
   /* El atajo secundario del encabezado no necesita los 56 px del control de
      emergencia: con el objetivo táctil de 44 px se recuperan 12 px de pliegue
      en la única pantalla que se usa dentro del vehículo. La acción de
@@ -2435,10 +2583,15 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
       </span>
     </div>
 
+    <!-- «Por Verificar · 9» y «esperan la hoja firmada · 4» son conjuntos
+         DISTINTOS y confundirlos fue bloqueante, así que el KPI declara la
+         relación en una línea y no deja al lector deducirla (§8.bis): los 4 son
+         un subconjunto de los 9, el de los que ya tienen liquidación abierta. -->
     <div class="lx-kpi lx-kpi--acento">
       <span class="lx-kpi__etiqueta">Servicios Por Verificar</span>
       <span class="lx-kpi__cifra">9</span>
       <span class="lx-kpi__delta lx-kpi__delta--alerta">Los 9 son de días anteriores &middot; 3 pasan de 24&nbsp;h &middot; el más antiguo lleva 83&nbsp;h</span>
+      <span class="lx-kpi__delta">Los <strong>4 que «esperan la hoja firmada»</strong> del financiero son un subconjunto de estos 9: los otros 5 aún no pasan a liquidación</span>
       <span class="lx-fila">
         <!-- El KPI abre la COLA, no el diálogo de cierre de un caso concreto:
              el cierre con justificación se alcanza desde la fila del servicio,
@@ -2458,7 +2611,12 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
 
   </div>
 
-  <div class="lx-rejilla lx-rejilla--lados">
+  <!-- lx-rejilla--banda (1.6fr | 1fr), no --lados (1fr | 1.6fr): §8.bis exige que
+       «el tile MAYOR de la banda 1.6fr/1fr» sea el esquema de flota. Con --lados
+       el tile mayor le tocaba a la cola de alarmas y la flota quedaba en 414 px
+       —el mismo rectángulo estrecho que el hallazgo venía a cerrar—. La banda es
+       además la semántica que declara el propio catálogo: situación | excepciones. -->
+  <div class="lx-rejilla lx-rejilla--banda">
 
     <section class="lx-tarjeta" id="s2-flota" tabindex="-1">
       <div class="lx-tarjeta__cab">
@@ -2482,37 +2640,56 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
              MISMO escalón de la rampa: el corredor es identidad, no magnitud,
              y la identidad la cargan la posición y el desglose, nunca el hue. -->
         <figure class="lx-mapa">
-          <svg viewBox="0 0 340 176" role="img" focusable="false"
+          <!-- viewBox de 140 de alto, no de 176: en el tile mayor el SVG escala
+               con el ancho, así que con 176 los cuatro corredores quedaban
+               separados 81 px y el esquema volvía a leerse como un rectángulo
+               casi vacío, que es justo el reproche que este panel viene a
+               cerrar. Con 140 la separación baja a 70 px, el trazo y los discos
+               conservan su grosor —viven en unidades de usuario y la escala la
+               fija el ancho— y la tarjeta pierde 67 px de aire muerto. -->
+          <svg viewBox="0 0 340 140" role="img" focusable="false"
                aria-label="Esquema de la flota al corte de las 06:42 del 19 de agosto de 2026: 21 veh&iacute;culos en v&iacute;a repartidos en cuatro corredores. 8 en el corredor norte hacia Cota y Tabio, 6 en el centro hist&oacute;rico y Chapinero, 4 en la v&iacute;a a La Calera y 3 en Fontib&oacute;n y el occidente. Dos llevan alarma abierta: el Cami&oacute;n Turbo 500 de placa SXW-207, alarma cr&iacute;tica por exceso de velocidad en el centro hist&oacute;rico, y la Van H1 de placa JLK-338, alarma baja por cambio de ruta sin confirmar en el corredor norte. Los 17 servicios restantes del d&iacute;a est&aacute;n por iniciar y no aparecen en el esquema.">
-            <path class="lx-cinta__ruta lx-cinta__ruta--holgura" d="M 20 26 C 120 20, 220 20, 320 26"></path>
-            <path class="lx-cinta__ruta" d="M 20 26 C 120 20, 220 20, 320 26"></path>
-            <circle class="lx-cinta__nodo" cx="30" cy="26" r="4.5"></circle>
-            <circle class="lx-cinta__nodo" cx="64" cy="26" r="4.5"></circle>
-            <circle class="lx-cinta__nodo" cx="98" cy="26" r="4.5"></circle>
-            <circle class="lx-cinta__nodo" cx="132" cy="26" r="4.5"></circle>
-            <circle class="lx-cinta__nodo" cx="166" cy="26" r="4.5"></circle>
-            <circle class="lx-cinta__nodo" cx="200" cy="26" r="4.5"></circle>
-            <circle class="lx-cinta__nodo" cx="234" cy="26" r="4.5"></circle>
-            <circle class="lx-cinta__nodo" cx="268" cy="26" r="4.5"></circle>
-            <path class="lx-cinta__ruta lx-cinta__ruta--holgura" d="M 20 70 C 120 64, 220 64, 320 70"></path>
-            <path class="lx-cinta__ruta" d="M 20 70 C 120 64, 220 64, 320 70"></path>
-            <circle class="lx-cinta__nodo" cx="40" cy="70" r="4.5"></circle>
-            <circle class="lx-cinta__nodo" cx="76" cy="70" r="4.5"></circle>
-            <circle class="lx-cinta__nodo" cx="112" cy="70" r="4.5"></circle>
-            <circle class="lx-cinta__nodo" cx="148" cy="70" r="4.5"></circle>
-            <circle class="lx-cinta__nodo" cx="184" cy="70" r="4.5"></circle>
-            <circle class="lx-cinta__nodo" cx="220" cy="70" r="4.5"></circle>
-            <path class="lx-cinta__ruta lx-cinta__ruta--holgura" d="M 20 114 C 120 108, 220 108, 320 114"></path>
-            <path class="lx-cinta__ruta" d="M 20 114 C 120 108, 220 108, 320 114"></path>
-            <circle class="lx-cinta__nodo" cx="50" cy="114" r="4.5"></circle>
-            <circle class="lx-cinta__nodo" cx="96" cy="114" r="4.5"></circle>
-            <circle class="lx-cinta__nodo" cx="142" cy="114" r="4.5"></circle>
-            <circle class="lx-cinta__nodo" cx="188" cy="114" r="4.5"></circle>
-            <path class="lx-cinta__ruta lx-cinta__ruta--holgura" d="M 20 158 C 120 152, 220 152, 320 158"></path>
-            <path class="lx-cinta__ruta" d="M 20 158 C 120 152, 220 152, 320 158"></path>
-            <circle class="lx-cinta__nodo" cx="60" cy="158" r="4.5"></circle>
-            <circle class="lx-cinta__nodo" cx="116" cy="158" r="4.5"></circle>
-            <circle class="lx-cinta__nodo" cx="172" cy="158" r="4.5"></circle>
+            <!-- Los discos van SOBRE la curva de la cinta, no en una recta a su
+                 altura nominal: la cinta arquea 4,5 unidades en el centro y con
+                 el tile mayor (1.6fr, unas 1,6 veces el ancho anterior) los
+                 discos que antes flotaban por debajo del trazo se ven separados
+                 de él. Cada cy sale de la propia curva —y(t) = Y − 18·t·(1−t)
+                 para el control a Y−6— así que dibujo y trazo no se pueden
+                 desincronizar. Y los vehículos de cada corredor se reparten por
+                 igual de extremo a extremo: así la DENSIDAD codifica el conteo
+                 —8 apretados, 3 sueltos— en vez de dejar una cola vacía a la
+                 derecha que se leería como tramo sin cubrir. La posición dentro
+                 del corredor no es dato y ninguna cifra depende de ella: el
+                 conteo exacto está en el desglose de abajo. -->
+            <path class="lx-cinta__ruta lx-cinta__ruta--holgura" d="M 20 22 C 120 16, 220 16, 320 22"></path>
+            <path class="lx-cinta__ruta" d="M 20 22 C 120 16, 220 16, 320 22"></path>
+            <circle class="lx-cinta__nodo" cx="35.0" cy="21.1" r="4.5"></circle>
+            <circle class="lx-cinta__nodo" cx="73.6" cy="19.4" r="4.5"></circle>
+            <circle class="lx-cinta__nodo" cx="112.1" cy="18.2" r="4.5"></circle>
+            <circle class="lx-cinta__nodo" cx="150.7" cy="17.6" r="4.5"></circle>
+            <circle class="lx-cinta__nodo" cx="189.3" cy="17.6" r="4.5"></circle>
+            <circle class="lx-cinta__nodo" cx="227.9" cy="18.2" r="4.5"></circle>
+            <circle class="lx-cinta__nodo" cx="266.4" cy="19.4" r="4.5"></circle>
+            <circle class="lx-cinta__nodo" cx="305.0" cy="21.1" r="4.5"></circle>
+            <path class="lx-cinta__ruta lx-cinta__ruta--holgura" d="M 20 60 C 120 54, 220 54, 320 60"></path>
+            <path class="lx-cinta__ruta" d="M 20 60 C 120 54, 220 54, 320 60"></path>
+            <circle class="lx-cinta__nodo" cx="35.0" cy="59.1" r="4.5"></circle>
+            <circle class="lx-cinta__nodo" cx="89.0" cy="56.8" r="4.5"></circle>
+            <circle class="lx-cinta__nodo" cx="143.0" cy="55.6" r="4.5"></circle>
+            <circle class="lx-cinta__nodo" cx="197.0" cy="55.6" r="4.5"></circle>
+            <circle class="lx-cinta__nodo" cx="251.0" cy="56.8" r="4.5"></circle>
+            <circle class="lx-cinta__nodo" cx="305.0" cy="59.1" r="4.5"></circle>
+            <path class="lx-cinta__ruta lx-cinta__ruta--holgura" d="M 20 98 C 120 92, 220 92, 320 98"></path>
+            <path class="lx-cinta__ruta" d="M 20 98 C 120 92, 220 92, 320 98"></path>
+            <circle class="lx-cinta__nodo" cx="35.0" cy="97.1" r="4.5"></circle>
+            <circle class="lx-cinta__nodo" cx="125.0" cy="93.9" r="4.5"></circle>
+            <circle class="lx-cinta__nodo" cx="215.0" cy="93.9" r="4.5"></circle>
+            <circle class="lx-cinta__nodo" cx="305.0" cy="97.1" r="4.5"></circle>
+            <path class="lx-cinta__ruta lx-cinta__ruta--holgura" d="M 20 136 C 120 130, 220 130, 320 136"></path>
+            <path class="lx-cinta__ruta" d="M 20 136 C 120 130, 220 130, 320 136"></path>
+            <circle class="lx-cinta__nodo" cx="35.0" cy="135.1" r="4.5"></circle>
+            <circle class="lx-cinta__nodo" cx="170.0" cy="131.5" r="4.5"></circle>
+            <circle class="lx-cinta__nodo" cx="305.0" cy="135.1" r="4.5"></circle>
           </svg>
           <p class="lx-grafico__leyenda">
             <span class="lx-grafico__clave lx-grafico__clave--corredor"><span class="lx-grafico__muestra" aria-hidden="true"></span>Corredor, de norte a occidente en el mismo orden del desglose</span>
@@ -2522,8 +2699,9 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
           los 21 veh&iacute;culos en v&iacute;a sobre cuatro corredores y el dato exacto est&aacute; en el
           desglose de abajo. El trazo es la cinta de la marca &mdash;la identidad la lleva su
           geometr&iacute;a, no su color&mdash; y los cuatro corredores comparten escalón porque el corredor
-          no es una magnitud. Las cuatro alarmas abiertas est&aacute;n en la cola de al lado, con su
-          severidad, su contexto y su hora.</figcaption>
+          no es una magnitud. Las cuatro alarmas abiertas est&aacute;n en la cola «Alarmas activas» de esta
+          misma pantalla, con su severidad, su contexto y su hora, y el desglose de aqu&iacute; abajo dice
+          cu&aacute;l de ellas cae en cada corredor.</figcaption>
         </figure>
         <dl class="lx-desglose">
           <div class="lx-desglose__fila">
@@ -2576,9 +2754,18 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
              estática y está ordenada por SEVERIDAD, como dice su propio
              aria-label. Un lector de pantalla la anunciaba como bitácora en
              curso y con un orden que no es el que tiene. Si algún día las
-             alarmas entran solas, entonces sí role="log" y orden cronológico. -->
-        <div class="lx-alarmas" role="region" tabindex="0"
-             aria-label="Cola de las 4 alarmas activas al corte de las 06:42, ordenadas por severidad. Región desplazable: use las flechas para recorrerla.">
+             alarmas entran solas, entonces sí role="log" y orden cronológico.
+             SIN tabindex propio: las 4 alarmas cabían solo a medias en 300 px y
+             la caja necesitaba una parada para desplazarse; ahora la cola toma
+             el alto libre de la tarjeta y las cuatro se ven enteras, así que no
+             desborda y una parada extra sería un foco sin nada que hacer. El
+             recorrido de teclado lo dan los cuatro botones de gestión que viven
+             dentro, que es lo que el §9 del sistema pide para una caja con
+             controles. Si la cola crece y vuelve a desbordar,
+             initRegionesDesplazables la marca sola en el siguiente cambio de
+             pantalla o de subvista. -->
+        <div class="lx-alarmas" role="region"
+             aria-label="Cola de las 4 alarmas activas al corte de las 06:42, ordenadas por severidad.">
 
           <article class="lx-alarma" data-sev="critica">
             <span class="lx-alarma__glifo" aria-hidden="true">&#9888;</span>
@@ -2644,82 +2831,11 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
       <div class="lx-tarjeta__pie">Las cuatro alarmas están vigentes en el mismo instante, el corte de las
       <time datetime="2026-08-19T06:42:00-05:00">06:42</time>, y se ordenan por severidad, no por hora.
       Atender es obligatorio: cerrar una alarma exige un motivo del catálogo y queda en el log de auditoría.
-      La cola es una región desplazable con foco propio, alcanzable con teclado.</div>
+      Las cuatro se ven enteras, así que ninguna severidad queda escondida. Cada alarma trae su propia
+      acción, y por ahí se recorre la cola con el teclado.</div>
     </section>
 
   </div>
-
-  <section class="lx-tarjeta lx-cinta-filete" id="s2-ruta" tabindex="-1">
-    <div class="lx-tarjeta__cab">
-      <h2 class="lx-tarjeta__titulo">Ruta vigilada de una orden</h2>
-      <span class="lx-insignia" translate="no">OS-2026-1191</span>
-    </div>
-    <div class="lx-tarjeta__cuerpo">
-      <figure class="lx-mapa">
-        <svg viewBox="0 0 340 176" role="img" focusable="false"
-             aria-label="Ruta de la orden OS-2026-1191, Van H1 de placa JLK-338: recogida a las 05:40, posición del último reporte del equipo a bordo al corte de las 06:42 con 1 hora 2 minutos de servicio, es decir el 8,6 por ciento de la franja de 12 horas, y destino Hacienda Los Nogales en Cota con cierre previsto a las 17:40. El tramo recorrido es el trazo continuo corto del comienzo; el resto es el tramo previsto, punteado.">
-          <path class="lx-cinta__ruta lx-cinta__ruta--holgura"
-                d="M 26 138 C 38 138 46 136 54 133 C 110 112 122 68 178 68 C 234 68 262 50 314 50"></path>
-          <path class="lx-cinta__ruta lx-cinta__ruta--prevista"
-                d="M 54 133 C 110 112 122 68 178 68 C 234 68 262 50 314 50"></path>
-          <path class="lx-cinta__ruta lx-cinta__ruta--recorrida"
-                d="M 26 138 C 38 138 46 136 54 133"></path>
-          <circle class="lx-cinta__nodo" cx="26" cy="138" r="6"></circle>
-          <circle class="lx-cinta__nodo" cx="314" cy="50" r="6"></circle>
-          <circle class="lx-mapa__pulso" cx="54" cy="133" r="6"></circle>
-        </svg>
-        <p class="lx-grafico__leyenda">
-          <span class="lx-grafico__clave lx-grafico__clave--recorrida"><span class="lx-grafico__muestra" aria-hidden="true"></span>Tramo ya recorrido, en l&iacute;nea continua</span>
-          <span class="lx-grafico__clave lx-grafico__clave--prevista"><span class="lx-grafico__muestra" aria-hidden="true"></span>Tramo previsto hasta el cierre, punteado</span>
-          <span class="lx-grafico__clave lx-grafico__clave--pulso"><span class="lx-grafico__muestra" aria-hidden="true"></span>&Uacute;ltimo reporte del equipo a bordo, anillo abierto</span>
-        </p>
-        <figcaption class="lx-mini lx-texto-2">Esquema de apoyo, no un mapa: sitúa el avance sobre un
-        solo eje y el dato exacto está en el desglose de abajo. El trazo es la cinta de la marca —la
-        identidad la lleva su geometría, no su color— y va con la rampa secuencial porque el avance es una
-        magnitud: el tramo continuo del comienzo es lo recorrido (1&nbsp;h 02&nbsp;min de las 12&nbsp;h de
-        la franja, el 8,6&nbsp;%) y el tramo punteado es lo previsto. Recogida <time datetime="2026-08-19T05:40:00-05:00">05:40</time> &middot; último
-        reporte <time datetime="2026-08-19T06:42:00-05:00">06:42</time> &middot; cierre previsto
-        <time datetime="2026-08-19T17:40:00-05:00">17:40</time> en Hacienda Los Nogales, Cota.</figcaption>
-      </figure>
-      <dl class="lx-desglose">
-        <div class="lx-desglose__fila">
-          <dt class="lx-desglose__clave">Recogida
-            <span class="lx-desglose__nota">Sello del servidor al iniciar el servicio</span></dt>
-          <dd class="lx-desglose__valor"><time datetime="2026-08-19T05:40:00-05:00">05:40</time></dd>
-        </div>
-        <div class="lx-desglose__fila">
-          <dt class="lx-desglose__clave">Último reporte del equipo a bordo
-            <span class="lx-desglose__nota">Es el corte de datos de la Torre: no hay posición más reciente</span></dt>
-          <dd class="lx-desglose__valor"><time datetime="2026-08-19T06:42:00-05:00">06:42</time></dd>
-        </div>
-        <div class="lx-desglose__fila lx-desglose__fila--subtotal">
-          <dt class="lx-desglose__clave">Transcurrido al corte
-            <span class="lx-desglose__nota">De 05:40 a 06:42 &middot; 8,6&nbsp;% de la franja de 12&nbsp;h</span></dt>
-          <dd class="lx-desglose__valor">1&nbsp;h 02&nbsp;min</dd>
-        </div>
-        <div class="lx-desglose__fila">
-          <dt class="lx-desglose__clave">Falta para el cierre previsto
-            <span class="lx-desglose__nota">De 06:42 a 17:40, si no cambia la programación</span></dt>
-          <dd class="lx-desglose__valor">10&nbsp;h 58&nbsp;min</dd>
-        </div>
-        <div class="lx-desglose__fila lx-desglose__fila--total">
-          <dt class="lx-desglose__clave">Franja del servicio
-            <span class="lx-desglose__nota">De 05:40 a 17:40 &middot; destino Hacienda Los Nogales, Cota</span></dt>
-          <dd class="lx-desglose__valor">12&nbsp;h</dd>
-        </div>
-      </dl>
-      <span class="lx-fila">
-        <button type="button" class="lx-btn lx-btn--secundario" data-modal-abrir="m-ruta">Editar la ruta en caliente</button>
-      </span>
-    </div>
-    <div class="lx-tarjeta__pie">Vista de DETALLE de una orden, no el panel de flota: el esquema de la
-    flota completa es el de arriba, y aquí se sigue la traza fina del único vehículo del que esta
-    demostración trae reportes, <span translate="no">JLK-338</span>. Producción pidió el cambio de ruta y el conductor
-    <span translate="no">Y. Castaño Mejía</span> aún no lo confirma en la hoja: es la alarma baja de la
-    cola. El filete de la cinta al borde de esta tarjeta es el de
-    <span translate="no">OS-2026-1191</span>.</div>
-  </section>
-
 
   <section class="lx-tarjeta" id="s2-ordenes" tabindex="-1">
     <div class="lx-tarjeta__cab">
@@ -3034,9 +3150,98 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
     Ley 1581 de 2012).</div>
   </section>
 
+  <!-- VISTA DE DETALLE, y por eso vive DESPUÉS de la tabla de órdenes: §8.bis
+       manda que la ruta de un solo vehículo vaya «en segundo plano o al
+       seleccionar un servicio»: el servicio se selecciona en la tabla de arriba
+       y su detalle viene justo después, no antes. El panel insignia —el esquema
+       de flota— es el tile mayor de la banda que abre la pantalla, y desde él se
+       llega aquí con «Ver la ruta de OS-2026-1191». -->
+  <section class="lx-tarjeta lx-cinta-filete" id="s2-ruta" tabindex="-1">
+    <div class="lx-tarjeta__cab">
+      <h2 class="lx-tarjeta__titulo">Ruta vigilada de la orden seleccionada</h2>
+      <span class="lx-insignia" translate="no">OS-2026-1191</span>
+    </div>
+    <div class="lx-tarjeta__cuerpo">
+      <figure class="lx-mapa">
+        <svg viewBox="0 0 340 176" role="img" focusable="false"
+             aria-label="Ruta de la orden OS-2026-1191, Van H1 de placa JLK-338: recogida a las 05:40, posición del último reporte del equipo a bordo al corte de las 06:42 con 1 hora 2 minutos de servicio, es decir el 8,6 por ciento de la franja de 12 horas, y destino Hacienda Los Nogales en Cota con cierre previsto a las 17:40. El tramo recorrido es el trazo continuo corto del comienzo; el resto es el tramo previsto, punteado.">
+          <path class="lx-cinta__ruta lx-cinta__ruta--holgura"
+                d="M 26 138 C 38 138 46 136 54 133 C 110 112 122 68 178 68 C 234 68 262 50 314 50"></path>
+          <path class="lx-cinta__ruta lx-cinta__ruta--prevista"
+                d="M 54 133 C 110 112 122 68 178 68 C 234 68 262 50 314 50"></path>
+          <path class="lx-cinta__ruta lx-cinta__ruta--recorrida"
+                d="M 26 138 C 38 138 46 136 54 133"></path>
+          <circle class="lx-cinta__nodo" cx="26" cy="138" r="6"></circle>
+          <circle class="lx-cinta__nodo" cx="314" cy="50" r="6"></circle>
+          <circle class="lx-mapa__pulso" cx="54" cy="133" r="6"></circle>
+        </svg>
+        <p class="lx-grafico__leyenda">
+          <span class="lx-grafico__clave lx-grafico__clave--recorrida"><span class="lx-grafico__muestra" aria-hidden="true"></span>Tramo ya recorrido, en l&iacute;nea continua</span>
+          <span class="lx-grafico__clave lx-grafico__clave--prevista"><span class="lx-grafico__muestra" aria-hidden="true"></span>Tramo previsto hasta el cierre, punteado</span>
+          <span class="lx-grafico__clave lx-grafico__clave--pulso"><span class="lx-grafico__muestra" aria-hidden="true"></span>&Uacute;ltimo reporte del equipo a bordo, anillo abierto</span>
+        </p>
+        <figcaption class="lx-mini lx-texto-2">Esquema de apoyo, no un mapa: sitúa el avance sobre un
+        solo eje y el dato exacto está en el desglose de abajo. El trazo es la cinta de la marca —la
+        identidad la lleva su geometría, no su color— y va con la rampa secuencial porque el avance es una
+        magnitud: el tramo continuo del comienzo es lo recorrido (1&nbsp;h 02&nbsp;min de las 12&nbsp;h de
+        la franja, el 8,6&nbsp;%) y el tramo punteado es lo previsto. Recogida <time datetime="2026-08-19T05:40:00-05:00">05:40</time> &middot; último
+        reporte <time datetime="2026-08-19T06:42:00-05:00">06:42</time> &middot; cierre previsto
+        <time datetime="2026-08-19T17:40:00-05:00">17:40</time> en Hacienda Los Nogales, Cota.</figcaption>
+      </figure>
+      <dl class="lx-desglose">
+        <div class="lx-desglose__fila">
+          <dt class="lx-desglose__clave">Recogida
+            <span class="lx-desglose__nota">Sello del servidor al iniciar el servicio</span></dt>
+          <dd class="lx-desglose__valor"><time datetime="2026-08-19T05:40:00-05:00">05:40</time></dd>
+        </div>
+        <div class="lx-desglose__fila">
+          <dt class="lx-desglose__clave">Último reporte del equipo a bordo
+            <span class="lx-desglose__nota">Es el corte de datos de la Torre: no hay posición más reciente</span></dt>
+          <dd class="lx-desglose__valor"><time datetime="2026-08-19T06:42:00-05:00">06:42</time></dd>
+        </div>
+        <div class="lx-desglose__fila lx-desglose__fila--subtotal">
+          <dt class="lx-desglose__clave">Transcurrido al corte
+            <span class="lx-desglose__nota">De 05:40 a 06:42 &middot; 8,6&nbsp;% de la franja de 12&nbsp;h</span></dt>
+          <dd class="lx-desglose__valor">1&nbsp;h 02&nbsp;min</dd>
+        </div>
+        <div class="lx-desglose__fila">
+          <dt class="lx-desglose__clave">Falta para el cierre previsto
+            <span class="lx-desglose__nota">De 06:42 a 17:40, si no cambia la programación</span></dt>
+          <dd class="lx-desglose__valor">10&nbsp;h 58&nbsp;min</dd>
+        </div>
+        <div class="lx-desglose__fila lx-desglose__fila--total">
+          <dt class="lx-desglose__clave">Franja del servicio
+            <span class="lx-desglose__nota">De 05:40 a 17:40 &middot; destino Hacienda Los Nogales, Cota</span></dt>
+          <dd class="lx-desglose__valor">12&nbsp;h</dd>
+        </div>
+      </dl>
+      <span class="lx-fila">
+        <button type="button" class="lx-btn lx-btn--secundario" data-modal-abrir="m-ruta">Editar la ruta en caliente</button>
+      </span>
+    </div>
+    <div class="lx-tarjeta__pie">Vista de DETALLE de la orden seleccionada en la tabla de arriba, no el
+    panel de flota: el panel insignia de la Torre es el esquema de los 21 vehículos en vía con que abre la
+    pantalla, y aquí se sigue la traza fina del único vehículo del que esta
+    demostración trae reportes, <span translate="no">JLK-338</span>. Producción pidió el cambio de ruta y el conductor
+    <span translate="no">Y. Castaño Mejía</span> aún no lo confirma en la hoja: es la alarma baja de la
+    cola. El filete de la cinta al borde de esta tarjeta es el de
+    <span translate="no">OS-2026-1191</span>.</div>
+  </section>
+
   <div class="lx-rejilla lx-rejilla--banda">
 
-    <section class="lx-tarjeta lx-cinta-filete lx-cinta--b" id="s2-cola-verificar" tabindex="-1">
+    <!-- SIN filete de cinta, a propósito. El contrato del elemento distintivo
+         es que «las tarjetas que hablan del MISMO servicio comparten el filete,
+         y eso es lo que informa», con el corolario de que la tarjeta lleva
+         visible el identificador de la orden. Esta tarjeta habla de una COLA de
+         nueve servicios y por definición no tiene un identificador de orden que
+         exhibir: el filete no informaba nada aquí, y además gastaba el segundo
+         tono que §8.3 reserva para el segundo servicio de la pantalla. En S2 el
+         filete queda solo en #s2-ruta, que sí es la tarjeta de un servicio
+         —OS-2026-1191, visible en su encabezado—, así que recupera su único
+         significado: «esto habla del servicio seleccionado». La cola ya se
+         distingue por su encabezado, su contador y su lista. -->
+    <section class="lx-tarjeta" id="s2-cola-verificar" tabindex="-1">
       <div class="lx-tarjeta__cab">
         <h2 class="lx-tarjeta__titulo">Cola «Por Verificar»</h2>
         <span class="lx-insignia">9 servicios</span>
@@ -3330,9 +3535,11 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
       </div>
       <div class="lx-tarjeta__pie">Cerrar con justificación exige un motivo del catálogo, deja el servicio
       liquidable sin firma en set y guarda la constancia en el log de auditoría. Solo el coordinador
-      operativo y el administrador pueden hacerlo. El filete de la cinta al borde de esta tarjeta es el de
-      <span translate="no">OS-2026-1207</span>: la misma cinta marca su hoja de servicio en la app del
-      conductor y su liquidación en el financiero.</div>
+      operativo y el administrador pueden hacerlo. Esta tarjeta habla de la COLA, no de un servicio, así
+      que no lleva filete de cinta: el filete marca las tarjetas de un mismo servicio y en esta pantalla
+      es el de <span translate="no">OS-2026-1191</span>, en la tarjeta de ruta. La cinta de
+      <span translate="no">OS-2026-1207</span> se ve donde sí hay tarjetas de ese servicio: su hoja en la
+      app del conductor y su liquidación en el financiero.</div>
     </section>
 
     <section class="lx-tarjeta" id="s2-aliados" tabindex="-1">
@@ -4639,9 +4846,11 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
       <p class="lx-aviso lx-aviso--info">
         <span class="lx-aviso__glifo" aria-hidden="true">&#9432;</span>
         <span>Está viendo el portal tal como lo ve el aliado <strong translate="no">Transportes Andinos del Norte S.A.S.</strong>,
-        NIT <span translate="no">900.5&bull;&bull;.&bull;&bull;&bull;-&bull;</span>. El aliado solo alcanza sus propios
-        recursos y documentos: no ve otros aliados, ni el recuento del resto, ni las tarifas, ni los proyectos de
-        las productoras.</span>
+        NIT <span translate="no">900.5&bull;&bull;.&bull;&bull;&bull;-&bull;</span>. Dentro del portal el aliado solo
+        alcanza sus propios recursos y documentos: no ve otros aliados, ni el recuento del resto, ni las tarifas,
+        ni los proyectos de las productoras. Los indicadores de arriba y la bandeja de revisión son la vista
+        interna de <span translate="no">L&amp;STO S.A.S.</span> y no llegan al aliado: aquí están porque esta es
+        la pantalla del analista, no la sesión del proveedor.</span>
       </p>
 
       <div class="lx-rejilla lx-rejilla--banda">
@@ -4891,8 +5100,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
         <span translate="no">J. Cifuentes Ortiz</span> · C.C. <span translate="no">****5520</span> está
         suspendido desde el <time datetime="2026-08-13">13 de agosto</time> por licencia de conducción
         vencida y no aparece en ningún servicio de hoy, pero no es uno de estos 14 recursos: su habilitación
-        se sigue en el semáforo documental de arriba y en la cola de revisión.
-        Qué documentos inhabilitan el recurso y con cuántos días de preaviso se avisa (hoy 30) son parámetros de negocio: en este prototipo valen igual para las tres compañías y se leen en el semáforo documental de arriba. Cambiarlos exige el permiso <span translate="no">onboarding:parametros:editar</span>, declarado en la matriz permiso a permiso.</div>
+        se sigue en el semáforo documental de arriba y en la cola de revisión.</div>
       </section>
 
     </div>
@@ -4903,12 +5111,12 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
       <p class="lx-aviso lx-aviso--info">
         <span class="lx-aviso__glifo" aria-hidden="true">&#9432;</span>
         <span>Aprueba y rechaza el <strong>analista de documentación</strong> de <span translate="no">L&amp;STO
-        S.A.S.</span> · HSEQ, el perfil responsable del permiso
-        <span translate="no">onboarding:documento:aprobar</span> —la matriz de permisos lo concede además al
-        administrador de plataforma, y a nadie más—.
-        El coordinador operativo entra a esta bandeja solo a consultar el estado de habilitación: abre el
-        soporte y lee el expediente completo, y ve estos mismos controles de decisión deshabilitados con el
-        motivo, sin poder aprobar, rechazar ni levantar una inhabilitación. La autorización se valida siempre
+        S.A.S.</span> · HSEQ, y nadie más: es el único titular del permiso
+        <span translate="no">onboarding:documento:aprobar</span> en la matriz de permisos.
+        El coordinador operativo y el administrador de plataforma entran a esta bandeja solo a consultar el
+        estado de habilitación: abren el soporte y leen el expediente completo, y ven estos mismos controles
+        de decisión deshabilitados con el motivo, sin poder aprobar, rechazar ni levantar una inhabilitación.
+        Alcanzar una superficie no es tener permiso dentro de ella. La autorización se valida siempre
         en el servidor: esconder un control no es autorizar.</span>
       </p>
 
@@ -4923,7 +5131,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
           <div class="lx-tarjeta__cuerpo lx-tarjeta__cuerpo--sin-relleno">
             <div class="lx-tabla-envoltorio">
               <table class="lx-tabla lx-tabla--tarjetas">
-                <caption>Los 5 documentos que los aliados tienen cargados y sin revisar, con su antigüedad en la cola medida contra el plazo interno de 48&nbsp;h y su efecto sobre la habilitación del recurso. Es la cola completa: no hay filas ocultas. Aprobar y rechazar solo se alcanzan después de abrir el soporte, así que cada fila tiene una sola acción.</caption>
+                <caption>Los 5 documentos que los aliados tienen cargados y sin revisar, con su antigüedad en la cola y su efecto sobre la habilitación del recurso. La antigüedad es el tiempo exacto entre la hora de recibido y el corte de las 06:42, en días y horas, y se compara contra el plazo interno de 48&nbsp;h: por eso 2&nbsp;d 21&nbsp;h está fuera de plazo y 14&nbsp;h no. Es la cola completa: no hay filas ocultas. Aprobar y rechazar solo se alcanzan después de abrir el soporte, así que cada fila tiene una sola acción.</caption>
                 <thead>
                   <tr>
                     <th scope="col">Documento</th>
@@ -4945,9 +5153,9 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                       <span class="lx-tabla__secundario"><span class="lx-insignia">Movilidad</span> conductor J. Cifuentes Ortiz · C.C. <span translate="no">****5520</span></span>
                     </td>
                     <td data-col="Recibido"><time datetime="2026-08-13T11:20:00-05:00">13 ago · 11:20</time></td>
-                    <td class="lx-num" data-col="En cola">6&nbsp;días</td>
+                    <td class="lx-num" data-col="En cola">5&nbsp;d 19&nbsp;h</td>
                     <td data-col="Estado y efecto">
-                      <span class="lx-chip lx-chip--error"><span class="lx-chip__punto" aria-hidden="true"></span>Fuera de plazo · 6&nbsp;días</span>
+                      <span class="lx-chip lx-chip--error"><span class="lx-chip__punto" aria-hidden="true"></span>Fuera de plazo · 5&nbsp;d 19&nbsp;h</span>
                       <span class="lx-tabla__secundario">Pasó el plazo interno de 48&nbsp;h. Inhabilita al conductor hasta aprobar: sigue suspendido desde el 13 de agosto</span>
                     </td>
                     <td data-col="Revisión del analista">
@@ -4984,9 +5192,9 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                       <span class="lx-tabla__secundario"><span class="lx-insignia">Facilidades Móviles</span> baño móvil Delux 2 · remolque <span translate="no">BMD-215</span></span>
                     </td>
                     <td data-col="Recibido"><time datetime="2026-08-15T08:02:00-05:00">15 ago · 08:02</time></td>
-                    <td class="lx-num" data-col="En cola">4&nbsp;días</td>
+                    <td class="lx-num" data-col="En cola">3&nbsp;d 22&nbsp;h</td>
                     <td data-col="Estado y efecto">
-                      <span class="lx-chip lx-chip--error"><span class="lx-chip__punto" aria-hidden="true"></span>Fuera de plazo · 4&nbsp;días</span>
+                      <span class="lx-chip lx-chip--error"><span class="lx-chip__punto" aria-hidden="true"></span>Fuera de plazo · 3&nbsp;d 22&nbsp;h</span>
                       <span class="lx-tabla__secundario">Pasó el plazo interno de 48&nbsp;h. Inhabilita el baño móvil Delux 2 hasta aprobar: la versión 1 venció el 10 de agosto</span>
                     </td>
                     <td data-col="Revisión del analista">
@@ -5016,16 +5224,16 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                   <tr>
                     <th scope="row" data-col="Documento">
                       <span class="lx-tabla__principal">Técnico-mecánica</span>
-                      <span class="lx-tabla__secundario">Versión 2 · vigencia declarada: 16 de agosto de 2027</span>
+                      <span class="lx-tabla__secundario">Versión 2 · vigencia declarada: 15 de agosto de 2027</span>
                     </th>
                     <td data-col="Aliado y recurso">
                       <span class="lx-tabla__principal" translate="no">Unidades Móviles Sabana S.A.S.</span>
                       <span class="lx-tabla__secundario"><span class="lx-insignia">Facilidades Móviles</span> baño móvil Delux 3 · remolque <span translate="no">BMD-316</span></span>
                     </td>
-                    <td data-col="Recibido"><time datetime="2026-08-17T09:12:00-05:00">17 ago · 09:12</time></td>
-                    <td class="lx-num" data-col="En cola">2&nbsp;días</td>
+                    <td data-col="Recibido"><time datetime="2026-08-16T09:12:00-05:00">16 ago · 09:12</time></td>
+                    <td class="lx-num" data-col="En cola">2&nbsp;d 21&nbsp;h</td>
                     <td data-col="Estado y efecto">
-                      <span class="lx-chip lx-chip--error"><span class="lx-chip__punto" aria-hidden="true"></span>Fuera de plazo · 2&nbsp;días</span>
+                      <span class="lx-chip lx-chip--error"><span class="lx-chip__punto" aria-hidden="true"></span>Fuera de plazo · 2&nbsp;d 21&nbsp;h</span>
                       <span class="lx-tabla__secundario">Pasó el plazo interno de 48&nbsp;h. Inhabilita el baño móvil Delux 3 hasta aprobar: la versión 1 venció el 12 de agosto</span>
                     </td>
                     <td data-col="Revisión del analista">
@@ -5037,9 +5245,9 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                                 data-doc-aliado="Unidades Móviles Sabana S.A.S."
                                 data-doc-numero="CRTM-2026-119215"
                                 data-doc-entidad="el CDA Autonorte"
-                                data-doc-expedido="2026-08-16"
-                                data-doc-vence="2027-08-16"
-                                data-doc-cargado="17 de agosto a las 09:12"
+                                data-doc-expedido="2026-08-15"
+                                data-doc-vence="2027-08-15"
+                                data-doc-cargado="16 de agosto a las 09:12"
                                 data-doc-huella="****c3d9"
                                 data-doc-archivo="tecnicomecanica-delux3-v2.pdf"
                                 data-doc-version="versión 2"
@@ -5134,7 +5342,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                 <tfoot>
                   <tr>
                     <th scope="row" colspan="2" data-col="Totales">Totales de la cola · 5 documentos</th>
-                    <td data-col="Recibido">el más antiguo, hace 6&nbsp;días</td>
+                    <td data-col="Recibido">el más antiguo, hace 5&nbsp;d 19&nbsp;h</td>
                     <td class="lx-num" data-col="En cola">&mdash;<span class="lx-sr">Sin total: las antigüedades no se suman.</span></td>
                     <td data-col="Estado y efecto">3 fuera del plazo de 48&nbsp;h + 2 dentro del plazo = 5 · los 3 que están fuera de plazo son los que mantienen inhabilitados los 2 baños móviles Delux y suspendido a 1 conductor · la tercera inhabilitación, la Aerovan <span translate="no">AVN-529</span>, no tiene soporte en esta cola: el aliado aún no ha cargado la renovación</td>
                     <td data-col="Revisión del analista">2 analistas de documentación de turno</td>
@@ -5244,7 +5452,8 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                 recurso</strong>, pero sí bloquea la aprobación del pago de la factura del aliado en el
                 módulo financiero: son dos reglas distintas y cada una dice cuál es la suya. Los cinco que
                 inhabilitan, el <span translate="no">RUT</span> informativo y el preaviso de 30 días son los
-                mismos para las tres compañías aliadas de este prototipo y se leen en este semáforo;
+                mismos para las tres compañías aliadas de este prototipo, y son los seis tipos que lista el
+                semáforo documental de la pestaña «Portal del proveedor»;
                 parametrizarlos por compañía exige el permiso
                 <span translate="no">onboarding:parametros:editar</span>, que no tiene formulario aquí.</span>
               </p>
@@ -5269,7 +5478,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                   <dd class="lx-desglose__valor">1</dd>
                 </div>
               </dl>
-              <p class="lx-mini lx-texto-2">El rechazo nunca habilita: mientras el aliado no cargue un soporte válido, el recurso sigue inhabilitado. La versión 2 de esta licencia lleva 6&nbsp;días en la cola y es el primer documento de la lista de arriba.</p>
+              <p class="lx-mini lx-texto-2">El rechazo nunca habilita: mientras el aliado no cargue un soporte válido, el recurso sigue inhabilitado. La versión 2 de esta licencia lleva 5&nbsp;d 19&nbsp;h en la cola y es el primer documento de la lista de arriba.</p>
             </div>
           </section>
 
@@ -5337,7 +5546,19 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
             </table>
           </div>
         </div>
-        <div class="lx-tarjeta__pie">23 habilitados sin aviso + 3 inhabilitados + 1 por vencer = 27 recursos. Los NIT de terceros se muestran enmascarados siempre, en toda la plataforma.</div>
+        <div class="lx-tarjeta__pie">23 habilitados sin aviso + 3 inhabilitados + 1 por vencer = 27 recursos.
+        <strong>Los 3 inhabilitados son estos y solo estos</strong>, cada uno con un sujeto, una causa y una
+        fecha: el baño móvil <strong>Delux 2</strong> · remolque <span translate="no">BMD-215</span> y el
+        <strong>Delux 3</strong> · remolque <span translate="no">BMD-316</span>, los dos de
+        <span translate="no">Unidades Móviles Sabana S.A.S.</span> y los dos por técnico-mecánica vencida el
+        <time datetime="2026-08-10">10</time> y el <time datetime="2026-08-12">12 de agosto de 2026</time>; y la
+        <strong>Aerovan</strong> · placa <span translate="no">AVN-529</span> de
+        <span translate="no">Transportes Andinos del Norte S.A.S.</span>, por técnico-mecánica vencida el
+        <time datetime="2026-08-08">8 de agosto de 2026</time>. El conductor
+        <span translate="no">J. Cifuentes Ortiz</span>, suspendido desde el
+        <time datetime="2026-08-13">13 de agosto</time> por licencia vencida, <strong>no es uno de los
+        3</strong>: es una persona y se cuenta aparte de los recursos de su aliado. Los
+        <span translate="no">NIT</span> de terceros se muestran enmascarados siempre, en toda la plataforma.</div>
       </section>
 
     </div>
@@ -5420,7 +5641,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
              gemelo aria-disabled con el motivo visible. Ver no es autorizar: el
              coordinador sigue abriendo el soporte y leyendo el expediente, que
              es lo que la bandeja le promete. -->
-        <p class="lx-mini lx-texto-2" data-salvo-rol="analista administrador" id="s4-visor-rol-motivo">Aprobar y rechazar
+        <p class="lx-mini lx-texto-2" data-salvo-rol="analista" id="s4-visor-rol-motivo">Aprobar y rechazar
         están deshabilitados con el perfil activo: <strong>onboarding:documento:aprobar es del analista de
         documentación</strong>. Este perfil entra a consultar el estado de habilitación, no a decidir sobre
         el documento. La autorización se valida siempre en el servidor: esconder un control no es
@@ -5438,11 +5659,11 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
         <button type="button" class="lx-btn lx-btn--secundario" data-modal-cerrar
                 data-toast="Se abrió la versión anterior del documento al lado de la que está en revisión, para comparar."
                 data-toast-tipo="exito">Comparar con la versión anterior</button>
-        <span class="lx-fila" data-solo-rol="analista administrador">
+        <span class="lx-fila" data-solo-rol="analista">
           <button type="button" class="lx-btn lx-btn--peligro" data-modal-abrir="m-s4-rechazo">Pasar al rechazo</button>
           <button type="button" class="lx-btn lx-btn--primario" data-modal-abrir="m-s4-aprobar">Pasar a la aprobación</button>
         </span>
-        <span class="lx-fila" data-salvo-rol="analista administrador">
+        <span class="lx-fila" data-salvo-rol="analista">
           <button type="button" class="lx-btn lx-btn--peligro" aria-disabled="true"
                   aria-describedby="s4-visor-rol-motivo">Pasar al rechazo</button>
           <button type="button" class="lx-btn lx-btn--primario" aria-disabled="true"
@@ -5526,14 +5747,14 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
             <dd class="lx-desglose__valor" data-doc="segunda">Pendiente</dd>
           </div>
         </dl>
-        <p class="lx-mini lx-texto-2" data-salvo-rol="analista administrador" id="s4-aprobar-rol-motivo">Registrar
+        <p class="lx-mini lx-texto-2" data-salvo-rol="analista" id="s4-aprobar-rol-motivo">Registrar
         la verificación está deshabilitado con el perfil activo: <strong>onboarding:documento:aprobar es del
         analista de documentación</strong>, y esta aprobación levanta una inhabilitación activa. Este perfil
         ve el expediente completo y no puede decidir sobre él.</p>
       </div>
       <div class="lx-modal__pie">
         <button type="button" class="lx-btn lx-btn--secundario" data-modal-cerrar>Cancelar</button>
-        <span class="lx-fila" data-solo-rol="analista administrador">
+        <span class="lx-fila" data-solo-rol="analista">
           <button type="button" class="lx-btn lx-btn--peligro" data-modal-abrir="m-s4-rechazo">Rechazar en lugar de aprobar</button>
           <!-- Aviso NEUTRO respecto del documento, por la misma razón que en el
                visor: este diálogo aprueba los cinco documentos de la cola, y
@@ -5546,7 +5767,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                   data-toast="Primera verificación registrada en el log de auditoría, atada a la versión exacta del archivo. La habilitación del recurso solo cambia cuando la revisión queda completa, con el efecto declarado en el diálogo."
                   data-toast-tipo="exito">Registrar mi verificación</button>
         </span>
-        <span class="lx-fila" data-salvo-rol="analista administrador">
+        <span class="lx-fila" data-salvo-rol="analista">
           <button type="button" class="lx-btn lx-btn--peligro" aria-disabled="true"
                   aria-describedby="s4-aprobar-rol-motivo">Rechazar en lugar de aprobar</button>
           <button type="button" class="lx-btn lx-btn--primario" aria-disabled="true"
@@ -5599,7 +5820,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                 <td data-col="Cargado"><time datetime="2026-08-13T11:20:00-05:00">13 ago · 11:20</time></td>
                 <td data-col="Versión">2</td>
                 <td data-col="Resultado">
-                  <span class="lx-chip lx-chip--error"><span class="lx-chip__punto" aria-hidden="true"></span>En revisión · 6&nbsp;días, fuera de plazo</span>
+                  <span class="lx-chip lx-chip--error"><span class="lx-chip__punto" aria-hidden="true"></span>En revisión · 5&nbsp;d 19&nbsp;h, fuera de plazo</span>
                 </td>
               </tr>
               <tr>
@@ -5649,7 +5870,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
     <div class="lx-modal__velo"></div>
     <div class="lx-modal__caja">
       <div class="lx-modal__cab">
-        <h2 class="lx-modal__titulo" id="m-s4-filtro-t">Seleccionar aliado y plazo</h2>
+        <h2 class="lx-modal__titulo" id="m-s4-filtro-t">Elegir aliado y plazo</h2>
         <button type="button" class="lx-btn lx-btn--fantasma lx-modal__cerrar" data-modal-cerrar>
           <span aria-hidden="true">&#10005;</span><span class="lx-sr">Cerrar el diálogo</span>
         </button>
@@ -5669,11 +5890,12 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
           </div>
           <div class="lx-campo">
             <label class="lx-campo__etiqueta" for="s4-filtro-plazo">Plazo interno</label>
-            <select class="lx-campo__control" id="s4-filtro-plazo">
+            <select class="lx-campo__control" id="s4-filtro-plazo" aria-describedby="s4-filtro-plazo-ayuda">
               <option>Todos (5)</option>
               <option>Solo los que pasaron las 48&nbsp;h (3)</option>
-              <option>Solo los que inhabilitan un recurso (3)</option>
+              <option>Solo los que sostienen una inhabilitación o una suspensión activa (3)</option>
             </select>
+            <span class="lx-campo__ayuda" id="s4-filtro-plazo-ayuda">Esos 3 son los mismos 3 que pasaron las 48&nbsp;h: 2 recursos inhabilitados —los baños móviles Delux 2 y Delux 3— y 1 conductor suspendido, que se cuenta aparte porque es una persona y no un vehículo.</span>
           </div>
           <p class="lx-aviso lx-aviso--info">
             <span class="lx-aviso__glifo" aria-hidden="true">&#9432;</span>
@@ -5732,7 +5954,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                       aria-describedby="s4-rechazo-ayuda"></textarea>
             <span class="lx-campo__ayuda" id="s4-rechazo-ayuda">Obligatorio, mínimo 15&nbsp;caracteres. Explique qué debe corregir el aliado para que pueda volver a cargarlo.</span>
           </div>
-          <p class="lx-mini lx-texto-2" data-salvo-rol="analista administrador" id="s4-rechazo-rol-motivo">Rechazar
+          <p class="lx-mini lx-texto-2" data-salvo-rol="analista" id="s4-rechazo-rol-motivo">Rechazar
           está deshabilitado con el perfil activo: <strong>onboarding:documento:aprobar es del analista de
           documentación</strong>, y aprobar y rechazar son simétricos, así que el rechazo tampoco lo ejecuta
           otro perfil.</p>
@@ -5740,13 +5962,13 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
       </div>
       <div class="lx-modal__pie">
         <button type="button" class="lx-btn lx-btn--secundario" data-modal-cerrar>Cancelar</button>
-        <span class="lx-fila" data-solo-rol="analista administrador">
+        <span class="lx-fila" data-solo-rol="analista">
           <button type="button" class="lx-btn lx-btn--peligro" data-modal-cerrar
                   data-confirmar="Sí, rechazar el documento"
                   data-toast="Documento rechazado con su causal y su motivo. El aviso salió al aliado y la habilitación del recurso quedó como estaba: el rechazo nunca habilita."
                   data-toast-tipo="alerta">Rechazar documento</button>
         </span>
-        <span class="lx-fila" data-salvo-rol="analista administrador">
+        <span class="lx-fila" data-salvo-rol="analista">
           <button type="button" class="lx-btn lx-btn--peligro" aria-disabled="true"
                   aria-describedby="s4-rechazo-rol-motivo">Rechazar documento</button>
         </span>
@@ -5843,7 +6065,10 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
       <span class="lx-kpi__cifra">17</span>
       <span class="lx-kpi__delta">9 en vía + 8 por iniciar = 17 &middot; ninguno cerrado todavía al corte de las 06:42</span>
       <span class="lx-fila">
-        <button type="button" class="lx-btn lx-btn--fantasma" data-ancla="s5-servicios">Ver los 17 servicios</button>
+        <!-- El botón prometía «los 17» y la región de destino trae 3 con
+             detalle: el prototipo no tiene las otras 14. La etiqueta nombra el
+             destino, no una cantidad que la lista no puede cumplir. -->
+        <button type="button" class="lx-btn lx-btn--fantasma" data-ancla="s5-servicios">Ver los servicios de hoy</button>
       </span>
     </div>
     <div class="lx-kpi">
@@ -5859,7 +6084,12 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
       <span translate="no">OS-2026-1207</span>, <span translate="no">OS-2026-1196</span> y <span translate="no">OS-2026-1201</span></span>
       <span class="lx-kpi__delta">Sin firma no se liquida: la liquidación de <span translate="no">OS-2026-1207</span> ya está preparada y retenida; las otras dos siguen en la ventana de 48&nbsp;h.</span>
       <span class="lx-fila">
-        <button type="button" class="lx-btn lx-btn--fantasma" data-ancla="s5-servicios">Ver los servicios sin firma</button>
+        <!-- 05-roles §7: un KPI que anuncia trabajo pendiente es un destino,
+             no un callejón. El botón llevaba a la tabla de hoy, donde solo
+             estaba OS-2026-1207: de los 3 que anuncia el KPI se veía 1. Ahora
+             lleva a la tabla propia de los 3, con la antigüedad que el KPI
+             presume (invariante 12). -->
+        <button type="button" class="lx-btn lx-btn--fantasma" data-ancla="s5-sin-firma">Ver los 3 servicios sin firma</button>
       </span>
     </div>
     <div class="lx-kpi">
@@ -5894,7 +6124,11 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                   pathLength="100" stroke-dasharray="15.7 84.3"></path>
             <circle class="lx-cinta__nodo" cx="56" cy="64" r="6"></circle>
             <circle class="lx-cinta__nodo" cx="576" cy="56" r="6"></circle>
-            <circle class="lx-mapa__pulso" cx="139" cy="63" r="9"></circle>
+            <!-- Invariante 13: el dibujo usa la misma cifra publicada. El
+                 anillo del último reporte marca el final del tramo recorrido,
+                 así que su centro se resuelve sobre la propia curva al 15,7 %
+                 de su longitud (t=0,1926 → x 137,6 · y 63,2), no a ojo. -->
+            <circle class="lx-mapa__pulso" cx="137.6" cy="63.2" r="9"></circle>
 
             <text x="56" y="128" font-size="18" fill="var(--lx-texto-2)">Van H1 · JLK-338 · 8,6&#160;% de la franja</text>
             <path class="lx-cinta__ruta lx-cinta__ruta--holgura" d="M 56 158 C 200 158, 320 150, 576 150"></path>
@@ -5903,7 +6137,9 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                   pathLength="100" stroke-dasharray="8.6 91.4"></path>
             <circle class="lx-cinta__nodo" cx="56" cy="158" r="6"></circle>
             <circle class="lx-cinta__nodo" cx="576" cy="150" r="6"></circle>
-            <circle class="lx-mapa__pulso" cx="103" cy="157" r="9"></circle>
+            <!-- Igual que arriba, al 8,6 % de la longitud de esta curva
+                 (t=0,1049 → x 100,7 · y 157,8). -->
+            <circle class="lx-mapa__pulso" cx="100.7" cy="157.8" r="9"></circle>
 
             <text x="56" y="196" font-size="15" fill="var(--lx-texto-3)">Recogida</text>
             <text x="576" y="196" font-size="15" fill="var(--lx-texto-3)" text-anchor="end">Cierre previsto · Cota</text>
@@ -6015,7 +6251,8 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                 <span class="lx-desglose__nota">Los mismos 3 del recuadro de arriba: cerraron el
                 <time datetime="2026-08-18">18 de agosto</time> sin firma en set y siguen esperándola
                 —<span translate="no">OS-2026-1207</span>, <span translate="no">OS-2026-1196</span> y
-                <span translate="no">OS-2026-1201</span>—. Ninguno cuenta entre los 17 de hoy.</span></dt>
+                <span translate="no">OS-2026-1201</span>—. Ninguno cuenta entre los 17 de hoy y los 3
+                están, uno por uno, en la tarjeta «Sin firma de días anteriores».</span></dt>
               <dd class="lx-desglose__valor">3</dd>
             </div>
           </dl>
@@ -6055,18 +6292,24 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
 
   <section class="lx-tarjeta" id="s5-servicios" tabindex="-1">
     <div class="lx-tarjeta__cab">
-      <h2 class="lx-tarjeta__titulo">Servicios del día</h2>
-      <span class="lx-insignia">3 de los 17 de hoy, más 1 de los 3 sin firma de días anteriores</span>
+      <h2 class="lx-tarjeta__titulo">Detalle de los servicios de hoy</h2>
+      <span class="lx-insignia">3 de los 17, con detalle</span>
     </div>
     <div class="lx-tarjeta__cuerpo lx-tarjeta__cuerpo--sin-relleno">
       <div class="lx-tabla-envoltorio">
         <table class="lx-tabla lx-tabla--tarjetas">
-          <caption>Servicios de Cineluz Producciones S.A.S. al corte de las 06:42 del 19 de agosto de 2026, con
-          recurso, orden, proyecto, franja, disponibilidad, estado y hoja de servicio. Se muestran 3 de los 17
-          servicios de hoy con detalle, más <span translate="no">OS-2026-1207</span>, que es del 18 de agosto y
-          es uno de los 3 servicios de días anteriores que siguen «Por Verificar» porque cerraron sin firma. Los
-          otros 14 de hoy y los otros 2 sin firma se cuentan en los totales, pero este prototipo no trae su
-          detalle.</caption>
+          <!-- Esta tabla se llamaba «Servicios del día» y traía dentro la orden
+               OS-2026-1207, que es del 18 de agosto: obligaba al pie a sumar
+               «de hoy 35 h · del 18 de agosto 14 h 40 min» y ponía un servicio
+               de ayer entre los de hoy aunque el total lo excluyera. Los tres
+               sin firma de días anteriores viven ahora en su propia tarjeta,
+               que además es la que abre el KPI «Por Verificar». Aquí solo hay
+               servicios del 19 de agosto. -->
+          <caption>Servicios de hoy de Cineluz Producciones S.A.S. al corte de las 06:42 del 19 de agosto de
+          2026, con recurso, orden, proyecto, franja, disponibilidad, estado y hoja de servicio. Se muestran
+          3 de los 17 servicios de hoy con detalle; los otros 14 se cuentan en los totales, pero este
+          prototipo no trae su detalle. Los servicios de días anteriores que siguen sin firma van en la
+          tarjeta siguiente y no cuentan entre los 17.</caption>
           <thead>
             <tr>
               <th scope="col">Recurso y orden</th>
@@ -6118,27 +6361,6 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
             </tr>
             <tr>
               <th scope="row" data-col="Recurso y orden">
-                <span class="lx-tabla__principal" translate="no">Van H1 · KTM-583</span>
-                <span class="lx-tabla__secundario"><span class="lx-insignia">Movilidad</span></span>
-                <span class="lx-tabla__secundario"><span translate="no">OS-2026-1207</span> · conduce M. Salgado Rivas</span>
-              </th>
-              <td data-col="Proyecto">Serie «Ruta Norte» · cap.&nbsp;14</td>
-              <td data-col="Franja">
-                <span class="lx-tabla__principal"><time datetime="2026-08-18T04:20:00-05:00">04:20</time>&nbsp;–&nbsp;<time datetime="2026-08-18T19:00:00-05:00">19:00</time></span>
-                <span class="lx-tabla__secundario">Jornada del <time datetime="2026-08-18">18 de agosto</time> · destino Hacienda Los Nogales, Cota</span>
-              </td>
-              <td class="lx-num" data-col="Disponibilidad">14&nbsp;h 40&nbsp;min</td>
-              <td data-col="Estado">
-                <span class="lx-chip lx-chip--alerta"><span class="lx-chip__punto" aria-hidden="true"></span>Por Verificar</span>
-                <span class="lx-tabla__secundario">Cerró el 18 de agosto a las 19:00 sin firma · 11&nbsp;h 42&nbsp;min en la cola al corte de hoy</span>
-              </td>
-              <td data-col="Hoja de servicio">
-                <span class="lx-chip lx-chip--error"><span class="lx-chip__punto" aria-hidden="true"></span>Sin firma en set</span>
-                <span class="lx-tabla__secundario">Sin firma no se liquida: la liquidación queda retenida.</span>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row" data-col="Recurso y orden">
                 <span class="lx-tabla__principal" translate="no">Duster Locaciones · IQT-590</span>
                 <span class="lx-tabla__secundario"><span class="lx-insignia">Movilidad</span></span>
                 <span class="lx-tabla__secundario"><span translate="no">OS-2026-1215</span> · conductor sin asignar</span>
@@ -6160,12 +6382,11 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
           </tbody>
           <tfoot>
             <tr>
-              <th scope="row" colspan="3">3 órdenes de hoy con detalle de los 17 del día, más <span translate="no">OS-2026-1207</span> del 18 de agosto</th>
-              <td class="lx-num" data-col="Disponibilidad">49&nbsp;h 40&nbsp;min
-                <span class="lx-tabla__secundario">De hoy: 14&nbsp;h + 12&nbsp;h + 9&nbsp;h = 35&nbsp;h ·
-                del 18 de agosto: 14&nbsp;h 40&nbsp;min · suma de las 4 filas = 49&nbsp;h 40&nbsp;min</span></td>
-              <td data-col="Estado">2 en vía · 1 por iniciar · 1 del 18 de agosto sin firma</td>
-              <td data-col="Hoja de servicio">1 sin firma · 3 se firman al cerrar</td>
+              <th scope="row" colspan="3">3 órdenes con detalle de los 17 servicios de hoy</th>
+              <td class="lx-num" data-col="Disponibilidad">35&nbsp;h
+                <span class="lx-tabla__secundario">14&nbsp;h + 12&nbsp;h + 9&nbsp;h = 35&nbsp;h, suma de las 3 filas</span></td>
+              <td data-col="Estado">2 en vía · 1 por iniciar · ninguno cerrado todavía</td>
+              <td data-col="Hoja de servicio">Las 3 se firman al cerrar</td>
             </tr>
           </tfoot>
         </table>
@@ -6173,7 +6394,119 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
     </div>
     <div class="lx-tarjeta__pie">No se muestran tarifas ni documentos de identidad de los conductores: este portal solo
     expone lo necesario para su operación. Las hojas de servicio llegan firmadas por su responsable en set, con hora
-    del servidor. El filtro por proyecto no está montado en este prototipo: se muestran las 4 órdenes con detalle.</div>
+    del servidor. El filtro por proyecto no está montado en este prototipo: se muestran las 3 órdenes de hoy con detalle.</div>
+  </section>
+
+  <!-- Los 3 «Por Verificar» de la productora, uno por uno ----------------- -->
+  <!-- 05-roles §7 e invariante 12: la cola que anuncia el KPI existe fila por
+       fila y con la magnitud que el KPI presume. Los 3 son los de Cineluz
+       dentro de los 9 «Por Verificar» de la Torre, con los mismos atributos,
+       cierres y antigüedades que muestra la cola de la Torre (invariante 1).
+       No llevan franja ni disponibilidad porque esa tabla es la de hoy: aquí lo
+       que importa es cuándo cerraron y cuánto llevan esperando la firma. -->
+  <section class="lx-tarjeta" id="s5-sin-firma" tabindex="-1">
+    <div class="lx-tarjeta__cab">
+      <h2 class="lx-tarjeta__titulo">Sin firma de días anteriores</h2>
+      <span class="lx-insignia">Los 3, del 18 de agosto</span>
+    </div>
+    <div class="lx-tarjeta__cuerpo lx-tarjeta__cuerpo--sin-relleno">
+      <div class="lx-tabla-envoltorio">
+        <table class="lx-tabla lx-tabla--tarjetas">
+          <caption>Los 3 servicios de Cineluz Producciones S.A.S. que cerraron sin la firma del responsable
+          en set y siguen «Por Verificar» al corte de las 06:42 del 19 de agosto de 2026, con su recurso y
+          orden, proyecto, hora de cierre, antigüedad en la cola, estado de la hoja de servicio y estado de
+          la liquidación. Los 3
+          cerraron el 18 de agosto y ninguno cuenta entre los 17 servicios de hoy. Son los mismos 3 que la
+          Torre de Control tiene en su cola, con el mismo cierre y la misma antigüedad.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Recurso y orden</th>
+              <th scope="col">Proyecto</th>
+              <th scope="col">Cierre</th>
+              <th scope="col" class="lx-num">Antigüedad</th>
+              <th scope="col">Hoja de servicio</th>
+              <th scope="col">Liquidación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" data-col="Recurso y orden">
+                <span class="lx-tabla__principal" translate="no">Van H1 · KTM-583</span>
+                <span class="lx-tabla__secundario"><span class="lx-insignia">Movilidad</span></span>
+                <span class="lx-tabla__secundario"><span translate="no">OS-2026-1207</span> · conduce M. Salgado Rivas</span>
+              </th>
+              <td data-col="Proyecto">Serie «Ruta Norte» · cap.&nbsp;14</td>
+              <td data-col="Cierre">
+                <span class="lx-tabla__principal"><time datetime="2026-08-18T19:00:00-05:00">18 de agosto, 19:00</time></span>
+                <span class="lx-tabla__secundario">Jornada 04:20&nbsp;–&nbsp;19:00 · destino Hacienda Los Nogales, Cota</span>
+              </td>
+              <td class="lx-num" data-col="Antigüedad">11&nbsp;h 42&nbsp;min
+                <span class="lx-tabla__secundario">Dentro de 24&nbsp;h</span></td>
+              <td data-col="Hoja de servicio">
+                <span class="lx-chip lx-chip--error"><span class="lx-chip__punto" aria-hidden="true"></span>Sin firma en set</span>
+              </td>
+              <td data-col="Liquidación">
+                <span class="lx-tabla__principal">Preparada y retenida</span>
+                <span class="lx-tabla__secundario">Sin firma no se liquida: el pago queda frenado hasta que llegue la hoja.</span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" data-col="Recurso y orden">
+                <span class="lx-tabla__principal" translate="no">SUV Cast · KVN-412</span>
+                <span class="lx-tabla__secundario"><span class="lx-insignia">Movilidad</span></span>
+                <span class="lx-tabla__secundario" translate="no">OS-2026-1196</span>
+              </th>
+              <td data-col="Proyecto">Serie «Ruta Norte» · cap.&nbsp;12</td>
+              <td data-col="Cierre">
+                <span class="lx-tabla__principal"><time datetime="2026-08-18T21:10:00-05:00">18 de agosto, 21:10</time></span>
+              </td>
+              <td class="lx-num" data-col="Antigüedad">9&nbsp;h 32&nbsp;min
+                <span class="lx-tabla__secundario">Dentro de 24&nbsp;h</span></td>
+              <td data-col="Hoja de servicio">
+                <span class="lx-chip lx-chip--error"><span class="lx-chip__punto" aria-hidden="true"></span>Sin firma en set</span>
+              </td>
+              <td data-col="Liquidación">
+                <span class="lx-tabla__principal">Sin preparar</span>
+                <span class="lx-tabla__secundario">Dentro de la ventana de 48&nbsp;h en la que operación consigue la firma.</span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" data-col="Recurso y orden">
+                <span class="lx-tabla__principal" translate="no">Van H1 · JLK-338</span>
+                <span class="lx-tabla__secundario"><span class="lx-insignia">Movilidad</span></span>
+                <span class="lx-tabla__secundario" translate="no">OS-2026-1201</span>
+              </th>
+              <td data-col="Proyecto">Serie «Ruta Norte» · cap.&nbsp;12</td>
+              <td data-col="Cierre">
+                <span class="lx-tabla__principal"><time datetime="2026-08-18T23:05:00-05:00">18 de agosto, 23:05</time></span>
+              </td>
+              <td class="lx-num" data-col="Antigüedad">7&nbsp;h 37&nbsp;min
+                <span class="lx-tabla__secundario">Dentro de 24&nbsp;h</span></td>
+              <td data-col="Hoja de servicio">
+                <span class="lx-chip lx-chip--error"><span class="lx-chip__punto" aria-hidden="true"></span>Sin firma en set</span>
+              </td>
+              <td data-col="Liquidación">
+                <span class="lx-tabla__principal">Sin preparar</span>
+                <span class="lx-tabla__secundario">Dentro de la ventana de 48&nbsp;h en la que operación consigue la firma.</span>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" colspan="3">Los 3 servicios sin firma, los 3 cerrados el 18 de agosto</th>
+              <td class="lx-num" data-col="Antigüedad">De 7&nbsp;h 37&nbsp;min a 11&nbsp;h 42&nbsp;min
+                <span class="lx-tabla__secundario">Ninguno pasa de 24&nbsp;h</span></td>
+              <td data-col="Hoja de servicio">Los 3 sin firma en set</td>
+              <td data-col="Liquidación">1 preparada y retenida · 2 sin preparar</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <div class="lx-tarjeta__pie">La firma la registra su responsable en set desde la app del conductor, o la
+    consigue el coordinador de turno de <span translate="no">L&amp;STO S.A.S.</span> dentro de la ventana de
+    48&nbsp;h. Mientras falte, el servicio queda «Por Verificar» y su liquidación no avanza: es el mismo estado
+    que ve la Torre de Control, con la misma antigüedad. Estos 3 no cuentan entre los 17 servicios de hoy.</div>
   </section>
 
   <section class="lx-tarjeta" id="s5-fuec">
@@ -6290,7 +6623,15 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
         </table>
       </div>
     </div>
-    <div class="lx-tarjeta__pie">El <span translate="no">FUEC</span> lo expide <span translate="no">L&amp;STO S.A.S.</span>
+    <!-- Por qué los 17 de hoy llevan extracto y el conteo 16 + 1 cuadra: el
+         FUEC ampara transporte de pasajeros, así que solo lo llevan los
+         recursos de Movilidad, y los 17 servicios de hoy de esta productora son
+         de Movilidad. Es la misma regla que declara el módulo financiero, dicha
+         aquí para que el 16 + 1 = 17 no parezca sacado de la nada. -->
+    <div class="lx-tarjeta__pie">El <span translate="no">FUEC</span> ampara transporte de pasajeros, así que solo lo
+    llevan los recursos de la Unidad Especial Movilidad; Carga y Logística, Facilidades Móviles y Soporte de Cámara no
+    lo requieren. Sus 17 servicios de hoy son de Movilidad, y por eso los 17 aparecen en este recuento.
+    El <span translate="no">FUEC</span> lo expide <span translate="no">L&amp;STO S.A.S.</span>
     ante el Ministerio de Transporte y solo se emite con el vehículo y el conductor habilitados. Si un documento se
     vence o falta el conductor, el <span translate="no">FUEC</span> no se expide y el servicio no sale: por eso la
     orden <span translate="no">OS-2026-1215</span> todavía no lo tiene. La numeración del extracto es propia de
@@ -6316,11 +6657,14 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
              código salía INVERTIDO, claro sobre oscuro, que es lo que la propia
              pantalla del financiero documentaba como inadmisible. -->
         <!-- Minimización: esta ficha la ve un tercero (la productora), así que
-             no puede publicar más que la ficha interna del mismo objeto. Se
-             enumera lo mismo que el financiero —número del FUEC, empresa y su
-             NIT, contratante, placa, conductor con la licencia enmascarada y
-             vigencia— y se retira el número de orden, que es un identificador
-             interno de la operación y no forma parte del extracto. -->
+             no puede publicar MÁS datos personales que la ficha interna del
+             mismo objeto en el módulo financiero. Se enumera lo mismo que allí
+             —número del FUEC, empresa y su NIT enmascarado cuando es de un
+             tercero, contratante, placa, conductor con la cédula y la licencia
+             enmascaradas y vigencia— y se retira el número de contrato, que es
+             un identificador interno del expediente comercial. La orden sí se
+             nombra: es el servicio de la propia productora, el mismo
+             identificador que ya lleva su tabla de servicios. -->
         <figure class="lx-mapa" role="img"
                 aria-label="Código QR del FUEC-2026-0431, de la orden OS-2026-1184. Al leerlo, la autoridad de tránsito consulta el extracto en el sitio de verificación de L&amp;STO S.A.S. y obtiene el número del FUEC, la empresa de transporte y su NIT, el contratante, la placa KVN-412, el conductor con su licencia enmascarada y la vigencia del 19 de agosto de 2026. El código no contiene datos personales: solo un identificador opaco. La misma información se consulta escribiendo el número del FUEC en la dirección de verificación que aparece debajo.">
           <svg viewBox="0 0 420 240" aria-hidden="true" focusable="false">
@@ -6557,7 +6901,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
     <div class="lx-kpi lx-kpi--acento">
       <span class="lx-kpi__etiqueta">Servicios por liquidar</span>
       <span class="lx-kpi__cifra">7</span>
-      <span class="lx-kpi__delta lx-kpi__delta--alerta">$&nbsp;5.680.000 &middot; 4 de los 9 «Por Verificar» esperan la hoja de servicio firmada en set; los otros 3 ya están validados</span>
+      <span class="lx-kpi__delta lx-kpi__delta--alerta">$&nbsp;5.680.000 &middot; 4 de los 9 «Por Verificar» esperan la hoja de servicio firmada en set —los que ya tienen liquidación abierta— y los otros 3 están validados y listos para liquidar</span>
     </div>
     <div class="lx-kpi">
       <span class="lx-kpi__etiqueta">Facturación de agosto</span>
@@ -6844,6 +7188,17 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                  dinero de un servicio es una secuencia temporal, así que la
                  línea de tiempo va con cinta. La continuidad se lee por forma;
                  el color solo refuerza, y cada estado lleva su chip de texto. -->
+            <!-- COMPOSICIÓN DE LA COLA: 7 = 4 que esperan la hoja firmada + 3
+                 listos para liquidar. Es una sola composición y no se
+                 subdivide: la versión anterior partía los 3 en «2 liquidables +
+                 1 con el soporte ilegible», y entonces la misma tarjeta
+                 publicaba dos cifras (3 y 2) para el mismo conjunto, que es el
+                 defecto que la cola de abajo, el botón y Reportes heredaban.
+                 Los tres chips se leen de la tabla de «Servicios por liquidar»
+                 y de ningún sitio más. Y como esta tarjeta nombra los 4, dice
+                 en una línea su relación con los 9 «Por Verificar» de la Torre,
+                 porque son conjuntos distintos y confundirlos ya costó una
+                 ronda. -->
             <ol class="lx-pasos lx-pasos--cinta">
               <li class="lx-paso" data-estado="hecho">
                 <span class="lx-paso__canal"><span class="lx-paso__marca" aria-hidden="true">1</span><span class="lx-paso__linea" aria-hidden="true"></span></span>
@@ -6855,20 +7210,24 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                   que pagar. De los 7 servicios de la cola de abajo, <strong>3 tienen la validación
                   operativa aprobada</strong> —las aprobó L. Palomino Ríos, coordinador operativo, el
                   <time datetime="2026-08-18T19:26:00-05:00">18 de agosto a las 19:26</time>— y las otras
-                  <strong>4 esperan la hoja de servicio firmada en set</strong>. De esas 3 aprobadas, 2
-                  quedan liquidables ahora y 1 sigue esperando el soporte legible del peaje. Este módulo
-                  las ve aprobadas y no puede aprobarlas.</span>
+                  <strong>4 esperan la hoja de servicio firmada en set</strong>:
+                  3&nbsp;+&nbsp;4&nbsp;=&nbsp;7, y esa es la única composición de la cola. Esos 4 son los
+                  4 servicios «Por Verificar» de la Torre que ya tienen liquidación abierta, no los 9 de
+                  esa cola: los otros 5 siguen dentro de la ventana de la firma y su liquidación todavía
+                  no se prepara. Este módulo ve las 3 aprobadas y no puede aprobarlas.</span>
                 </span>
               </li>
               <li class="lx-paso" data-estado="curso">
                 <span class="lx-paso__canal"><span class="lx-paso__marca" aria-hidden="true">2</span><span class="lx-paso__linea" aria-hidden="true"></span></span>
                 <span class="lx-paso__cuerpo">
                   <span class="lx-paso__titulo">Liquidación y aprobación del pago
-                    <span class="lx-chip lx-chip--info"><span class="lx-chip__punto" aria-hidden="true"></span>7 por liquidar · 2 liquidables ahora</span></span>
+                    <span class="lx-chip lx-chip--info"><span class="lx-chip__punto" aria-hidden="true"></span>7 por liquidar · 3 listas ahora</span></span>
                   <span class="lx-paso__meta">La ejecuta el <strong>analista contable</strong>: liquida lo
                   validado y aprueba el pago al aliado, solo sobre facturas con los seis soportes
-                  vigentes. De las 6 facturas abiertas, <strong>2 son aprobables hoy</strong>. Los controles
-                  están en la cola de abajo y en «Cuentas por pagar».</span>
+                  vigentes. De los 7 servicios de la cola, <strong>3 están listos para liquidar hoy</strong>
+                  —los 3 con la validación operativa aprobada— y de las 6 facturas de aliados abiertas
+                  <strong>2 son aprobables hoy</strong>. Los controles están en la cola de abajo y en
+                  «Cuentas por pagar».</span>
                 </span>
               </li>
               <li class="lx-paso" data-estado="pendiente">
@@ -6948,8 +7307,24 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                   <span class="lx-tabla__principal" translate="no">SUV Cast · KVN-412</span>
                   <span class="lx-tabla__secundario">Movilidad</span>
                 </td>
-                <td data-col="Proyecto">Serie «Ruta Norte» · cap.&nbsp;13</td>
-                <td data-col="Fecha"><time datetime="2026-08-18">18 ago</time> · Usaquén</td>
+                <!-- Esta fila fechaba el servicio el 18 de agosto, y con eso
+                     ponía la placa KVN-412 operando DOS servicios ese día: el
+                     canónico §4 cierra el reparto de esa placa con «cierra 1196
+                     a las 21:10 del 18 y sale con 1184 a las 04:30 del 19», y
+                     la cola «Por Verificar» de la Torre muestra precisamente
+                     1196 sobre KVN-412 ese mismo 18. Dos pantallas mostraban el
+                     mismo vehículo, el mismo día, con dos números de orden —uno
+                     liquidable y otro no— y ninguna de las dos publica franja,
+                     así que el lector no podía comprobar el buffer de 60 min que
+                     la antiduplicidad de S7 anuncia como control: se rompía el
+                     argumento de trazabilidad del propio producto. El servicio
+                     pasa al 17 de agosto, día que el canónico deja libre para
+                     esa placa, y el proyecto queda en el capítulo 12, que es el
+                     que §4 asigna a KVN-412 en sus dos órdenes con detalle. El
+                     importe no se toca: los 612.000 son una de las seis cifras
+                     que §7 fija y que cierran los $ 5.680.000. -->
+                <td data-col="Proyecto">Serie «Ruta Norte» · cap.&nbsp;12</td>
+                <td data-col="Fecha"><time datetime="2026-08-17">17 ago</time> · Usaquén</td>
                 <td class="lx-num" data-col="Subtotal">$&nbsp;612.000</td>
                 <td data-col="Estado del soporte">
                   <span class="lx-chip lx-chip--exito"><span class="lx-chip__punto" aria-hidden="true"></span>Validada · lista para liquidar</span>
@@ -7031,8 +7406,16 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                 <td data-col="Proyecto">Serie «Ruta Norte» · cap.&nbsp;12</td>
                 <td data-col="Fecha"><time datetime="2026-08-14">14 ago</time> · Fontibón</td>
                 <td class="lx-num" data-col="Subtotal">$&nbsp;690.000</td>
+                <!-- Esta fila decía «Peaje ilegible · 1 de 3», y con ella la
+                     cola tenía tres estados (4 sin firma + 2 validadas + 1 con
+                     soporte ilegible) para un conjunto cuya composición es
+                     4 + 3. El tercer estado obligaba a que la tarjeta del ciclo
+                     del dinero, el pie y el botón dijeran 2 donde el chip decía
+                     3. Se retira: los 3 validados están listos, sin excepción,
+                     y el soporte que falta se demuestra donde sí frena el
+                     dinero, en Cuentas por pagar. -->
                 <td data-col="Estado del soporte">
-                  <span class="lx-chip lx-chip--alerta"><span class="lx-chip__punto" aria-hidden="true"></span>Peaje ilegible · 1 de 3</span>
+                  <span class="lx-chip lx-chip--exito"><span class="lx-chip__punto" aria-hidden="true"></span>Validada · lista para liquidar</span>
                 </td>
               </tr>
             </tbody>
@@ -7040,7 +7423,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
               <tr>
                 <th scope="row" colspan="4" data-col="Totales">Totales de los 7 servicios pendientes</th>
                 <td class="lx-num" data-col="Subtotal">$&nbsp;5.680.000</td>
-                <td data-col="Estado del soporte">4 esperan la firma · 3 con validación operativa aprobada, de las cuales 2 son liquidables ahora y 1 espera el soporte legible</td>
+                <td data-col="Estado del soporte">4 esperan la firma en set · 3 con la validación operativa aprobada y listas para liquidar</td>
               </tr>
             </tfoot>
           </table>
@@ -7068,12 +7451,12 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
           <div class="lx-fila lx-fila--fin">
             <span data-solo-rol="contable">
               <button type="button" class="lx-btn lx-btn--primario"
-                      data-toast="Liquidadas las 2 liquidables por {moneda:1340000}. Pasan a facturación y al lote de pago."
-                      data-toast-tipo="exito">Liquidar las 2 liquidables</button>
+                      data-toast="Liquidadas las 3 listas por {moneda:2030000}. Pasan a facturación y al lote de pago."
+                      data-toast-tipo="exito">Liquidar las 3 listas</button>
             </span>
             <span data-salvo-rol="contable">
               <button type="button" class="lx-btn lx-btn--primario" aria-disabled="true"
-                      aria-describedby="s6-liquidar-motivo">Liquidar las 2 liquidables</button>
+                      aria-describedby="s6-liquidar-motivo">Liquidar las 3 listas</button>
             </span>
           </div>
           <p class="lx-mini lx-texto-2" data-salvo-rol="contable" id="s6-liquidar-motivo">Liquidar está
@@ -7082,11 +7465,12 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
         </div>
       </div>
       <div class="lx-tarjeta__pie">Vocabulario, porque son dos conjuntos distintos: <strong>3 tienen la
-      validación operativa aprobada</strong> y de esas 3 solo <strong>2 son liquidables ahora</strong>
-      —suman $&nbsp;1.340.000 (612.000 + 728.000)—, porque la tercera espera el soporte legible del peaje.
-      Las otras 4 esperan la firma en set: son los 4 servicios de la cola «Por Verificar» con liquidación
-      preparada, entre ellos <span translate="no">OS-2026-1207</span>. 3&nbsp;+&nbsp;4&nbsp;=&nbsp;7, los 7
-      suman $&nbsp;5.680.000, y con los $&nbsp;480.640.000 ya liquidados cierran los $&nbsp;486.320.000
+      validación operativa aprobada y están listas para liquidar</strong> —suman $&nbsp;2.030.000
+      (612.000 + 728.000 + 690.000)— y las otras <strong>4 esperan la firma en set</strong>: son los 4
+      servicios de la cola «Por Verificar» de la Torre con liquidación preparada, entre ellos
+      <span translate="no">OS-2026-1207</span>, y no los 9 que esa cola anuncia, porque los otros 5
+      todavía no tienen liquidación abierta. 3&nbsp;+&nbsp;4&nbsp;=&nbsp;7, los 7 suman
+      $&nbsp;5.680.000, y con los $&nbsp;480.640.000 ya liquidados cierran los $&nbsp;486.320.000
       facturados de agosto.</div>
     </section>
 
@@ -7273,17 +7657,28 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
               </tbody>
               <tfoot>
                 <tr>
+                  <!-- La versión 11 nace el 13 de agosto, con el cambio del
+                       recargo nocturno que registra el log de auditoría. Esta
+                       fecha es la que hace auditable la liquidación de
+                       OS-2026-1207, del 18 de agosto: la tarifa que se le
+                       aplicó ya estaba vigente cinco días antes del servicio.
+                       Fechar aquí la versión el 1.º de agosto contradecía el
+                       log, que es la única fuente de la vigencia. -->
                   <th scope="row" colspan="5" data-col="Vigencia">Versión 11, vigente desde el
-                  <time datetime="2026-08-01">1.º de agosto de 2026</time> · los 11 tipos despachables
-                  reparten así las cuatro Unidades Especiales: Movilidad 5, Carga y Logística 3,
-                  Facilidades Móviles 2 y Soporte de Cámara 1</th>
+                  <time datetime="2026-08-13">13 de agosto de 2026</time> · los 11 tipos con tarifa
+                  parametrizada por Unidad Especial: Movilidad 5, Carga y Logística 3, Facilidades
+                  Móviles 2 y Soporte de Cámara 1</th>
                 </tr>
               </tfoot>
             </table>
           </div>
         </div>
         <div class="lx-tarjeta__pie">Cada cambio de tarifa crea una versión nueva y la anterior se
-        conserva, así que un servicio pasado se reliquida con la tarifa que estaba vigente ese día.</div>
+        conserva, así que un servicio pasado se reliquida con la tarifa que estaba vigente ese día. La
+        versión 11 nace el <time datetime="2026-08-13">13 de agosto</time> con el cambio del recargo
+        nocturno que registra el log de auditoría, cinco días antes de
+        <span translate="no">OS-2026-1207</span>: por eso su liquidación aplica el 35&nbsp;% y no un valor
+        posterior al servicio.</div>
       </section>
 
       <section class="lx-tarjeta">
@@ -8327,7 +8722,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
     <div class="lx-kpi lx-kpi--acento">
       <span class="lx-kpi__etiqueta">Servicios cerrados del periodo</span>
       <span class="lx-kpi__cifra">612</span>
-      <span class="lx-kpi__delta lx-kpi__delta--positivo">De 684 programados entre el 1.º y el 19 de agosto —19 días a 36 de promedio, y 38 programados hoy—: 89,5&nbsp;% cerrado</span>
+      <span class="lx-kpi__delta lx-kpi__delta--positivo">De 684 programados entre el 1.º y el 19 de agosto —19 días a 36 de promedio, y 38 programados hoy—: 89,5&nbsp;% cerrado. Los 612 son de días anteriores: al corte de las <time datetime="2026-08-19T06:42:00-05:00">06:42</time> ninguno de los 38 de hoy ha cerrado todavía, igual que declara la Torre</span>
     </div>
     <div class="lx-kpi">
       <span class="lx-kpi__etiqueta">Servicios liquidados del periodo</span>
@@ -8505,7 +8900,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
 
             <p class="lx-aviso lx-aviso--info">
               <span class="lx-aviso__glifo" aria-hidden="true">&#9432;</span>
-              <span><strong>Alcance de este prototipo.</strong> Las cuatro vistas del resultado están calculadas sobre el mismo periodo y cuadran entre sí. Los controles de esta tarjeta no recalculan el resultado: quedan anotados en la definición que usted guarda y el recálculo ocurre en la plataforma. Se lo decimos antes, para no mostrarle un resultado que no corresponda a lo que pidió.</span>
+              <span><strong>Alcance de este prototipo.</strong> Las cuatro vistas del resultado están calculadas sobre el mismo periodo y cuadran entre sí; cada agrupación trae las columnas de su dominio y lo dice en su propio encabezado. Los controles de esta tarjeta no recalculan el resultado: quedan anotados en la definición que usted guarda y el recálculo ocurre en la plataforma. Se lo decimos antes, para no mostrarle un resultado que no corresponda a lo que pidió.</span>
             </p>
 
             <div class="lx-fila lx-fila--fin">
@@ -8712,7 +9107,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                   </div>
                 </div>
               </div>
-              <p class="lx-mini lx-texto-2">Millones de pesos liquidados por Unidad Especial, una sola serie y un solo eje, con las mismas cuatro filas de la tabla. Los recargos son $&nbsp;74.320.000 de los $&nbsp;480.640.000 liquidados: el 15,5&nbsp;%. Los 7 servicios que faltan por liquidar suman $&nbsp;5.680.000, y con ellos se llega a los $&nbsp;486.320.000 facturados del periodo.</p>
+              <p class="lx-mini lx-texto-2">Millones de pesos liquidados por Unidad Especial, una sola serie y un solo eje, con las mismas cuatro filas de la tabla. Los recargos son $&nbsp;74.320.000 de los $&nbsp;480.640.000 liquidados: el 15,5&nbsp;%. Los 7 servicios que faltan por liquidar suman $&nbsp;5.680.000 —4 esperan la hoja de servicio firmada y 3 tienen la validación operativa aprobada, la misma composición que da el módulo financiero— y con ellos se llega a los $&nbsp;486.320.000 facturados del periodo.</p>
             </div>
 
             <!-- Vista 3 · agrupado por aliado -->
@@ -8720,7 +9115,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
               <h3>Habilitación documental por aliado</h3>
               <div class="lx-tabla-envoltorio">
                 <table class="lx-tabla lx-tabla--tarjetas">
-                  <caption>Recursos de aliados vigilados al 19 de agosto de 2026, corte de las 06:42, agrupados por aliado: cuántos están habilitados y qué excepciones tiene cada uno. Son los mismos recursos y los mismos estados que muestra Onboarding de aliados.</caption>
+                  <caption>Recursos de aliados vigilados al 19 de agosto de 2026, corte de las 06:42, agrupados por aliado: cuántos están habilitados y qué excepciones tiene cada uno. La columna «Habilitados» no cuenta los recursos con un documento por vencer, así que en cada fila los habilitados más los inhabilitados más los que están por vencer suman sus recursos. Son los mismos recursos y los mismos estados que muestra Onboarding de aliados.</caption>
                   <thead>
                     <tr>
                       <th scope="col">Aliado</th>
@@ -8770,13 +9165,13 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                       <th scope="row" data-col="Totales">Total de los 3 aliados con detalle</th>
                       <td class="lx-num" data-col="Recursos">27</td>
                       <td class="lx-num" data-col="Habilitados">23</td>
-                      <td data-col="Excepciones">3 recursos inhabilitados y 1 por vencer en 30&nbsp;días o menos</td>
+                      <td data-col="Excepciones">3 inhabilitados y 1 por vencer en 30&nbsp;días o menos: 23 + 3 + 1 = 27</td>
                     </tr>
                   </tfoot>
                 </table>
               </div>
               <div class="lx-grafico" role="img"
-                   aria-label="Recursos habilitados por aliado al 19 de agosto de 2026: Transportes Andinos del Norte 12 habilitados de 14, con 1 inhabilitado y 1 por vencer en 30 días o menos; Unidades Móviles Sabana 7 de 9, con 2 inhabilitados; Kubo Logística 4 de 4, sin excepciones. En total, 23 recursos habilitados de los 27 vigilados.">
+                   aria-label="Recursos habilitados por aliado al 19 de agosto de 2026: Transportes Andinos del Norte 12 habilitados de 14, con 1 inhabilitado y 1 por vencer en 30 días o menos; Unidades Móviles Sabana 7 de 9, con 2 inhabilitados; Kubo Logística 4 de 4, sin excepciones. En total, de los 27 recursos vigilados hay 23 habilitados, 3 inhabilitados y 1 por vencer en 30 días o menos.">
                 <div class="lx-barras" aria-hidden="true">
                   <div class="lx-barras__col">
                     <span class="lx-barras__valor">12</span>
@@ -8818,13 +9213,13 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                 </div>
                 <div class="lx-desglose__fila">
                   <dt class="lx-desglose__clave">Proyecto y compañía cliente
-                    <span class="lx-desglose__nota">Locación: Hacienda Los Nogales, Cota</span></dt>
-                  <dd class="lx-desglose__valor">Serie «Ruta Norte» cap. 14 · <span translate="no">Cineluz Producciones S.A.S.</span></dd>
+                    <span class="lx-desglose__nota">Serie de <span translate="no">Cineluz Producciones S.A.S.</span> · locación: Hacienda Los Nogales, Cota</span></dt>
+                  <dd class="lx-desglose__valor">«Ruta Norte» cap. 14</dd>
                 </div>
                 <div class="lx-desglose__fila">
                   <dt class="lx-desglose__clave">Franja del servicio
-                    <span class="lx-desglose__nota">Contratado como día de rodaje de 14&nbsp;h: el excedente empieza a las 18:20</span></dt>
-                  <dd class="lx-desglose__valor"><time datetime="2026-08-18T04:20:00-05:00">04:20</time> a <time datetime="2026-08-18T19:00:00-05:00">19:00</time> del <time datetime="2026-08-18">18 de agosto</time></dd>
+                    <span class="lx-desglose__nota">Jornada del <time datetime="2026-08-18">18 de agosto</time>, contratada como día de rodaje de 14&nbsp;h: el excedente empieza a las 18:20</span></dt>
+                  <dd class="lx-desglose__valor"><time datetime="2026-08-18T04:20:00-05:00">04:20</time>–<time datetime="2026-08-18T19:00:00-05:00">19:00</time></dd>
                 </div>
                 <div class="lx-desglose__fila">
                   <dt class="lx-desglose__clave">Horas de disponibilidad
@@ -8833,8 +9228,8 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                 </div>
                 <div class="lx-desglose__fila">
                   <dt class="lx-desglose__clave">Estado del servicio
-                    <span class="lx-desglose__nota">2 novedades registradas: cambio de ruta pedido por producción y un peaje</span></dt>
-                  <dd class="lx-desglose__valor"><span class="lx-chip lx-chip--info"><span class="lx-chip__punto" aria-hidden="true"></span>Por Verificar · 11&nbsp;h 42&nbsp;min en la cola al corte</span></dd>
+                    <span class="lx-desglose__nota">11&nbsp;h 42&nbsp;min en la cola, medidos al corte de las <time datetime="2026-08-19T06:42:00-05:00">06:42</time> · 2 novedades registradas: cambio de ruta pedido por producción y un peaje</span></dt>
+                  <dd class="lx-desglose__valor"><span class="lx-chip lx-chip--info"><span class="lx-chip__punto" aria-hidden="true"></span>Por Verificar</span></dd>
                 </div>
               </dl>
 
@@ -9197,7 +9592,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                   <div class="lx-pila lx-pila--sm">
                     <button type="button" class="lx-btn lx-btn--secundario" aria-disabled="true"
                             aria-describedby="s8-reactivar-motivo">Reactivar la cuenta</button>
-                    <span class="lx-mini lx-texto-3" id="s8-reactivar-motivo">No se puede reactivar mientras la licencia siga vencida: primero se aprueba el documento en Onboarding de aliados.</span>
+                    <span class="lx-mini lx-texto-2" id="s8-reactivar-motivo">No se puede reactivar mientras la licencia siga vencida: primero se aprueba el documento en Onboarding de aliados, y ese permiso es solo del analista de documentación.</span>
                     <button type="button" class="lx-btn lx-btn--fantasma" data-nav="s4">Ver su habilitación</button>
                   </div>
                 </td>
@@ -9613,7 +10008,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
               <tr>
                 <th scope="row">
                   <span class="lx-tabla__principal" translate="no">onboarding:documento:aprobar</span>
-                  <span class="lx-tabla__secundario">Aprobar un soporte y habilitar el recurso · en Onboarding de aliados el coordinador operativo abre el soporte y lee el expediente, y ve «Pasar a la aprobación» y «Pasar al rechazo» deshabilitados con el motivo</span>
+                  <span class="lx-tabla__secundario">Aprobar un soporte y habilitar el recurso · único titular: el analista de documentación. El coordinador operativo y el administrador de plataforma abren el soporte y leen el expediente, y ven «Pasar a la aprobación» y «Pasar al rechazo» deshabilitados con el motivo</span>
                 </th>
                 <td class="lx-matriz__celda--no"><span aria-hidden="true">&#8212;</span><span class="lx-sr">Denegado</span></td>
                 <td class="lx-matriz__celda--no"><span aria-hidden="true">&#8212;</span><span class="lx-sr">Denegado</span></td>
@@ -9621,7 +10016,20 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                 <td class="lx-matriz__celda--si"><span aria-hidden="true">&#10003;</span><span class="lx-sr">Concedido</span></td>
                 <td class="lx-matriz__celda--no"><span aria-hidden="true">&#8212;</span><span class="lx-sr">Denegado</span></td>
                 <td class="lx-matriz__celda--no"><span aria-hidden="true">&#8212;</span><span class="lx-sr">Denegado</span></td>
-                <td class="lx-matriz__celda--si"><span aria-hidden="true">&#10003;</span><span class="lx-sr">Concedido</span></td>
+                <!-- SEGREGACIÓN DOCUMENTAL. Esta celda concedía el permiso al
+                     administrador de plataforma, y con eso tres superficies
+                     describían el mismo permiso de tres maneras: la matriz se lo
+                     daba, la tabla «Qué hace cada perfil» de S1 no se lo
+                     mencionaba nunca, y el motivo del control deshabilitado de
+                     S4 decía que era «del analista de documentación» sin
+                     nombrarlo. Manda la fuente: 03-datos-canonicos §8.bis
+                     declara un ÚNICO perfil que ejecuta —el analista— y sitúa al
+                     administrador en «consultar el estado de habilitación (solo
+                     lectura)», y 05-roles §1 precisa que alcance no es permiso:
+                     el administrador llega a las ocho superficies y no ejecuta
+                     ninguna acción sujeta a segregación. Mismo patrón que ya
+                     usan las tres filas del ciclo del dinero. -->
+                <td class="lx-matriz__celda--no"><span aria-hidden="true">&#8212;</span><span class="lx-sr">Denegado por segregación de funciones</span></td>
               </tr>
               <tr>
                 <th scope="row">
@@ -9756,12 +10164,12 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
           </table>
         </div>
       </div>
-      <div class="lx-tarjeta__pie">Los 23 permisos concedidos de la última fila, más 11 parciales y 64 denegados, suman las 98 decisiones de la matriz. Cinco de las denegadas las impone la segregación de funciones, y la celda lo dice con esas palabras para quien usa lector de pantalla. El Coordinador operativo lee la evidencia de campo sin abrir la app del conductor: la ve dentro de la cola «Por Verificar» de la Torre, que es donde cierra el servicio con justificación. Dos permisos se ejercen fuera del módulo de su prefijo, y por eso un perfil los tiene sin alcanzar ese módulo: <span translate="no">finanzas:liquidacion:aprobar</span> lo ejerce el Coordinador operativo en esa misma cola de la Torre, y el rastro parcial de <span translate="no">admin:auditoria:consultar</span> lo ve cada perfil dentro de su propio módulo, no en esta pantalla. Lo que la matriz declara es lo que hace la superficie: cada control denegado aparece allí deshabilitado y con el motivo escrito.</div>
+      <div class="lx-tarjeta__pie">Los 23 permisos concedidos de la última fila, más 11 parciales y 64 denegados, suman las 98 decisiones de la matriz. Cinco de las denegadas las impone la segregación de funciones, y la celda lo dice con esas palabras para quien usa lector de pantalla. El Coordinador operativo lee la evidencia de campo sin abrir la app del conductor: la ve dentro de la cola «Por Verificar» de la Torre, que es donde cierra el servicio con justificación. Dos permisos se ejercen fuera del módulo de su prefijo, y por eso un perfil los tiene sin alcanzar ese módulo: <span translate="no">finanzas:liquidacion:aprobar</span> lo ejerce el Coordinador operativo en esa misma cola de la Torre, y el rastro parcial de <span translate="no">admin:auditoria:consultar</span> lo ve cada perfil dentro de su propio módulo —el Administrativo y financiero lo abre con «Ver el log de auditoría»—, no en esta pantalla. Lo que la matriz declara es lo que hace la superficie: cada control denegado aparece allí deshabilitado y con el motivo escrito.</div>
     </section>
 
     <p class="lx-aviso lx-aviso--info">
       <span class="lx-aviso__glifo" aria-hidden="true">&#9432;</span>
-      <span><strong>La autorización se valida siempre en el servidor.</strong> Ocultar un control no es autorizar: la matriz es la única fuente y el servidor la aplica en cada consulta. Por la regla <span translate="no">RNF-AF-SEG-002</span>, el Analista contable y Tesorería son mutuamente excluyentes sobre un mismo documento, así que quien aprueba el pago no genera la dispersión; y el Administrador de plataforma, que abre los siete módulos, no ejecuta ninguna de las tres acciones del ciclo del dinero. Las tres quedan en manos distintas y las tres son ejecutables: el Coordinador operativo aprueba la validación operativa en la cola «Por Verificar» de la Torre, el Analista contable aprueba el pago y Tesorería genera la dispersión, las dos últimas en el módulo Administrativo y financiero. Ningún perfil concentra el ciclo del dinero, ninguna de las tres queda deshabilitada para todos los perfiles, y el control que un perfil no puede ejecutar se muestra deshabilitado con el motivo, no se oculta.</span>
+      <span><strong>La autorización se valida siempre en el servidor.</strong> Ocultar un control no es autorizar: la matriz es la única fuente y el servidor la aplica en cada consulta. Por la regla <span translate="no">RNF-AF-SEG-002</span>, el Analista contable y Tesorería son mutuamente excluyentes sobre un mismo documento, así que quien aprueba el pago no genera la dispersión; y el Administrador de plataforma, que abre los siete módulos, no ejecuta ninguna de las tres acciones del ciclo del dinero. Las tres quedan en manos distintas y las tres son ejecutables: el Coordinador operativo aprueba la validación operativa en la cola «Por Verificar» de la Torre, el Analista contable aprueba el pago y Tesorería genera la dispersión, las dos últimas en el módulo Administrativo y financiero. Ningún perfil concentra el ciclo del dinero y ninguna de las tres queda deshabilitada para todos los perfiles. La distinción entre las dos matrices es la del alcance y la de la autorización: un módulo que un perfil no alcanza no aparece en su navegación, y dentro de un módulo que sí alcanza, el control que no puede ejecutar se muestra deshabilitado con el motivo, no se oculta.</span>
     </p>
   </div>
 
@@ -9846,7 +10254,10 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                 <td class="lx-num" data-col="Cuentas">1</td>
                 <td data-col="Alcance"><span class="lx-insignia lx-insignia--tenant">Solo sus propios servicios</span></td>
                 <td data-col="Estado">
-                  <span class="lx-chip lx-chip--error"><span class="lx-chip__punto" aria-hidden="true"></span>Operando · $&nbsp;12.700.000 vencidos, de ellos $&nbsp;3.100.000 a más de 30&nbsp;días</span>
+                  <div class="lx-pila lx-pila--sm">
+                    <span class="lx-fila"><span class="lx-chip lx-chip--error"><span class="lx-chip__punto" aria-hidden="true"></span>Operando · $&nbsp;12.700.000 vencidos</span></span>
+                    <span class="lx-mini lx-texto-2">De ellos $&nbsp;3.100.000 a más de 30&nbsp;días: es la única productora con cartera en esa edad.</span>
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -9858,7 +10269,10 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                 <td class="lx-num" data-col="Cuentas">1</td>
                 <td data-col="Alcance"><span class="lx-insignia lx-insignia--tenant">Solo sus recursos y sus documentos</span></td>
                 <td data-col="Estado">
-                  <span class="lx-chip lx-chip--alerta"><span class="lx-chip__punto" aria-hidden="true"></span>Operando · 12 habilitados · 1 inhabilitado: la Aerovan <span translate="no">AVN-529</span> · 1 por vencer en 30&nbsp;días o menos: la Duster Locaciones <span translate="no">IQT-590</span></span>
+                  <div class="lx-pila lx-pila--sm">
+                    <span class="lx-fila"><span class="lx-chip lx-chip--alerta"><span class="lx-chip__punto" aria-hidden="true"></span>Operando · 12 habilitados de 14</span></span>
+                    <span class="lx-mini lx-texto-2">1 inhabilitado: la Aerovan · placa <span translate="no">AVN-529</span>. 1 por vencer en 30&nbsp;días o menos: la Duster Locaciones · placa <span translate="no">IQT-590</span>.</span>
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -9870,7 +10284,10 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                 <td class="lx-num" data-col="Cuentas">0</td>
                 <td data-col="Alcance"><span class="lx-insignia lx-insignia--tenant">Solo sus recursos y sus documentos</span></td>
                 <td data-col="Estado">
-                  <span class="lx-chip lx-chip--error"><span class="lx-chip__punto" aria-hidden="true"></span>Operando · 7 habilitados · 2 inhabilitados por técnico-mecánica vencida: los baños móviles Delux 2 y Delux 3</span>
+                  <div class="lx-pila lx-pila--sm">
+                    <span class="lx-fila"><span class="lx-chip lx-chip--error"><span class="lx-chip__punto" aria-hidden="true"></span>Operando · 7 habilitados de 9</span></span>
+                    <span class="lx-mini lx-texto-2">2 inhabilitados por técnico-mecánica vencida: los baños móviles Delux 2 · remolque <span translate="no">BMD-215</span> y Delux 3 · remolque <span translate="no">BMD-316</span>.</span>
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -9891,7 +10308,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                 <th scope="row" colspan="2" data-col="Total">8 compañías: 2 propias, 3 productoras cliente y 3 proveedoras</th>
                 <td class="lx-num" data-col="Cuentas">48</td>
                 <td data-col="Alcance">Ningún alcance se cruza</td>
-                <td data-col="Estado">8 operando · 4 con novedad de cartera o de habilitación · 27 recursos vigilados: 23 habilitados, 3 inhabilitados y 1 por vencer</td>
+                <td data-col="Estado">8 operando · 4 con novedad de cartera o de habilitación · 27 recursos de los 3 aliados con ficha: 23 habilitados, 3 inhabilitados y 1 por vencer</td>
               </tr>
             </tfoot>
           </table>
@@ -9928,7 +10345,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                 <option value="kubo">Kubo Logística S.A.S. · proveedor</option>
                 <option value="listo">L&amp;STO S.A.S. · operación propia</option>
               </select>
-              <span class="lx-campo__ayuda" id="s8-marca-compania-ayuda">Se personalizan los siete portales de cliente y de aliado. El titular del software, L&amp;STO GROUP S.A.S., conserva la identidad <span translate="no">LYSTRAX</span> y no aparece en la lista. En este prototipo solo está cargada la personalización de Cineluz Producciones S.A.S.: elegir otra compañía no cambia todavía los campos de abajo.</span>
+              <span class="lx-campo__ayuda" id="s8-marca-compania-ayuda">Se personalizan 7 de las 8 compañías: las 3 productoras cliente, las 3 proveedoras aliadas y la operación propia de L&amp;STO S.A.S. El titular del software, L&amp;STO GROUP S.A.S., conserva la identidad <span translate="no">LYSTRAX</span> y no aparece en la lista. En este prototipo solo está cargada la personalización de Cineluz Producciones S.A.S.: elegir otra compañía no cambia todavía los campos de abajo.</span>
             </div>
 
             <span class="lx-rotulo">Identidad visible en el portal</span>
@@ -9989,10 +10406,15 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
                 <span class="lx-desglose__nota">Un solo archivo; tinta y acento se toman de los tokens</span></dt>
               <dd class="lx-desglose__valor">Sí</dd>
             </div>
-            <div class="lx-desglose__fila lx-desglose__fila--total">
+            <div class="lx-desglose__fila">
               <dt class="lx-desglose__clave">Nombre y descriptor dentro del límite
                 <span class="lx-desglose__nota">32 de 48&nbsp;caracteres y 21 de 24</span></dt>
               <dd class="lx-desglose__valor">Sí</dd>
+            </div>
+            <div class="lx-desglose__fila lx-desglose__fila--total">
+              <dt class="lx-desglose__clave">Verificaciones superadas
+                <span class="lx-desglose__nota">Las cuatro líneas de arriba; con una sola sin superar no se guarda nada</span></dt>
+              <dd class="lx-desglose__valor">4 de 4</dd>
             </div>
           </dl>
           <hr class="lx-sep">
@@ -10290,7 +10712,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
               <option value="contable" selected>Analista contable</option>
               <option value="tesoreria">Tesorería</option>
             </select>
-            <span class="lx-campo__ayuda" id="s8-perfil-base-ayuda">Hereda los 3 permisos concedidos del Analista contable; después se recorta o se amplía celda por celda.</span>
+            <span class="lx-campo__ayuda" id="s8-perfil-base-ayuda">Hereda los 3 permisos concedidos del Analista contable; después se recorta o se amplía celda por celda. Solo se hereda de un perfil interno de L&amp;STO: el Conductor y el Cliente / Productora quedan fuera porque son perfiles de campo y de tenant aislado, y el Administrador de plataforma no se clona.</span>
           </div>
         </div>
         <p class="lx-aviso lx-aviso--alerta">
@@ -10614,10 +11036,12 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
     b.className = 'lx-inferior__enlace';
     b.id = 'lx-mas-disparador';
     b.setAttribute('aria-expanded', 'false');
-    /* Relación programática con el panel que revela. aria-controls es válido
-       aunque el destino todavía no exista en el DOM, así que se declara una
-       sola vez y se conserva entre aperturas. */
-    b.setAttribute('aria-controls', ID_HOJA);
+    /* aria-controls exige que su IDREF RESUELVA: la hoja se crea al abrir y se
+       borra del DOM al cerrar, así que declararlo aquí dejaba una referencia
+       colgante —valor de atributo ARIA inválido— durante todo el tiempo en que
+       la hoja está cerrada, que es casi siempre. Se pone en abrirHoja() y se
+       quita en cerrarHoja(). La relación con el panel no se pierde mientras la
+       hoja no existe: la llevan aria-haspopup="dialog" y aria-expanded. */
     b.setAttribute('aria-haspopup', 'dialog');
     b.setAttribute('aria-label', 'Más módulos');
     var g = document.createElement('span');
@@ -10651,7 +11075,11 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
     hoja.parentNode.removeChild(hoja);
     hoja = null;
     document.removeEventListener('keydown', teclaHoja, true);
-    if (disparador) { disparador.setAttribute('aria-expanded', 'false'); disparador.focus(); }
+    if (disparador) {
+      disparador.setAttribute('aria-expanded', 'false');
+      disparador.removeAttribute('aria-controls');   /* el destino ya no existe */
+      disparador.focus();
+    }
   }
   function teclaHoja(ev) {
     if (!hoja) { return; }
@@ -10689,6 +11117,8 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
     hoja.appendChild(cerrar);
     $('#lx-app').appendChild(hoja);
     disparador.setAttribute('aria-expanded', 'true');
+    /* Ahora el IDREF resuelve: el nodo ya está en el documento. */
+    disparador.setAttribute('aria-controls', ID_HOJA);
     document.addEventListener('keydown', teclaHoja, true);
     var primero = hoja.querySelector('button');
     if (primero) { primero.focus(); }
@@ -10766,8 +11196,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
        y sus columnas ocultas eran inalcanzables (208 px de contenido en S5).
        Se remide en cada cambio de pantalla, no solo al arrancar. */
     aplicarSubvistaDeRol(id);
-    if (window.requestAnimationFrame) { window.requestAnimationFrame(function () { initRegionesDesplazables(seccion); }); }
-    else { initRegionesDesplazables(seccion); }
+    remedirDesplazables(seccion);
     if (!opciones.silencio) { anunciar('Pantalla ' + rotulo + '.'); }
     sincronizarURL(false);
     return true;
@@ -10873,17 +11302,25 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
   /* ------------------------------------------------------------------------
      7-bis. EL ESTADO DE LA INTERFAZ VIVE EN LA URL
         Toda la interfaz es enlazable y el botón de retroceso del navegador
-        funciona: pantalla, perfil, tema y vista viajan en el fragmento.
-        Formato:  #p=s6&rol=contable&tema=oscuro&vista=movil
+        funciona: pantalla, perfil, SUBVISTA, tema y vista viajan en el
+        fragmento.
+        Formato:  #p=s6&rol=contable&sub=cartera&tema=oscuro&vista=movil
         Se usa history.pushState, así que cada cambio deja una entrada de
         historial y «Atrás» devuelve al estado anterior de verdad.
+        La quinta clave cierra el faltante G6: sin ella, las 14 subvistas de S6,
+        S7 y S8 —la matriz de permisos y la ficha del FUEC entre ellas— no eran
+        enlazables ni sobrevivían a una recarga, porque al abrir #p=s6 siempre se
+        aterrizaba en la subvista por defecto del perfil. El enlace explícito
+        gana sobre ese aterrizaje, y una clave inválida cae en él sin romper nada.
      ------------------------------------------------------------------------ */
-  var CLAVES_URL = ['p', 'rol', 'tema', 'vista'];
+  var CLAVES_URL = ['p', 'rol', 'sub', 'tema', 'vista'];
 
   function estadoActual() {
+    var fuera = (body.getAttribute('data-auth') === 'fuera');
     return {
-      p: (body.getAttribute('data-auth') === 'fuera') ? 's1' : (pantallaActual || 's1'),
-      rol: (body.getAttribute('data-auth') === 'fuera') ? '' : rolActual(),
+      p: fuera ? 's1' : (pantallaActual || 's1'),
+      rol: fuera ? '' : rolActual(),
+      sub: fuera ? '' : subvistaActual(),
       tema: html.getAttribute('data-tema') || 'sistema',
       vista: body.getAttribute('data-vista') || 'escritorio'
     };
@@ -10948,8 +11385,16 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
           var ds = destinosDe(rol);
           irA(ds.length ? ds[0].id : 's1', { silencio: true });
         }
+        /* Después de irA(), y por tanto después de aplicarSubvistaDeRol(): el
+           enlace explícito manda sobre el aterrizaje por perfil. Si la clave no
+           existe en esa pantalla, fijarSubvista devuelve false y se queda el
+           aterrizaje, sin excepción ni inyección. */
+        if (q.sub) { fijarSubvista(pantallaActual, q.sub, false); }
       }
     } finally { restaurando = false; }
+    /* El fragmento se normaliza al estado realmente aplicado (una subvista
+       inválida o un rol sin acceso no se quedan escritos en la barra). */
+    sincronizarURL(true);
   }
 
   window.addEventListener('popstate', aplicarEstadoDeURL);
@@ -11234,6 +11679,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
       grupo.setAttribute('data-lx-init', '1');
       var tabs = $$('[role="tab"]', grupo);
       if (!tabs.length) { return; }
+      var ambitoTabs = grupo.closest('.lx-pantalla') || document;
 
       function seleccionar(i, mover) {
         tabs.forEach(function (t, j) {
@@ -11244,6 +11690,7 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
           if (panel) { panel.hidden = !activo; }
         });
         if (mover) { tabs[i].focus(); }
+        remedirDesplazables(ambitoTabs);
       }
       var inicial = 0;
       tabs.forEach(function (t, j) { if (t.getAttribute('aria-selected') === 'true') { inicial = j; } });
@@ -11300,9 +11747,40 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
     if (!mapa) { return; }
     var clave = mapa[rolActual()];
     if (!clave) { return; }
-    var seccion = document.getElementById('p-' + id);
-    var boton = seccion ? seccion.querySelector('[data-subvista="' + clave + '"]') : null;
-    if (boton && boton.getAttribute('aria-current') !== 'true') { boton.click(); }
+    /* Camino PROGRAMÁTICO, no un clic sintético: el aterrizaje por perfil no es
+       una decisión del usuario, así que reemplaza la entrada de historial en vez
+       de añadir una. El clic real sí empuja, y por eso «Atrás» devuelve a la
+       subvista anterior. */
+    fijarSubvista(id, clave, false);
+  }
+
+  /* Cada [data-subnav] publica su conmutador en el propio nodo para que la URL y
+     el aterrizaje por perfil lo llamen sin simular un clic. */
+  function subnavDe(id) {
+    var s = id ? document.getElementById('p-' + id) : null;
+    if (!s) { return null; }
+    /* Solo la subnavegación DE LA PANTALLA. El asistente de carga masiva de la
+       Torre usa el mismo contrato [data-subnav] para sus tres pasos, pero vive
+       dentro de un modal: su paso no es estado de pantalla y no tiene por qué
+       aparecer en la barra de direcciones ni sobrevivir a una recarga. */
+    var navs = $$('[data-subnav]', s);
+    for (var i = 0; i < navs.length; i++) {
+      if (!navs[i].closest('[role="dialog"]')) { return navs[i]; }
+    }
+    return null;
+  }
+  function subvistaActual() {
+    var nav = subnavDe(pantallaActual);
+    if (!nav) { return ''; }
+    var b = nav.querySelector('[data-subvista][aria-current="true"]');
+    return b ? (b.getAttribute('data-subvista') || '') : '';
+  }
+  function fijarSubvista(id, clave, anuncia) {
+    var nav = subnavDe(id);
+    if (!nav || !clave || typeof nav.__lxActivar !== 'function') { return false; }
+    if (!nav.querySelector('[data-subvista="' + clave + '"]')) { return false; }
+    nav.__lxActivar(clave, !!anuncia);
+    return true;
   }
 
   function initSubnav(raiz) {
@@ -11323,7 +11801,19 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
           var b = nav.querySelector('[data-subvista="' + clave + '"]');
           anunciar('Vista ' + (b ? b.textContent.trim() : clave) + '.');
         }
+        /* Cambiar de SUBVISTA no es cambiar de pantalla, así que irA() no vuelve
+           a medir: un [data-subpanel] oculto vale scrollWidth === clientWidth
+           === 0 y initRegionesDesplazables salía sin marcar nada. Las tres
+           matrices sin modo tarjeta (S8/permisos, S6/cartera, S7/accesos)
+           quedaban con hasta 400 px de columnas inalcanzables con teclado
+           (SC 2.1.1). Se remide aquí, con el panel ya visible. */
+        remedirDesplazables(ambito);
+        /* La subvista es estado enlazable: viaja en el fragmento como quinta
+           clave. El clic del usuario empuja historial; el camino programático
+           lo reemplaza. */
+        sincronizarURL(!anuncia);
       }
+      nav.__lxActivar = activar;
       botones.forEach(function (b) {
         b.addEventListener('click', function () { activar(b.getAttribute('data-subvista'), true); });
       });
@@ -11568,6 +12058,17 @@ body[data-vista="movil"] .lx-toasts { bottom: 90px; }
         el.setAttribute('aria-label', (nombre ? nombre + '. ' : '') + 'Región desplazable: use las flechas.');
       }
     });
+  }
+
+  /* Un desborde solo se puede medir con el layout resuelto. Todo cambio que
+     REVELA una caja —cambio de pantalla, de subvista o de pestaña— remide por
+     aquí, un cuadro después, y nunca duplica nada porque el guarda
+     data-lx-desplazable solo se pone cuando el elemento sí desborda. */
+  function remedirDesplazables(ambito) {
+    var raiz = ambito || document;
+    if (window.requestAnimationFrame) {
+      window.requestAnimationFrame(function () { initRegionesDesplazables(raiz); });
+    } else { initRegionesDesplazables(raiz); }
   }
 
   /* ------------------------------------------------------------------------
